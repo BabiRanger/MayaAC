@@ -1,0 +1,71 @@
+<style>
+    .psc-container {
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+        color: #333;
+    }
+    .section-header {
+        color: #1e3a8a; 
+        border-bottom: 1px solid #eee; 
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    .formula-large {
+        font-size: 20px; 
+        font-weight: bold; 
+        margin: 10px 0;
+        text-align: center;
+    }
+    
+    /* Image Container Styling */
+    .diagram-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #f9fafb;
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px dashed #ccc;
+        min-width: 250px;
+    }
+
+    .diagram-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        background-color: white;
+    }
+
+    .caption {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #666;
+        font-style: italic;
+    }
+</style>
+
+<div class="psc-container">
+    <h2 class="section-header">Common Mistakes</h2>
+
+    <div style="display: flex; align-items: flex-start; gap: 40px; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px;">
+            <p>When solving AC circuits, students often make errors in sign convention and units.</p>
+            <ul style="line-height: 2;">
+                <li><strong>The "j" Sign:</strong> Forgetting that $X_C$ is <strong>negative</strong> ($-j$) in rectangular form.</li>
+                <li><strong>Frequency Units:</strong> Mixing up $f$ (Hz) and $\omega$ (rad/s).</li>
+                <li><strong>The Tip:</strong> 
+                    <div class="formula-large" style="color: #b45309;">$\omega = 2\pi f$</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="diagram-container" style="border: 2px solid #fee2e2; background: #fff1f1;">
+            <p style="font-weight: bold; color: #b91c1c;">MISTAKE ALERT</p>
+            <p style="font-size: 13px; text-align: center;">Never simply add $R$ and $X$ algebraically (e.g., $3\Omega + 4\Omega \neq 7\Omega$). Use the Pythagorean theorem!</p>
+        </div>
+    </div>
+</div>

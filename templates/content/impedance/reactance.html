@@ -1,0 +1,73 @@
+<style>
+    .psc-container {
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+        color: #333;
+    }
+    .section-header {
+        color: #1e3a8a; 
+        border-bottom: 1px solid #eee; 
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    .formula-large {
+        font-size: 20px; 
+        font-weight: bold; 
+        margin: 10px 0;
+        text-align: center;
+    }
+    
+    /* Image Container Styling */
+    .diagram-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #f9fafb;
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px dashed #ccc;
+        min-width: 250px;
+    }
+
+    .diagram-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        background-color: white;
+    }
+
+    .caption {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #666;
+        font-style: italic;
+    }
+</style>
+
+<div class="psc-container">
+    <h2 class="section-header">Reactance: L vs C</h2>
+
+    <div style="display: flex; align-items: flex-start; gap: 40px; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px;">
+            <p>Reactance ($X$) is the opposition to AC caused by inductors and capacitors.</p>
+            <ul style="line-height: 2;">
+                <li><strong>Inductive ($X_L$):</strong> Increases with frequency.
+                    <div class="formula-large" style="color: #047857;">$$ X_L = 2\pi fL $$</div>
+                </li>
+                <li><strong>Capacitive ($X_C$):</strong> Decreases with frequency.
+                    <div class="formula-large" style="color: #b91c1c;">$$ X_C = \frac{1}{2\pi fC} $$</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="diagram-container">
+            
+            <img src="{{url_for('static', filename='images/reactance_frequency.png')}}" alt="Reactance Frequency Response" class="diagram-image">
+            <p class="caption">Fig 4. Reactance change relative to Frequency</p>
+        </div>
+    </div>
+</div>

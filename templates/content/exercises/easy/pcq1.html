@@ -1,0 +1,35 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">Phasor Domain</h2>
+    <div class="problem-card">
+        <span class="badge badge-easy"><i class="fa-solid fa-seedling"></i> Easy Level</span>
+        
+        <h3>Question 1</h3>
+        <p>Transform the following sinusoid into its Phasor form:</p>
+        
+        <div style="text-align: center; margin: 20px;">
+            <div style="font-size: 20px; font-weight: bold;">
+                $$ v(t) = -10 \cos(4t + 75^\circ) $$
+            </div>
+        </div>
+
+        <div class="user-input-area">
+            <textarea id="student-answer" class="student-textarea" rows="3" placeholder="Enter polar form..."></textarea>
+            <button class="ai-check-btn" 
+                onclick="checkAnswerWithAI('Convert -10cos(4t+75) to phasor', '10 angle -105 degrees')">
+                Check Answer
+            </button>
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: Positive Magnitude</summary>
+                <p>Phasors usually have positive magnitudes. Handle the negative sign by adding or subtracting $180^\circ$ to the angle.</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <p><strong>Answer:</strong> $10 \angle -105^\circ$ A</p>
+            </details>
+        </div>
+    </div>
+</div>

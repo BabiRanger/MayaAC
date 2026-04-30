@@ -1,0 +1,67 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #991b1b; padding-bottom: 10px;">AC Power Analysis</h2>
+    <div class="problem-card">
+        <span class="badge badge-hard"><i class="fa-solid fa-fire"></i> Challenging</span>
+        
+        <h3>Question 1</h3>
+        <p>The two loads in the circuit shown in Figure 2(a) are as follows: <strong>Load 1</strong> absorbs 8 kW at a leading power factor of 0.8, while <strong>Load 2</strong> absorbs 20 kVA at a lagging power factor of 0.6. Given that the supply frequency is 50 Hz, determine:</p>
+        <ol>
+            <li>The total complex power and the overall power factor of the loads.</li>
+            <li>The apparent power required to supply the loads.</li>
+            <li>The magnitude of the source current $I_s$ and the average power loss in the line.</li>
+            <li>The values of the impedance elements ($R, L, \text{or } C$) for each load.</li>
+        </ol>
+        
+        <div style="text-align:center; margin: 20px;">
+            <img src="{{ url_for('static', filename='images/circuit_f_q12.png') }}" style="max-width:450px; border:1px solid #ccc; border-radius: 8px;">
+            <p style="font-size:12px; color:#666;">Figure 2(a): AC power circuit with line impedance and multiple loads</p>
+        </div>
+
+        <div class="user-input-area">
+            <h4>Your Solution:</h4>
+            <p class="instruction-text" style="font-size: 0.9em; color: #555;">Enter your calculated values for total power, $I_s$, $P_{loss}$, and the component values.</p>
+            <textarea id="student-answer" class="student-textarea" rows="5" placeholder="S_total = ...&#10;Overall pf = ...&#10;I_s = ...&#10;P_loss = ...&#10;Load 1 elements = ...&#10;Load 2 elements = ..."></textarea>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('AC Power Analysis. Load 1: 8kW, 0.8pf leading. Load 2: 20kVA, 0.6pf lagging. VL=250/_0 V rms, f=50Hz, Line Z=0.05+j0.50. Find S_total, pf, Is, P_loss, and R,L,C elements.', 'Step 1: Load 1 Complex Power. P1=8kW. Q1 = 8*tan(acos(0.8)) = 6kVar. Since leading, Q is negative: S1 = 8 - j6 kVA. Step 2: Load 2 Complex Power. S2 = 20/_acos(0.6) = 20/_53.13 = 12 + j16 kVA. Step 3: Total S = S1 + S2 = 20 + j10 kVA = 22.36 /_ 26.56 kVA. Overall pf = cos(26.56) = 0.894 lagging (since angle is positive). Step 4: Apparent power = |S| = 22.36 kVA. Step 5: Source current Is = |S| / VL = 22360 / 250 = 89.44 A. Step 6: Line loss = Is^2 * R_line = 89.44^2 * 0.05 = 400 W. Step 7: Load 1 Elements. I1 = (S1 / V)* = 40/_36.87 A. Z1 = V/I1 = 5 - j3.75 Ohm. R1 = 5 Ohm. C1 = 1/(2*pi*50*3.75) = 848.8 uF. Step 8: Load 2 Elements. I2 = (S2 / V)* = 80/_-53.13 A. Z2 = V/I2 = 1.88 + j2.5 Ohm. R2 = 1.88 Ohm. L2 = 2.5/(2*pi*50) = 7.96 mH.')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: Load 1 Complex Power. P1=8kW. Q1 = 8*tan(acos(0.8)) = 6kVar. Since leading, Q is negative: S1 = 8 - j6 kVA. Step 2: Load 2 Complex Power. S2 = 20/_acos(0.6) = 20/_53.13 = 12 + j16 kVA. Step 3: Total S = S1 + S2 = 20 + j10 kVA = 22.36 /_ 26.56 kVA. Overall pf = cos(26.56) = 0.894 lagging (since angle is positive). Step 4: Apparent power = |S| = 22.36 kVA. Step 5: Source current Is = |S| / VL = 22360 / 250 = 89.44 A. Step 6: Line loss = Is^2 * R_line = 89.44^2 * 0.05 = 400 W. Step 7: Load 1 Elements. I1 = (S1 / V)* = 40/_36.87 A. Z1 = V/I1 = 5 - j3.75 Ohm. R1 = 5 Ohm. C1 = 1/(2*pi*50*3.75) = 848.8 uF. Step 8: Load 2 Elements. I2 = (S2 / V)* = 80/_-53.13 A. Z2 = V/I2 = 1.88 + j2.5 Ohm. R2 = 1.88 Ohm. L2 = 2.5/(2*pi*50) = 7.96 mH.')">
+                    Show Full Solution
+                </button>
+            </div>
+            
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: Leading vs. Lagging Signs</summary>
+                <p>When calculating complex power ($S = P \pm jQ$), remember that a <strong>leading</strong> power factor means the reactive power ($Q$) is negative (capacitive). A <strong>lagging</strong> power factor means $Q$ is positive (inductive). Convert both loads into rectangular form ($P + jQ$) before adding them together.</p>
+            </details>
+            <details>
+                <summary>💡 Hint 2: Line Loss Calculation</summary>
+                <p>The average power loss in the transmission line only occurs across the real resistive part of the line impedance ($0.05\Omega$). Use the magnitude of the total current you found to calculate $P_{loss} = |I_s|^2 R_{line}$.</p>
+            </details>
+            <details>
+                <summary>💡 Hint 3: Extracting R, L, and C</summary>
+                <p>To find the impedance of each load, use $Z = \frac{V_L}{I}$. To find the individual load currents, use the complex power formula $S = V_L I^* \implies I = (\frac{S}{V_L})^*$. Once you have $Z = R + jX$, use $X_L = 2\pi f L$ for positive reactance and $X_C = \frac{1}{2\pi f C}$ for negative reactance to find the final component values.</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <ul style="margin: 0; padding-left: 20px;">
+                    <li><strong>Total Complex Power:</strong> $22.36\angle 26.56^\circ \text{ kVA}$</li>
+                    <li><strong>Overall Power Factor:</strong> $0.894$ lagging</li>
+                    <li><strong>Apparent Power:</strong> $22.36 \text{ kVA}$</li>
+                    <li><strong>Source Current ($I_s$):</strong> $89.44 \text{ A}$</li>
+                    <li><strong>Line Loss:</strong> $400 \text{ W}$</li>
+                    <li><strong>Load 1 Elements:</strong> $R_1 = 5\ \Omega$, $C_1 = 848.8\ \mu\text{F}$</li>
+                    <li><strong>Load 2 Elements:</strong> $R_2 = 1.88\ \Omega$, $L_2 = 7.96 \text{ mH}$</li>
+                </ul>
+            </details>
+        </div>
+    </div>
+</div>

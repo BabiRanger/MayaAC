@@ -1,0 +1,57 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #991b1b; padding-bottom: 10px;">Mesh Analysis (AC)</h2>
+    <div class="problem-card">
+        <span class="badge badge-hard"><i class="fa-solid fa-fire"></i> Challenging</span>
+        
+        <h3>Question 3</h3>
+        <p>Analyze the circuit shown in Figure 1(b) and use the Mesh Analysis method to determine all the mesh currents.</p>
+        
+        <div style="text-align:center; margin: 20px;">
+            <img src="{{ url_for('static', filename='images/circuit_f_q11.png') }}" style="max-width:450px; border:1px solid #ccc; border-radius: 8px;">
+            <p style="font-size:12px; color:#666;">Figure 1(b): AC circuit with multiple meshes and mixed sources</p>
+        </div>
+
+        <div class="user-input-area">
+            <h4>Your Solution:</h4>
+            <p class="instruction-text" style="font-size: 0.9em; color: #555;">Enter your calculated mesh currents.</p>
+            <textarea id="student-answer" class="student-textarea" rows="4" placeholder="i1 = ...&#10;i2 = ...&#10;i3 = ..."></textarea>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('AC Mesh Analysis. Determine all mesh currents for the circuit.', 'Step 1: Identify Mesh 1 current is constrained by the current source, so i1 = 2 /_ 30 degrees A. Step 2: Write KVL for Mesh 2: -3/_90 + 10*i2 - j25*(i2 - i3) + j9*(i2 - i1) = 0. Step 3: Substitute i1 into Mesh 2 KVL and simplify to get: i2*(10 - j16) + j25*i3 = 20.653 /_ 115.83 degrees. Step 4: Write KVL for Mesh 3: -j25*(i3 - i2) - j8*i3 + j2*i3 + 30*(i3 - i1) - 5/_110 = 0. Step 5: Substitute i1 into Mesh 3 KVL and simplify to get: j25*i2 + i3*(30 - j31) = 61.067 /_ 34.62 degrees. Step 6: Solve the two equations using Cramers Rule to find i2 = 1.387 /_ 41.82 degrees A and i3 = 1.713 /_ 52.83 degrees A.')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: Identify Mesh 1 current is constrained by the current source, so i1 = 2 /_ 30 degrees A. Step 2: Write KVL for Mesh 2: -3/_90 + 10*i2 - j25*(i2 - i3) + j9*(i2 - i1) = 0. Step 3: Substitute i1 into Mesh 2 KVL and simplify to get: i2*(10 - j16) + j25*i3 = 20.653 /_ 115.83 degrees. Step 4: Write KVL for Mesh 3: -j25*(i3 - i2) - j8*i3 + j2*i3 + 30*(i3 - i1) - 5/_110 = 0. Step 5: Substitute i1 into Mesh 3 KVL and simplify to get: j25*i2 + i3*(30 - j31) = 61.067 /_ 34.62 degrees. Step 6: Solve the two equations using Cramers Rule to find i2 = 1.387 /_ 41.82 degrees A and i3 = 1.713 /_ 52.83 degrees A.')">
+                    Show Full Solution
+                </button>
+            </div>
+            
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: The Known Mesh Current</summary>
+                <p>Look at the bottom loop (Mesh 1). There is an independent current source on the outer branch. This means you do not need to write a KVL equation for Mesh 1; its current is simply defined by that source.</p>
+            </details>
+            <details>
+                <summary>💡 Hint 2: Handling Shared Components</summary>
+                <p>When writing the KVL for Mesh 2, remember that the j9 Ohm inductor is shared with Mesh 1, and the -j25 Ohm capacitor is shared with Mesh 3. Ensure you subtract the adjacent mesh currents correctly (e.g., for Mesh 2, use (i2 - i1) and (i2 - i3)).</p>
+            </details>
+            <details>
+                <summary>💡 Hint 3: Substitution</summary>
+                <p>After writing your KVL equations for Mesh 2 and Mesh 3, immediately substitute your known value for i1 into both equations. Move all constant terms to the right side of the equals sign to set up a clean 2x2 matrix for Cramer's Rule.</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <ul style="margin: 0; padding-left: 20px;">
+                    <li><strong>i1:</strong> 2∠30° A</li>
+                    <li><strong>i2:</strong> 1.387∠41.82° A</li>
+                    <li><strong>i3:</strong> 1.713∠52.83° A</li>
+                </ul>
+            </details>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FYP</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
+    <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}" defer></script>
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+
+<div class="header-sticky-wrapper" id="myHeaderWrapper">
+
+    <div class="topnav">
+    <a href="{{url_for('ai_page')}}" class="logo" 
+       data-intro="Click here to talk to MAYA, your AI circuit tutor!">
+       <i class="fa-solid fa-book"></i><span>MAYA</span>
+    </a>
+    
+    <a id="theory-link" href="#" onclick="loadTheoryHome()" 
+       data-intro="This section contains all the learning materials and circuit theorems.">
+       THEORY
+    </a>
+    
+    <a id="exercise-link" href="{{ url_for('exercise') }}" 
+       data-intro="Ready to practice? Go here for AC circuit problems and quizzes.">
+       EXERCISE
+    </a>
+    
+    <a href="{{ url_for('reference') }}" 
+       data-intro="View our primary sources and textbook information here.">
+       REFERENCE
+    </a>
+
+    <a href="javascript:void(0)" id="help-tour" class="help-btn" title="Replay Guide">
+        <i class="fa-solid fa-circle-question"></i>
+    </a>
+</div>
+    
+    <div id="mySubnav" class="subnav">
+        <a href="#sign" onclick="showSidenav('sign', this)">PASSIVE SIGN</a>
+        <a href="#impedance" onclick="showSidenav('impedance', this)">IMPEDANCE</a>
+        <a href="#nodal" onclick="showSidenav('nodal', this)">NODAL</a>
+        <a href="#mesh" onclick="showSidenav('mesh', this)">MESH</a>
+        <a href="#phasor" onclick="showSidenav('phasor', this)">PHASOR</a>
+        <a href="#pointnetwork" onclick="showSidenav('twoport', this)">TWO-PORT NETWORK</a>
+        <a href="#powerfactor" onclick="showSidenav('powerfactor', this)">POWER FACTOR</a>    
+    </div>
+
+</div> 
+
+<div id="mySidenav" class="sidenav">
+    <div style="height: 200px; width: 100%; pointer-events: none;"></div>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+</div>
+    
+<div id="main">
+    <div id="main-content-area">
+    </div>
+</div>
+
+<script>
+    // Define the tour function once so it can be reused
+    function startIntro() {
+        introJs().setOptions({
+            steps: [
+                {
+                    title: 'Welcome to MAYA!',
+                    intro: 'Let us show you around your Intelligent Learning Assistant.'
+                },
+                {
+                    element: document.querySelector('.logo'),
+                    intro: 'This is MAYA. Click here whenever you need AI help with circuit analysis!',
+                    position: 'right'
+                },
+                {
+                    element: document.querySelector('#theory-link'),
+                    intro: 'Explore theory notes and fundamental concepts here.',
+                    position: 'bottom'
+                },
+                {
+                    element: document.querySelector('#exercise-link'),
+                    intro: 'Test your knowledge with interactive exercises.',
+                    position: 'bottom'
+                }
+            ],
+            showProgress: true,
+            exitOnOverlayClick: false
+        }).oncomplete(function() {
+            localStorage.setItem('tour_completed', 'true');
+        }).start();
+    }
+
+    // Handle all logic when the window loads
+    window.addEventListener('load', function() {
+        // 2. Automatic trigger for first-time users
+        if (!localStorage.getItem('tour_completed')) {
+            startIntro();
+        }
+
+        // 3. Listener for the '?' button click
+        const helpBtn = document.getElementById('help-tour');
+        if (helpBtn) {
+            helpBtn.addEventListener('click', function() {
+                startIntro();
+            });
+        }
+    });
+</script>
+
+</body>
+</html>

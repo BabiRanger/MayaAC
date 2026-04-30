@@ -1,0 +1,35 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">Inverse Phasor</h2>
+    <div class="problem-card">
+        <span class="badge badge-easy"><i class="fa-solid fa-seedling"></i> Easy Level</span>
+        
+        <h3>Question 2</h3>
+        <p>Obtain the sinusoid corresponding to the following phasor:</p>
+        
+        <div style="text-align: center; margin: 20px;">
+            <div style="font-size: 20px; font-weight: bold;">
+                $$ \mathbf{V}_1 = 60\angle15^\circ, \quad \omega = 1 $$
+            </div>
+        </div>
+
+        <div class="user-input-area">
+            <textarea id="student-answer" class="student-textarea" rows="3" placeholder="v(t) = ..."></textarea>
+            <button class="ai-check-btn" 
+                onclick="checkAnswerWithAI('Convert phasor V=60<15 with w=1 to time domain', '60 cos(t + 15 degrees)')">
+                Check Answer
+            </button>
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: General Form</summary>
+                <p>If $\mathbf{V} = A\angle\phi$, then $v(t) = A \cos(\omega t + \phi)$.</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <p><strong>Answer:</strong> $60 \cos(t + 15^\circ)$ V</p>
+            </details>
+        </div>
+    </div>
+</div>

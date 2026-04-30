@@ -1,0 +1,35 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">Calculus with Phasors</h2>
+    <div class="problem-card">
+        <span class="badge badge-mod"><i class="fa-solid fa-layer-group"></i> Moderate</span>
+        
+        <h3>Question 1</h3>
+        <p>Find $v(t)$ in the following equation using the phasor approach:</p>
+        
+        <div style="text-align: center; margin: 20px;">
+            <div style="font-size: 20px; font-weight: bold;">
+                $$ v(t) + \int v(t)dt = 5 \cos(t + 45^\circ) $$
+            </div>
+        </div>
+
+        <div class="user-input-area">
+            <textarea id="student-answer" class="student-textarea" rows="3" placeholder="v(t) = ..."></textarea>
+            <button class="ai-check-btn" 
+                onclick="checkAnswerWithAI('Solve v(t) + int(v)dt = 5cos(t+45) for v(t)', '3.536 cos(t + 90 degrees)')">
+                Check Answer
+            </button>
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: Transform to Phasor Domain</summary>
+                <p>Remember that integration in the time domain becomes division by $j\omega$ in the phasor domain. Here, $\omega = 1$.</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <p><strong>Answer:</strong> $3.536 \cos(t + 90^\circ)$ V</p>
+            </details>
+        </div>
+    </div>
+</div>

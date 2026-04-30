@@ -1,0 +1,66 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #991b1b; padding-bottom: 10px;">Frequency Response: Series Resonance</h2>
+    <div class="problem-card">
+        <span class="badge badge-hard"><i class="fa-solid fa-fire"></i> Challenging</span>
+        
+        <h3>Question 1</h3>
+        <p>For the resonance circuit shown in Figure 2, determine the following parameters:</p>
+        <ol>
+            <li>The resonant frequency ($\omega_o$), quality factor ($Q$), and bandwidth ($B$).</li>
+            <li>The half-power frequencies ($\omega_1$ and $\omega_2$).</li>
+            <li>The current ($I$) and power ($P$) at $\omega_o$, $\omega_1$, and $\omega_2$.</li>
+        </ol>
+        
+        <div style="text-align:center; margin: 20px;">
+            <img src="{{ url_for('static', filename='images/circuit_f_q5.png') }}" style="max-width:450px; border:1px solid #ccc; border-radius: 8px;">
+            <p style="font-size:12px; color:#666;">Figure 2: Series RLC Resonance Circuit</p>
+        </div>
+
+        <div class="user-input-area">
+            <h4>Your Solution:</h4>
+            <p class="instruction-text" style="font-size: 0.9em; color: #555;">Enter your calculated values (e.g., "wo = 31.62 krad/s, Q = 6.32...").</p>
+            <textarea id="student-answer" class="student-textarea" rows="4" placeholder="wo = ..., Q = ..., B = ..., w1 = ..., w2 = ..."></textarea>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('Series Resonance RLC circuit. V=50sin(wt), L=2mH, C=0.5uF, R=10. Find wo, Q, B, w1, w2, and current/power at those frequencies.', 'Step 1: wo = 1 / sqrt(LC) = 31.62 krad/s. Step 2: Q = (wo*L) / R = 6.3242. Step 3: B = wo / Q = 5000 rad/s. Step 4: w1 = -R/(2L) + sqrt((R/2L)^2 + 1/LC) = 29.221 krad/s. Step 5: w2 = R/(2L) + sqrt((R/2L)^2 + 1/LC) = 34.221 krad/s. Step 6: At wo, Zo = R = 10 Ohm. Io = 50/10 = 5A. P = (V^2)/(2R) = 125W. Step 7: At w1 and w2, Z1 = Z2 = sqrt(2)*R. I = 50 / (sqrt(2)*10) = 3.54A. P = (V^2)/(4R) = 62.5W.')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: wo = 1 / sqrt(LC) = 31.62 krad/s. Step 2: Q = (wo*L) / R = 6.3242. Step 3: B = wo / Q = 5000 rad/s. Step 4: w1 = -R/(2L) + sqrt((R/2L)^2 + 1/LC) = 29.221 krad/s. Step 5: w2 = R/(2L) + sqrt((R/2L)^2 + 1/LC) = 34.221 krad/s. Step 6: At wo, Zo = R = 10 Ohm. Io = 50/10 = 5A. P = (V^2)/(2R) = 125W. Step 7: At w1 and w2, Z1 = Z2 = sqrt(2)*R. I = 50 / (sqrt(2)*10) = 3.54A. P = (V^2)/(4R) = 62.5W.')">
+                    Show Full Solution
+                </button>
+            </div>
+            
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: Core Formulas</summary>
+                <p>Start by finding the resonant frequency $\omega_o = \frac{1}{\sqrt{LC}}$. Then, find the quality factor using $Q = \frac{\omega_o L}{R}$.</p>
+            </details>
+            <details>
+                <summary>💡 Hint 2: Half-Power Frequencies</summary>
+                <p>Use the exact formulas for a series RLC circuit: $\omega_{1,2} = \mp \frac{R}{2L} + \sqrt{\left(\frac{R}{2L}\right)^2 + \frac{1}{LC}}$. Ensure your units are correct (krad/s vs rad/s).</p>
+            </details>
+            <details>
+                <summary>💡 Hint 3: Power Calculations</summary>
+                <p>Remember that the source voltage is given as a peak value ($V_m = 50\text{V}$). Therefore, average power at resonance is $P = \frac{V_m^2}{2R}$. At the half-power frequencies, the power is exactly half of the resonant power.</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <ul style="margin: 0; padding-left: 20px;">
+                    <li><strong>$\omega_o$:</strong> $31.62 \text{ krad/s}$</li>
+                    <li><strong>$Q$:</strong> $6.324$</li>
+                    <li><strong>$B$:</strong> $5000 \text{ rad/s}$</li>
+                    <li><strong>$\omega_1$:</strong> $29.22 \text{ krad/s}$</li>
+                    <li><strong>$\omega_2$:</strong> $34.22 \text{ krad/s}$</li>
+                    <li><strong>At resonance ($\omega_o$):</strong> $I = 5\text{A}$, $P = 125\text{W}$</li>
+                    <li><strong>At half-power ($\omega_{1,2}$):</strong> $I = 3.54\text{A}$, $P = 62.5\text{W}$</li>
+                </ul>
+            </details>
+        </div>
+    </div>
+</div>

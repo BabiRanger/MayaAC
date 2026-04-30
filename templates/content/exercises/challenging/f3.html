@@ -1,0 +1,57 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #991b1b; padding-bottom: 10px;">Mesh Analysis with Dependent Sources</h2>
+    <div class="problem-card">
+        <span class="badge badge-hard"><i class="fa-solid fa-fire"></i> Challenging</span>
+        
+        <h3>Question 1</h3>
+        <p>Analyze the circuit shown in Figure 1(a) and use the Mesh analysis method to calculate all mesh currents.</p>
+        <p style="text-align: center;">Given: $v_s(t) = 60 \cos(t + 130^\circ) \text{ V}$ and $i_s(t) = 20 \cos(t) \text{ A}$</p>
+        
+        <div style="text-align:center; margin: 20px;">
+            <img src="{{ url_for('static', filename='images/circuit_f_q3.png') }}" style="max-width:450px; border:1px solid #ccc; border-radius: 8px;">
+            <p style="font-size:12px; color:#666;">Figure 1(a): AC circuit with a dependent voltage source</p>
+        </div>
+
+        <div class="user-input-area">
+            <h4>Your Solution:</h4>
+            <textarea id="student-answer" class="student-textarea" rows="4" placeholder="Enter your mesh equations or final values for I1, I2, and I3..."></textarea>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('Mesh analysis with dependent source 5Vx. vs=60cos(t+130), is=20cos(t). Find I1, I2, I3.', 'Step 1: I1 = 20 /_ 0 degrees A. Step 2: Define Vx = j100(I3 - I1) = j100*I3 - j2000. Step 3: Mesh 2 KVL is -5Vx + 60/_130 + (3+j8)I2 = 0. Substitute Vx to get (3+j8)I2 - j500*I3 = 10046 /_ -89.8 degrees. Step 4: Mesh 3 KVL is (4-j5)I3 - 60/_130 + Vx = 0. Substitute Vx to get (4+j95)I3 = 2046.33 /_ 91 degrees. Step 5: Solve for I3 = 21.52 /_ 3.4 degrees A. Step 6: Substitute I3 into Mesh 2 equation to get I2 = 107.68 /_ 61.6 degrees A.')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: I1 = 20 /_ 0 degrees A. Step 2: Define Vx = j100(I3 - I1) = j100*I3 - j2000. Step 3: Mesh 2 KVL is -5Vx + 60/_130 + (3+j8)I2 = 0. Substitute Vx to get (3+j8)I2 - j500*I3 = 10046 /_ -89.8 degrees. Step 4: Mesh 3 KVL is (4-j5)I3 - 60/_130 + Vx = 0. Substitute Vx to get (4+j95)I3 = 2046.33 /_ 91 degrees. Step 5: Solve for I3 = 21.52 /_ 3.4 degrees A. Step 6: Substitute I3 into Mesh 2 equation to get I2 = 107.68 /_ 61.6 degrees A.')">
+                    Show Full Solution
+                </button>
+            </div>
+            
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: Outer Mesh Current</summary>
+                <p>Because the independent current source $I_s$ is on the outer branch of Mesh 1, you instantly know $\mathbf{I_1} = 20\angle 0^\circ \text{ A}$.</p>
+            </details>
+            <details>
+                <summary>💡 Hint 2: Defining the Dependent Variable</summary>
+                <p>Before writing your KVL equations, express the controlling voltage $V_x$ in terms of the mesh currents. $V_x$ is across the $j100\Omega$ inductor, so $\mathbf{V_x} = j100(\mathbf{I_3} - \mathbf{I_1})$.</p>
+            </details>
+            <details>
+                <summary>💡 Hint 3: Substitution</summary>
+                <p>Write your standard KVL equations for Mesh 2 and Mesh 3. Then, substitute your expression for $\mathbf{V_x}$ into both equations to get two equations with only two unknowns ($\mathbf{I_2}$ and $\mathbf{I_3}$).</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <p>
+                    <strong>$\mathbf{I_1}$</strong> = $20 \angle 0^\circ \text{ A}$<br>
+                    <strong>$\mathbf{I_2}$</strong> = $107.68 \angle 61.6^\circ \text{ A}$<br>
+                    <strong>$\mathbf{I_3}$</strong> = $21.52 \angle 3.4^\circ \text{ A}$
+                </p>
+            </details>
+        </div>
+    </div>
+</div>

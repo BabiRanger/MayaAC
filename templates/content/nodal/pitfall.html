@@ -1,0 +1,73 @@
+<style>
+    .psc-container {
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+        color: #333;
+    }
+    .section-header {
+        color: #1e3a8a; 
+        border-bottom: 1px solid #eee; 
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    .formula-large {
+        font-size: 20px; 
+        font-weight: bold; 
+        margin: 10px 0;
+        text-align: center;
+    }
+    
+    /* Image Container Styling */
+    .diagram-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #f9fafb;
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px dashed #ccc;
+        min-width: 250px;
+    }
+
+    .diagram-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        background-color: white;
+    }
+
+    .caption {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #666;
+        font-style: italic;
+    }
+</style>
+
+<div class="psc-container">
+    <h2 class="section-header">Summary & Pro-Tips</h2>
+
+    <div style="display: flex; align-items: flex-start; gap: 40px; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px;">
+            <p>Mastering nodal analysis requires consistency in your sign conventions.</p>
+            <ul style="line-height: 2;">
+                <li><strong>Current Direction:</strong> It is often easiest to assume all unknown currents leave the node.</li>
+                <li><strong>Format:</strong> $G_{11}V_1 - G_{12}V_2 = I_s$ (where $G$ is conductance $1/R$).</li>
+            </ul>
+        </div>
+
+        <div class="diagram-container" style="border: 2px solid #3b82f6; background: #eff6ff;">
+            <p style="font-weight: bold; color: #1e3a8a;">KCL REFRESHER</p>
+            <div class="formula-large">$$ \sum I_{in} = \sum I_{out} $$</div>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px; padding: 15px; background: #fffbeb; border-left: 5px solid #f59e0b;">
+        <h4 style="margin-top:0; color: #b45309;"><i class="fa-solid fa-lightbulb"></i> Avoid the "Reference" Trap</h4>
+        <p style="margin-bottom: 0;">Always choose the node with the most connections as your <strong>Ground</strong>. This simplifies your equations by making more terms zero!</p>
+    </div>
+</div>

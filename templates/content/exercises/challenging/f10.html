@@ -1,0 +1,57 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #991b1b; padding-bottom: 10px;">Nodal Analysis with Supernodes (AC)</h2>
+    <div class="problem-card">
+        <span class="badge badge-hard"><i class="fa-solid fa-fire"></i> Challenging</span>
+        
+        <h3>Question 2</h3>
+        <p>For the circuit shown in Figure 1(a), the voltage sources are given by Vs1 = 12∠40° V and Vs2 = 8∠20° V. Analyze the circuit to obtain all the node voltages (V1, V2, and V3) by using the Nodal Analysis method.</p>
+        
+        <div style="text-align:center; margin: 20px;">
+            <img src="{{ url_for('static', filename='images/circuit_f_q10.png') }}" style="max-width:450px; border:1px solid #ccc; border-radius: 8px;">
+            <p style="font-size:12px; color:#666;">Figure 1(a): AC circuit with multiple voltage sources</p>
+        </div>
+
+        <div class="user-input-area">
+            <h4>Your Solution:</h4>
+            <p class="instruction-text" style="font-size: 0.9em; color: #555;">Enter your calculated node voltages.</p>
+            <textarea id="student-answer" class="student-textarea" rows="4" placeholder="V1 = ...&#10;V2 = ...&#10;V3 = ..."></textarea>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('AC Nodal analysis with Supernode. Vs1=12/_40, Vs2=8/_20. Find V1, V2, and V3.', 'Step 1: Identify V3 is directly connected to Vs2, so V3 = 8 /_ 20 degrees V. Step 2: Identify the supernode between V1 and V2. The KVL constraint is V1 - V2 = 12 /_ 40 degrees. Step 3: Write KCL at the supernode: (V1/2) + (V1-V3)/j4 + V2/(2-j4) + (V2-V3)/j5 = 0. Step 4: Substitute V3 into the KCL equation and simplify to get V1(0.5 - j0.25) + 0.1*V2 = 3.6 /_ -70 degrees. Step 5: Solve the two equations (Constraint and KCL) using Cramers rule to find V1 = 5.206 /_ -27.91 degrees V and V2 = 11.141 /_ -114.35 degrees V.')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: Identify V3 is directly connected to Vs2, so V3 = 8 /_ 20 degrees V. Step 2: Identify the supernode between V1 and V2. The KVL constraint is V1 - V2 = 12 /_ 40 degrees. Step 3: Write KCL at the supernode: (V1/2) + (V1-V3)/j4 + V2/(2-j4) + (V2-V3)/j5 = 0. Step 4: Substitute V3 into the KCL equation and simplify to get V1(0.5 - j0.25) + 0.1*V2 = 3.6 /_ -70 degrees. Step 5: Solve the two equations (Constraint and KCL) using Cramers rule to find V1 = 5.206 /_ -27.91 degrees V and V2 = 11.141 /_ -114.35 degrees V.')">
+                    Show Full Solution
+                </button>
+            </div>
+            
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: The Known Node</summary>
+                <p>Look closely at Node 3. It is directly connected to the reference node (ground) via the voltage source Vs2. Therefore, V3 is not an unknown; V3 = 8∠20° V.</p>
+            </details>
+            <details>
+                <summary>💡 Hint 2: Supernode Constraint</summary>
+                <p>The voltage source Vs1 sits directly between Node 1 and Node 2, forming a supernode. Establish your constraint equation first: V1 - V2 = 12∠40°.</p>
+            </details>
+            <details>
+                <summary>💡 Hint 3: Supernode KCL</summary>
+                <p>When writing the KCL for the supernode, sum all currents leaving Node 1 and Node 2. Don't forget to substitute your known value for V3 into this equation before trying to solve the matrix!</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <ul style="margin: 0; padding-left: 20px;">
+                    <li><strong>V1:</strong> 5.206∠-27.91° V</li>
+                    <li><strong>V2:</strong> 11.141∠-114.35° V</li>
+                    <li><strong>V3:</strong> 8∠20° V</li>
+                </ul>
+            </details>
+        </div>
+    </div>
+</div>

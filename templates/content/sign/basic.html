@@ -1,0 +1,164 @@
+<style>
+    /* Container for the whole article to keep it neat */
+    .psc-container {
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+        color: #333;
+    }
+
+    /* specific header styling */
+    .psc-header {
+        border-bottom: 2px solid #3b82f6; /* Blue underline */
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .psc-title {
+        font-size: 28px;
+        color: #1e3a8a; /* Dark Blue */
+        margin: 0;
+    }
+
+    .psc-subtitle {
+        font-size: 16px;
+        color: #6b7280; /* Gray */
+        font-style: italic;
+    }
+
+    /* The Flexbox container for the two rules */
+    .rule-box-container {
+        display: flex;
+        gap: 20px;
+        margin: 30px 0;
+        flex-wrap: wrap; /* Allows wrapping on mobile */
+    }
+
+    /* Individual cards */
+    .rule-card {
+        flex: 1;
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Subtle shadow */
+        border-left: 5px solid #ccc; /* Default border */
+        min-width: 250px;
+    }
+
+    /* Specific colors for Positive/Absorb */
+    .card-absorb {
+        border-left-color: #10b981; /* Green */
+        background-color: #f0fdf4; /* Very light green bg */
+    }
+
+    /* Specific colors for Negative/Supply */
+    .card-supply {
+        border-left-color: #ef4444; /* Red */
+        background-color: #fef2f2; /* Very light red bg */
+    }
+
+    .formula-large {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        margin: 15px 0;
+    }
+
+    /* The "Why" section box */
+    .info-box {
+        background-color: #eff6ff; /* Light blue */
+        border-radius: 8px;
+        padding: 20px;
+        border: 1px solid #bfdbfe;
+    }
+
+    .video-section {
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 2px dashed #e5e7eb; /* Subtle divider from the main content */
+    }
+
+    .video-header {
+        color: #1e3a8a;
+        font-size: 22px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* Mathematical ratio for 16:9 video */
+        height: 0;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        background-color: #000; /* Shows black before video loads */
+        border: 1px solid #ccc;
+    }
+
+    .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+</style>
+
+<div class="psc-container">
+    
+    <div class="psc-header">
+        <h1 class="psc-title">Understanding Passive Sign Convention</h1>
+        <p class="psc-subtitle">Explaining Power Sign based on Terminal and Current Direction</p>
+    </div>
+
+    <section>
+        <p>
+            The <strong>Passive Sign Convention (PSC)</strong> is a standard rule used in electrical engineering to determine the sign of power ($p$) calculated for a circuit element. It ensures we consistently interpret whether an element is <strong>absorbing</strong> or <strong>supplying</strong> energy.
+        </p>
+    </section>
+
+    <section>
+        <h3>The Two Golden Rules</h3>
+        <p>The sign of the power depends entirely on the direction the current enters the voltage terminal:</p>
+
+        <div class="rule-box-container">
+            
+            <div class="rule-card card-absorb">
+                <h4 style="margin-top:0; color:#047857;">1. Absorbing Power</h4>
+                <p>If current flows <strong>into the Positive (+)</strong> terminal:</p>
+                <div class="formula-large">
+                    $$ p = +vi $$
+                </div>
+                <p><strong>Implication:</strong> If $p > 0$, the element is absorbing power (consuming energy), like a Resistor.</p>
+            </div>
+
+            <div class="rule-card card-supply">
+                <h4 style="margin-top:0; color:#b91c1c;">2. Supplying Power</h4>
+                <p>If current flows <strong>into the Negative (-)</strong> terminal:</p>
+                <div class="formula-large">
+                    $$ p = -vi $$
+                </div>
+                <p><strong>Implication:</strong> If $p < 0$, the element is supplying power (delivering energy), like a Battery.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="info-box">
+        <h3 style="margin-top:0;">Why use this convention?</h3>
+        <p>
+            Without PSC, we wouldn't know if a calculated power value meant the component was a source (battery) or a load (lightbulb). PSC keeps the meaning consistent:
+        </p>
+        <ul>
+            <li><strong>Positive Power ($+$):</strong> Energy is being taken <em>out</em> of the circuit (e.g., charging a battery, heating a resistor).</li>
+            <li><strong>Negative Power ($-$):</strong> Energy is being put <em>into</em> the circuit (e.g., a discharging battery).</li>
+        </ul>
+        <p><em>Note: This same formula works for both passive and active elements!</em></p>
+    </section>
+
+</div>

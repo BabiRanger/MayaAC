@@ -1,0 +1,56 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #991b1b; padding-bottom: 10px;">Two-Port Network Parameters</h2>
+    <div class="problem-card">
+        <span class="badge badge-hard"><i class="fa-solid fa-fire"></i> Challenging</span>
+        
+        <h3>Question 3</h3>
+        <p>Figure 4(a) shows a two-port network equivalent circuit. Determine the impedance ($z$) and hybrid ($h$) parameters for the circuit.</p>
+        
+        <div style="text-align:center; margin: 20px;">
+            <img src="{{ url_for('static', filename='images/circuit_f_q8.png') }}" style="max-width:450px; border:1px solid #ccc; border-radius: 8px;">
+            <p style="font-size:12px; color:#666;">Figure 4(a): Two-port resistive network</p>
+        </div>
+
+        <div class="user-input-area">
+            <h4>Your Solution:</h4>
+            <p class="instruction-text" style="font-size: 0.9em; color: #555;">Enter your matrix values for Z and h parameters.</p>
+            <textarea id="student-answer" class="student-textarea" rows="4" placeholder="Z11=..., Z12=..., Z21=..., Z22=... &#10;h11=..., h12=..., h21=..., h22=..."></textarea>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('Two-port network with R1=10, R2=40, R_shunt1=20, R_shunt2=20. Find Z and h matrices.', 'Step 1: For Z parameters, use open circuits. Z11 = 10 + (20 || 60) = 25 Ohm. Z21 = 20 * (1/4) = 5 Ohm. Z22 = 20 || 60 = 15 Ohm. Z12 = 5 Ohm. Z matrix is [25, 5; 5, 15]. Step 2: For h11 and h21, short port 2 (V2=0). The rightmost 20 Ohm is bypassed. h11 = 10 + (40 || 20) = 70/3 Ohm. h21 = -20 / (20 + 40) = -1/3. Step 3: For h12 and h22, open port 1 (I1=0). h22 = 1 / (20 || 60) = 1/15 S. h12 = 20 / (20 + 40) = 1/3. h matrix is [70/3, -1/3; 1/3, 1/15].')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: For Z parameters, use open circuits. Z11 = 10 + (20 || 60) = 25 Ohm. Z21 = 20 * (1/4) = 5 Ohm. Z22 = 20 || 60 = 15 Ohm. Z12 = 5 Ohm. Z matrix is [25, 5; 5, 15]. Step 2: For h11 and h21, short port 2 (V2=0). The rightmost 20 Ohm is bypassed. h11 = 10 + (40 || 20) = 70/3 Ohm. h21 = -20 / (20 + 40) = -1/3. Step 3: For h12 and h22, open port 1 (I1=0). h22 = 1 / (20 || 60) = 1/15 S. h12 = 20 / (20 + 40) = 1/3. h matrix is [70/3, -1/3; 1/3, 1/15].')">
+                    Show Full Solution
+                </button>
+            </div>
+            
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: Finding $Z_{11}$ and $Z_{21}$</summary>
+                <p>To find the first column of the Z-matrix, open-circuit Port 2 ($I_2 = 0$). The total input impedance is $10\Omega$ in series with the parallel combination of $20\Omega$ and $(40+20)\Omega$. Use a current divider to find $Z_{21}$.</p>
+            </details>
+            <details>
+                <summary>💡 Hint 2: Finding $h_{11}$ and $h_{21}$</summary>
+                <p>Hybrid parameters are mixed. To find the first column, you must short-circuit Port 2 ($V_2 = 0$). By doing this, the rightmost $20\Omega$ resistor is bypassed entirely, leaving $10\Omega$ in series with $(40\Omega || 20\Omega)$.</p>
+            </details>
+            <details>
+                <summary>💡 Hint 3: Finding $h_{22}$</summary>
+                <p>To find $h_{22}$, open-circuit Port 1 ($I_1 = 0$). The parameter $h_{22}$ is an admittance (Siemens), calculated as $\frac{I_2}{V_2}$. It is the reciprocal of the equivalent impedance looking into Port 2, which is $((40+20)\Omega || 20\Omega)$.</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <p><strong>Z-Parameters Matrix:</strong></p>
+                <p>$$Z = \begin{bmatrix} 25 & 5 \\ 5 & 15 \end{bmatrix} \Omega$$</p>
+                <p><strong>h-Parameters Matrix:</strong></p>
+                <p>$$h = \begin{bmatrix} \frac{70}{3}\Omega & -\frac{1}{3} \\ \frac{1}{3} & \frac{1}{15}\text{S} \end{bmatrix}$$</p>
+            </details>
+        </div>
+    </div>
+</div>

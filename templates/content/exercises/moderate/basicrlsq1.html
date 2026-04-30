@@ -1,0 +1,38 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">Series Circuit</h2>
+    <div class="problem-card">
+        <span class="badge badge-mod"><i class="fa-solid fa-layer-group"></i> Moderate</span>
+        
+        <h3>Question 1</h3>
+        <p>If $v_s(t) = 5 \cos(2t)$ V, find the output voltage $v_o(t)$ across the inductor.</p>
+        
+        <div style="text-align:center; margin: 20px;">
+            <img src="{{ url_for('static', filename='images/circuit_q16.png') }}" style="max-width:300px; border:1px solid #ccc;">
+            <p style="font-size:12px; color:#666;">Figure: Series circuit with R=2&Omega;, C=0.25F, L=1H</p>
+        </div>
+
+        <div class="user-input-area">
+            <textarea id="student-answer" class="student-textarea" rows="3" placeholder="vo(t) = ..."></textarea>
+            <button class="ai-check-btn" 
+                onclick="checkAnswerWithAI('Find vo(t) in Series RLC (R=2, C=0.25F, L=1H) with vs=5cos2t', '5 cos(2t + 90 degrees)')">
+                Check Answer
+            </button>
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: Impedances</summary>
+                <p>Calculate impedances first. $\omega = 2$.<br> $Z_L = j\omega L = j2$, $Z_C = 1/(j\omega C) = -j2$.</p>
+            </details>
+             <details>
+                <summary>💡 Hint 2: Total Impedance</summary>
+                <p> notice that $Z_L + Z_C = j2 - j2 = 0$. What does this imply about resonance?</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <p><strong>Answer:</strong> $v_o(t) = 5 \cos(2t + 90^\circ)$ V</p>
+            </details>
+        </div>
+    </div>
+</div>

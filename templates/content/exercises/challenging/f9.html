@@ -1,0 +1,58 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #991b1b; padding-bottom: 10px;">Terminated Two-Port Networks</h2>
+    <div class="problem-card">
+        <span class="badge badge-hard"><i class="fa-solid fa-fire"></i> Challenging</span>
+        
+        <h3>Question 4</h3>
+        <p>The output terminal of the two-port network in Figure 4(b) is connected to a load with impedance $Z_L = 4 - j2 \Omega$. Analyze the circuit to determine the current gain of the two-port network and the average power, $P$, delivered to the load.</p>
+        
+        <div style="text-align:center; margin: 20px;">
+            <img src="{{ url_for('static', filename='images/circuit_f_q9.png') }}" style="max-width:450px; border:1px solid #ccc; border-radius: 8px;">
+            <p style="font-size:12px; color:#666;">Figure 4(b): Two-port network with source and load terminations</p>
+        </div>
+
+        <div class="user-input-area">
+            <h4>Your Solution:</h4>
+            <p class="instruction-text" style="font-size: 0.9em; color: #555;">Enter your calculated current gain magnitude and average power (W).</p>
+            <textarea id="student-answer" class="student-textarea" rows="4" placeholder="Current Gain = ... &#10;Average Power = ... W"></textarea>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('Terminated two-port network. Vs=10/_30, Rs=10, ZL=4-j2, Z-matrix=[1+j3, 2-j4; 2+j6, 3-j3]. Find current gain and average power.', 'Step 1: Write input KVL V1 = 10/_30 - 10*I1. Step 2: Write output KVL V2 = -I2*ZL = (-4+j2)I2. Step 3: Substitute V1 and V2 into Z-parameter equations V1 = Z11*I1 + Z12*I2 and V2 = Z21*I1 + Z22*I2. Step 4: Rearrange into matrix form [(11+j3), (2-j4); (2+j6), (7-j5)] * [I1; I2] = [10/_30; 0]. Step 5: Solve using Cramers rule to find I1 = 1.156 /_ 25.16 degrees A and I2 = 0.85 /_ -47.74 degrees A. Step 6: Calculate current gain magnitude = |I2| / |I1| = 0.735. Step 7: Calculate average power to load P = 0.5 * |I2|^2 * R_L = 0.5 * (0.85)^2 * 4 = 1.445 W.')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: Write input KVL V1 = 10/_30 - 10*I1. Step 2: Write output KVL V2 = -I2*ZL = (-4+j2)I2. Step 3: Substitute V1 and V2 into Z-parameter equations V1 = Z11*I1 + Z12*I2 and V2 = Z21*I1 + Z22*I2. Step 4: Rearrange into matrix form [(11+j3), (2-j4); (2+j6), (7-j5)] * [I1; I2] = [10/_30; 0]. Step 5: Solve using Cramers rule to find I1 = 1.156 /_ 25.16 degrees A and I2 = 0.85 /_ -47.74 degrees A. Step 6: Calculate current gain magnitude = |I2| / |I1| = 0.735. Step 7: Calculate average power to load P = 0.5 * |I2|^2 * R_L = 0.5 * (0.85)^2 * 4 = 1.445 W.')">
+                    Show Full Solution
+                </button>
+            </div>
+            
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: Boundary Conditions (KVL)</summary>
+                <p>Before using the Z-parameter matrix, establish the relationships at the ports. For Port 1: $\mathbf{V_1} = 10\angle 30^\circ - 10\mathbf{I_1}$. For Port 2, current $\mathbf{I_2}$ flows *into* the positive terminal, so $\mathbf{V_2} = -\mathbf{I_2}Z_L = (-4 + j2)\mathbf{I_2}$.</p>
+            </details>
+            <details>
+                <summary>💡 Hint 2: Setting up the Matrix</summary>
+                <p>Substitute your boundary conditions into the standard Z-parameter equations ($\mathbf{V_1} = Z_{11}\mathbf{I_1} + Z_{12}\mathbf{I_2}$ and $\mathbf{V_2} = Z_{21}\mathbf{I_1} + Z_{22}\mathbf{I_2}$). Group the $\mathbf{I_1}$ and $\mathbf{I_2}$ terms together to form a $2 \times 2$ matrix, which can then be solved using Cramer's Rule.</p>
+            </details>
+            <details>
+                <summary>💡 Hint 3: Average Power Trap</summary>
+                <p>Remember that average power ($P$) is only consumed by the *real* resistive part of the load, not the imaginary reactive part. Use the formula $P = \frac{1}{2}|\mathbf{I_2}|^2 R_L$, where $R_L = 4\Omega$.</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <ul style="margin: 0; padding-left: 20px;">
+                    <li><strong>$\mathbf{I_1}$:</strong> $1.156 \angle 25.16^\circ \text{ A}$</li>
+                    <li><strong>$\mathbf{I_2}$:</strong> $0.85 \angle -47.74^\circ \text{ A}$</li>
+                    <li><strong>Current Gain ($|I_2/I_1|$):</strong> $0.735$</li>
+                    <li><strong>Average Power ($P$):</strong> $1.445 \text{ W}$</li>
+                </ul>
+            </details>
+        </div>
+    </div>
+</div>

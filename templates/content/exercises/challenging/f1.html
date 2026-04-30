@@ -1,0 +1,57 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">Network Impedance Analysis</h2>
+    <div class="problem-card">
+        <span class="badge badge-hard"><i class="fa-solid fa-fire"></i> Challenging</span>
+        
+        <h3>Question 1</h3>
+        <p>For the circuit shown in Figure 1, given $\omega = 1 \text{ rad/s}$:</p>
+        <ol>
+            <li>Calculate the total impedance, $\mathbf{Z_{total}}$ seen from terminal a-b.</li>
+            <li>Calculate the current $\mathbf{I_x}$ if a current source $i_s(t) = 5 \cos(t + 20^\circ) \text{ A}$ is connected at terminal a-b.</li>
+        </ol>
+        
+        <div style="text-align:center; margin: 20px;">
+            <img src="{{ url_for('static', filename='images/circuit_f_q1.png') }}" style="max-width:400px; border:1px solid #ccc; border-radius: 8px;">
+            <p style="font-size:12px; color:#666;">Figure 1: AC Bridge-style Network with Inductors and Resistors</p>
+        </div>
+
+        <div class="user-input-area">
+    <h4>Your Solution:</h4>
+    <textarea id="student-answer" class="student-textarea" rows="4" placeholder="Ztotal = ... and Ix = ..."></textarea>
+    
+    <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <button class="ai-check-btn" 
+            onclick="checkAnswerWithAI('Find Ztotal and Ix for Figure 1 where w=1, is=5cos(t+20).', 'Step 1: Z_eq1 = j15 || 10 = 6.92 + j4.61 Ohm. Step 2: Z_eq2 = (j4+3) || j6 = 1.45 + j1.05 Ohm. Step 3: Z_eq3 = Z_eq1 + Z_eq2 = 8.37 + j5.66 Ohm. Step 4: Z_total = j2 || Z_eq3 = 0.26 + j1.76 Ohm. Step 5: Convert source Is = 5 /_ 20 degrees. Step 6: Use current divider Ix = (Z_eq3 / (j2 + Z_eq3)) * Is = 4.45 /_ 11.6 degrees A.')">
+            Check Answer
+        </button>
+        
+        <button class="ai-check-btn" style="background-color: #6b7280;" 
+            onclick="showFullSolution('Step 1: Z_eq1 = j15 || 10 = 6.92 + j4.61 Ohm. Step 2: Z_eq2 = (j4+3) || j6 = 1.45 + j1.05 Ohm. Step 3: Z_eq3 = Z_eq1 + Z_eq2 = 8.37 + j5.66 Ohm. Step 4: Z_total = j2 || Z_eq3 = 0.26 + j1.76 Ohm. Step 5: Convert source Is = 5 /_ 20 degrees. Step 6: Use current divider Ix = (Z_eq3 / (j2 + Z_eq3)) * Is = 4.45 /_ 11.6 degrees A.')">
+            Show Full Solution
+        </button>
+    </div>
+    
+    <div id="ai-feedback" class="ai-feedback-box"></div>
+    </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: Reactance Conversion</summary>
+                <p>Convert all inductors to phasors using $\mathbf{Z_L} = j\omega L$. Since $\omega = 1$, the values in Henrys (H) convert directly to $j\Omega$ (e.g., $15\text{H} \rightarrow j15\Omega$).</p>
+            </details>
+            <details>
+                <summary>💡 Hint 2: Equivalent Impedance Steps</summary>
+                <p>Simplify the network from right to left. Start by combining the $15\text{H}$ inductor in parallel with the $10\Omega$ resistor. Then, handle the series-parallel combination of the $4\text{H}$, $3\Omega$, and $6\text{H}$ components.</p>
+            </details>
+            <details>
+                <summary>💡 Hint 3: Finding $I_x$</summary>
+                <p>Once you have the total impedance of the right-hand branches ($\mathbf{Z_{eq3}}$), use the <strong>Current Divider Rule</strong> between the $2\text{H}$ inductor ($\mathbf{Z} = j2\Omega$) and $\mathbf{Z_{eq3}}$.</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <p><strong>Total Impedance:</strong> $\mathbf{Z_{total}} = 0.26 + j1.76 \Omega$<br>
+                   <strong>Current:</strong> $\mathbf{I_x} = 4.45 \angle 11.6^\circ \text{ A}$</p>
+            </details>
+        </div>
+    </div>
+</div>

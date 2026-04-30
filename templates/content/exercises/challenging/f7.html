@@ -1,0 +1,55 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #991b1b; padding-bottom: 10px;">Frequency Response: Transfer Functions</h2>
+    <div class="problem-card">
+        <span class="badge badge-hard"><i class="fa-solid fa-fire"></i> Challenging</span>
+        
+        <h3>Question 2</h3>
+        <p>Determine the magnitude, $H_{dB}$, and phase, $\phi$, of the following transfer function:</p>
+        
+        <div style="text-align:center; margin: 30px 0; font-size: 1.2em;">
+            $$H(s) = \frac{5s^2 + 100s}{s^2 + 9s + 20}$$
+        </div>
+
+        <div class="user-input-area">
+            <h4>Your Solution:</h4>
+            <p class="instruction-text" style="font-size: 0.9em; color: #555;">Write out your final expressions for $H_{dB}$ and $\phi$ as a function of $\omega$.</p>
+            <textarea id="student-answer" class="student-textarea" rows="4" placeholder="H_dB = ... &#10;Phase = ..."></textarea>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('Find H_dB and phase phi for H(s) = (5s^2 + 100s)/(s^2 + 9s + 20).', 'Step 1: Factor to H(s) = 5s(s+20) / ((s+4)(s+5)). Step 2: Convert to standard form H(s) = 5s(s/20 + 1) / ((s/4 + 1)(s/5 + 1)). Step 3: Convert to j_omega domain H(jw) = 5jw(jw/20 + 1) / ((jw/4 + 1)(jw/5 + 1)). Step 4: Magnitude H_dB = 20log(5) + 20log(w) + 20log|1+jw/20| - 20log|1+jw/4| - 20log|1+jw/5|. Step 5: Phase phi = 90 degrees + arctan(w/20) - arctan(w/4) - arctan(w/5).')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: Factor to H(s) = 5s(s+20) / ((s+4)(s+5)). Step 2: Convert to standard form H(s) = 5s(s/20 + 1) / ((s/4 + 1)(s/5 + 1)). Step 3: Convert to j_omega domain H(jw) = 5jw(jw/20 + 1) / ((jw/4 + 1)(jw/5 + 1)). Step 4: Magnitude H_dB = 20log(5) + 20log(w) + 20log|1+jw/20| - 20log|1+jw/4| - 20log|1+jw/5|. Step 5: Phase phi = 90 degrees + arctan(w/20) - arctan(w/4) - arctan(w/5).')">
+                    Show Full Solution
+                </button>
+            </div>
+            
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: Factorization</summary>
+                <p>First, factor the numerator and denominator to expose the roots. The numerator shares a common factor of $5s$, and the denominator is a simple quadratic equation.</p>
+            </details>
+            <details>
+                <summary>💡 Hint 2: Standard Bode Form</summary>
+                <p>To easily extract magnitude and phase, convert the factors into the standard form $(1 + \frac{s}{a})$. You will need to divide the terms by their constants ($20$, $4$, and $5$).</p>
+            </details>
+            <details>
+                <summary>💡 Hint 3: $j\omega$ Conversion</summary>
+                <p>Substitute $s \rightarrow j\omega$. Remember that a lone $j\omega$ in the numerator contributes $+90^\circ$ to the phase, and terms in the denominator will have a negative sign in both the $20\log$ magnitude equation and the $\tan^{-1}$ phase equation.</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <ul style="margin: 0; padding-left: 20px;">
+                    <li><strong>Magnitude ($H_{dB}$):</strong> $20\log 5 + 20\log(\omega) + 20\log|1 + \frac{j\omega}{20}| - 20\log|1 + \frac{j\omega}{4}| - 20\log|1 + \frac{j\omega}{5}|$</li>
+                    <li><strong>Phase ($\phi$):</strong> $90^\circ + \tan^{-1}(\frac{\omega}{20}) - \tan^{-1}(\frac{\omega}{4}) - \tan^{-1}(\frac{\omega}{5})$</li>
+                </ul>
+            </details>
+        </div>
+    </div>
+</div>

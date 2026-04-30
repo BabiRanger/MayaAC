@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FYP - Reference</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        .reference-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 20px;
+            justify-content: center;
+        }
+
+        .book-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 400px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .book-image {
+            width: 100%;
+            height: auto;
+            border-bottom: 2px solid #f1f1f1;
+        }
+
+        .book-details {
+            padding: 20px;
+        }
+
+        .book-title {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .author-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .author-info h4 {
+            margin: 0;
+            color: #555;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: #777;
+            margin: 5px 0 0 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header-sticky-wrapper" id="myHeaderWrapper">
+    <div class="topnav">
+        <a href="{{url_for('ai_page')}}" class="logo"><i class="fa-solid fa-book"></i><span>MAYA</span></a>
+        <a href="{{ url_for('home') }}">THEORY</a>
+        <a href="{{ url_for('exercise') }}">EXERCISE</a>
+        <a href="#" class="active">REFERENCE</a>
+    </div>
+</div> 
+
+<div id="main">
+    <div id="main-content-area">
+        <div class="reference-container">
+            
+            <div id="book" class="book-card">
+                <img src="{{ url_for('static', filename='images/book.jpg') }}" alt="Introductory Circuit Analysis" class="book-image">
+                
+                <div class="book-details">
+                    <div class="book-title">Introductory Circuit Analysis</div>
+                    <p><strong>Edition:</strong> 12th Edition</p>
+                    <p><strong>Focus:</strong> A comprehensive guide to circuit analysis, providing a foundation in DC/AC theory, methods of analysis, and magnetic circuits.</p>
+                    
+                    <div id="author" class="author-section">
+                        <div class="author-info">
+                            <h4>Robert L. Boylestad</h4>
+                            <p>A pioneer in electrical engineering education, Boylestad is a professor emeritus of Queensborough Community College. His texts are world-renowned for their clear explanations of complex electrical concepts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

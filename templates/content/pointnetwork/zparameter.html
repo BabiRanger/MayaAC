@@ -1,0 +1,129 @@
+<style>
+    .psc-container {
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+        color: #333;
+    }
+    .section-header {
+        color: #1e3a8a; 
+        border-bottom: 1px solid #eee; 
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    .formula-large {
+        font-size: 20px; 
+        font-weight: bold; 
+        margin: 10px 0;
+        text-align: center;
+    }
+    
+    /* Image Container Styling */
+    .diagram-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #f9fafb;
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px dashed #ccc;
+        min-width: 250px;
+    }
+
+    .diagram-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        background-color: white;
+    }
+
+    .caption {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #666;
+        font-style: italic;
+    }
+    .video-section {
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 2px dashed #e5e7eb; /* Subtle divider from the main content */
+    }
+
+    .video-header {
+        color: #1e3a8a;
+        font-size: 22px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* Mathematical ratio for 16:9 video */
+        height: 0;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        background-color: #000; /* Shows black before video loads */
+        border: 1px solid #ccc;
+    }
+
+    .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+</style>
+
+<div class="psc-container">
+    <h2 class="section-header">Z-Parameters (Open-Circuit)</h2>
+
+    <div style="display: flex; align-items: flex-start; gap: 40px; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px;">
+            <p><strong>Z-parameters</strong> (Impedance parameters) express the port voltages ($V_1, V_2$) in terms of the port currents ($I_1, I_2$).</p>
+            <ul style="line-height: 2;">
+                <li><strong>The Equations:</strong>
+                    <div class="formula-large" style="color: #1e3a8a;">
+                        $$ V_1 = \mathbf{z}_{11}I_1 + \mathbf{z}_{12}I_2 $$
+                        $$ V_2 = \mathbf{z}_{21}I_1 + \mathbf{z}_{22}I_2 $$
+                    </div>
+                </li>
+                <li><strong>How to find them:</strong> We leave one port <strong>open-circuited</strong> (current = 0) to solve for the parameters.</li>
+                <li><strong>Example:</strong> To find $z_{11}$, we open Port 2 so $I_2 = 0$. Then, $\mathbf{z}_{11} = \frac{V_1}{I_1}$.</li>
+            </ul>
+        </div>
+
+        <div class="diagram-container" style="background: #f0fdf4; border: 1px solid #10b981;">
+            <p style="font-weight: bold; color: #047857;">Matrix Form</p>
+            <div class="formula-large" style="color: #047857;">
+                $$ \begin{bmatrix} V_1 \\ V_2 \end{bmatrix} = \begin{bmatrix} \mathbf{z}_{11} & \mathbf{z}_{12} \\ \mathbf{z}_{21} & \mathbf{z}_{22} \end{bmatrix} \begin{bmatrix} I_1 \\ I_2 \end{bmatrix} $$
+            </div>
+            <p class="caption">Measured in Ohms ($\Omega$)</p>
+        </div>
+    </div>
+    <div class="video-section">
+        <h3 class="video-header">
+            <i class="fa-brands fa-youtube" style="color: #ef4444;"></i> 
+             Breakdown Video
+        </h3>
+        <p style="color: #666; margin-bottom: 15px; font-style: italic;">
+        </p>
+        
+        <div class="video-wrapper">
+            <iframe 
+                src="https://www.youtube.com/embed/rzmW9fMBcVo" 
+                title="YouTube video player" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</div>

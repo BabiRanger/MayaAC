@@ -1,0 +1,113 @@
+<style>
+    .psc-container {
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+        color: #333;
+    }
+    .section-header {
+        color: #1e3a8a; 
+        border-bottom: 1px solid #eee; 
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    
+    /* Summary Table Styling */
+    .summary-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        overflow: hidden; /* Rounds the corners of the table */
+    }
+
+    .summary-table th {
+        background-color: #3b82f6; /* Blue header */
+        color: white;
+        padding: 15px;
+        text-align: left;
+    }
+
+    .summary-table td {
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+    }
+
+    /* Highlight rows */
+    .row-absorb { background-color: #f0fdf4; } /* Light Green */
+    .row-supply { background-color: #fef2f2; } /* Light Red */
+
+    .status-badge {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 14px;
+    }
+    .badge-green { background: #d1fae5; color: #065f46; }
+    .badge-red { background: #fee2e2; color: #991b1b; }
+
+    .tip-box {
+        background-color: #fffbeb; /* Yellow/Warning color */
+        border-left: 5px solid #f59e0b;
+        padding: 15px;
+        margin-top: 30px;
+        border-radius: 4px;
+    }
+</style>
+
+<div class="psc-container">
+    
+    <h2 class="section-header">Summary & Key Takeaways</h2>
+
+    <p>The Passive Sign Convention is the universal rule for determining power flow. It applies to <strong>all</strong> circuit elements, including Resistors, Inductors, Capacitors, and Sources.</p>
+
+    <table class="summary-table">
+        <thead>
+            <tr>
+                <th style="width: 40%;">Current Direction</th>
+                <th style="width: 25%;">Formula</th>
+                <th>Conclusion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="row-absorb">
+                <td>
+                    Current enters <strong>(+)</strong> Terminal
+                    <br><span style="font-size:12px; color:#666;">(Standard for Passive Elements)</span>
+                </td>
+                <td>
+                    <strong style="color: #059669; font-size: 18px;">$$ p = +vi $$</strong>
+                </td>
+                <td>
+                    <span class="status-badge badge-green">Absorbs Power</span>
+                    <br><span style="font-size:13px;">(Consumes Energy)</span>
+                </td>
+            </tr>
+
+            <tr class="row-supply">
+                <td>
+                    Current enters <strong>(-)</strong> Terminal
+                    <br><span style="font-size:12px; color:#666;">(Standard for Active Elements)</span>
+                </td>
+                <td>
+                    <strong style="color: #dc2626; font-size: 18px;">$$ p = -vi $$</strong>
+                </td>
+                <td>
+                    <span class="status-badge badge-red">Supplies Power</span>
+                    <br><span style="font-size:13px;">(Delivers Energy)</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="tip-box">
+        <h4 style="margin-top:0; color: #b45309;"><i class="fa-solid fa-lightbulb"></i> Pro Tip: Avoid Sign Errors</h4>
+        <p style="margin-bottom: 0;">
+            Always draw your <strong>current arrows</strong> and label your <strong>voltage polarity (+/-)</strong> clearly on your diagram before starting calculations. If you skip this step, you have a 50% chance of getting the sign wrong!
+        </p>
+    </div>
+
+</div>

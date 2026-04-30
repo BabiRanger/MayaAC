@@ -1,0 +1,36 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">Phase Relations</h2>
+    <div class="problem-card">
+        <span class="badge badge-easy"><i class="fa-solid fa-seedling"></i> Easy Level</span>
+        
+        <h3>Question 2</h3>
+        <p>Determine which sinusoid leads and by how much.</p>
+        
+        <div style="text-align: center; margin: 20px;">
+            <div style="font-size: 20px; font-weight: bold;">
+                $$ v(t) = 10 \cos(4t - 60^\circ) $$
+                $$ i(t) = 4 \sin(4t + 50^\circ) $$
+            </div>
+        </div>
+
+        <div class="user-input-area">
+            <textarea id="student-answer" class="student-textarea" rows="3" placeholder="e.g. v(t) leads i(t) by..."></textarea>
+            <button class="ai-check-btn" 
+                onclick="checkAnswerWithAI('Compare v=10cos(4t-60) and i=4sin(4t+50). Who leads?', 'i(t) leads v(t) by 20 degrees')">
+                Check Answer
+            </button>
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: Convert to Cosine</summary>
+                <p>Convert $i(t)$ to cosine: $\sin(\theta) = \cos(\theta - 90^\circ)$. So $50 - 90 = -40$.</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <p><strong>Answer:</strong> $i(t)$ leads $v(t)$ by $20^\circ$.</p>
+            </details>
+        </div>
+    </div>
+</div>

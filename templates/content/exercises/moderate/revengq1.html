@@ -1,0 +1,38 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">Reverse Engineering</h2>
+    <div class="problem-card">
+        <span class="badge badge-hard"><i class="fa-solid fa-fire"></i> Challenging</span>
+        
+        <h3>Question 1</h3>
+        <p>Two elements are connected in series. Find the values of the Resistor (R) and Inductor (L).</p>
+        <p><strong>Given:</strong></p>
+        <ul>
+            <li>Current $i(t) = 12 \cos(2t - 30^\circ)$ A</li>
+            <li>Voltage $v(t) = 180 \cos(2t + 10^\circ)$ V</li>
+        </ul>
+
+        <div class="user-input-area">
+            <textarea id="student-answer" class="student-textarea" rows="3" placeholder="R = ?, L = ?"></textarea>
+            <button class="ai-check-btn" 
+                onclick="checkAnswerWithAI('Find R and L given v=180cos(2t+10) and i=12cos(2t-30)', 'R=11.49 ohms, L=4.82 H')">
+                Check Answer
+            </button>
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: Total Impedance</summary>
+                <p>Calculate total impedance first using phasors: $Z = \mathbf{V} / \mathbf{I}$.</p>
+            </details>
+            <details>
+                <summary>💡 Hint 2: Rectangular Form</summary>
+                <p>Convert the resulting polar impedance $Z$ into rectangular form $R + jX$. The real part is R, the imaginary part is $\omega L$.</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <p><strong>Answer:</strong> $R = 11.49 \Omega$, $L = 4.82$ H</p>
+            </details>
+        </div>
+    </div>
+</div>

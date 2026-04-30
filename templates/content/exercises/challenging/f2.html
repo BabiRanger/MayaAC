@@ -1,0 +1,55 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #991b1b; padding-bottom: 10px;">Advanced Mesh Analysis</h2>
+    <div class="problem-card">
+        <span class="badge badge-hard"><i class="fa-solid fa-fire"></i> Challenging</span>
+        
+        <h3>Question 2</h3>
+        <p>Referring to the circuit shown in Figure 2, the supply sources are given as:</p>
+        <p style="text-align: center;">$v_s(t) = 15 \cos(5t + 20^\circ) \text{ V}$ and $i_s(t) = 20 \cos(5t) \text{ A}$</p>
+        <p>Calculate the phasor current $\mathbf{I_o}$ using the <strong>Mesh Analysis</strong> method.</p>
+        
+        <div style="text-align:center; margin: 20px;">
+            <img src="{{ url_for('static', filename='images/circuit_f_q2.png') }}" style="max-width:450px; border:1px solid #ccc; border-radius: 8px;">
+            <p style="font-size:12px; color:#666;">Figure 2: Multi-mesh circuit with mixed AC sources</p>
+        </div>
+
+        <div class="user-input-area">
+    <h4>Your Solution:</h4>
+    <textarea id="student-answer" class="student-textarea" rows="4" placeholder="Io = ..."></textarea>
+    
+    <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <button class="ai-check-btn" 
+            onclick="checkAnswerWithAI('Mesh Analysis: vs=15cos(5t+20), is=20cos(5t). Find Io.', 'Step 1: Convert sources Is = 20 /_ 0 A, Vs = 15 /_ 20 V. Step 2: Parallel branch 6 || j11 = 4.62 + j2.52 Ohm. Step 3: Mesh 1 current I1 = 20 /_ 0 A. Step 4: Supermesh 1 and 2 KVL gives (8.62 - j5.48)I2 + j8I3 = -80 /_ 0. Step 5: Mesh 3 KVL gives j8I2 + (13 - j8)I3 = -15 /_ 20. Step 6: Solve via Cramers rule to get I2 = 6.84 /_ -168.17 A and I3 = 3.58 /_ 149.21 A. Step 7: Calculate Io = I2 - I3 = 4.85 /_ -138.21 degrees A.')">
+            Check Answer
+        </button>
+        
+        <button class="ai-check-btn" style="background-color: #6b7280;" 
+            onclick="showFullSolution('Step 1: Convert sources Is = 20 /_ 0 A, Vs = 15 /_ 20 V. Step 2: Parallel branch 6 || j11 = 4.62 + j2.52 Ohm. Step 3: Mesh 1 current I1 = 20 /_ 0 A. Step 4: Supermesh 1 and 2 KVL gives (8.62 - j5.48)I2 + j8I3 = -80 /_ 0. Step 5: Mesh 3 KVL gives j8I2 + (13 - j8)I3 = -15 /_ 20. Step 6: Solve via Cramers rule to get I2 = 6.84 /_ -168.17 A and I3 = 3.58 /_ 149.21 A. Step 7: Calculate Io = I2 - I3 = 4.85 /_ -138.21 degrees A.')">
+            Show Full Solution
+        </button>
+    </div>
+    
+    <div id="ai-feedback" class="ai-feedback-box"></div>
+    </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: Frequency & Phasors</summary>
+                <p>The angular frequency $\omega = 5 \text{ rad/s}$. Convert the sources into phasor form:<br>
+                $\mathbf{V_s} = 15\angle20^\circ \text{ V}$ and $\mathbf{I_s} = 20\angle0^\circ \text{ A}$.</p>
+            </details>
+            <details>
+                <summary>💡 Hint 2: Supermesh & Simplification</summary>
+                <p>Combine the parallel $6\Omega$ and $j11\Omega$ branch to reduce the number of meshes. Since a current source is shared between Mesh 1 and Mesh 2, you must apply the <strong>Supermesh</strong> technique.</p>
+            </details>
+            <details>
+                <summary>💡 Hint 3: Defining $I_o$</summary>
+                <p>After solving for the mesh currents $\mathbf{I_2}$ and $\mathbf{I_3}$ using KVL and Cramer's rule, find the target current using the relationship: $\mathbf{I_o} = \mathbf{I_2} - \mathbf{I_3}$.</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <p><strong>Answer:</strong> $\mathbf{I_o} = 4.85 \angle -138.21^\circ \text{ A}$</p>
+            </details>
+        </div>
+    </div>
+</div>

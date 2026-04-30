@@ -1,0 +1,73 @@
+<style>
+    .psc-container {
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+        color: #333;
+    }
+    .section-header {
+        color: #1e3a8a; 
+        border-bottom: 1px solid #eee; 
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    .formula-large {
+        font-size: 20px; 
+        font-weight: bold; 
+        margin: 10px 0;
+        text-align: center;
+    }
+    
+    /* Image Container Styling */
+    .diagram-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #f9fafb;
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px dashed #ccc;
+        min-width: 250px;
+    }
+
+    .diagram-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        background-color: white;
+    }
+
+    .caption {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #666;
+        font-style: italic;
+    }
+</style>
+
+<div class="psc-container">
+    <h2 class="section-header">Summary & Pro-Tips</h2>
+
+    <div style="display: flex; align-items: flex-start; gap: 40px; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px;">
+            <p>Mesh analysis is often simpler than Nodal analysis when a circuit has many parallel branches but few loops.</p>
+            <ul style="line-height: 2;">
+                <li><strong>Mutual Resistance:</strong> Remember that components shared by two meshes will have two currents flowing through them (e.g., $I_1 - I_2$).</li>
+                <li><strong>Matrix Format:</strong> $R_{11}I_1 - R_{12}I_2 = V_s$.</li>
+            </ul>
+        </div>
+
+        <div class="diagram-container" style="border: 2px solid #ef4444; background: #fef2f2;">
+            <p style="font-weight: bold; color: #b91c1c;">KVL SIGN RULE</p>
+            <p style="font-size: 13px; text-align: center;">When moving in the direction of the current, a resistor always creates a voltage <strong>drop</strong> ($-IR$).</p>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px; padding: 15px; background: #fffbeb; border-left: 5px solid #f59e0b;">
+        <h4 style="margin-top:0; color: #b45309;"><i class="fa-solid fa-lightbulb"></i> The "Clockwise" Secret</h4>
+        <p style="margin-bottom: 0;">If you assign all mesh currents in the <strong>same direction</strong> (usually clockwise), the shared resistor terms in your equations will always be negative. This makes checking your work much easier!</p>
+    </div>
+</div>

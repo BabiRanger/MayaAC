@@ -1,0 +1,39 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">Sinusoid Basics</h2>
+    <div class="problem-card">
+        <span class="badge badge-easy"><i class="fa-solid fa-seedling"></i> Easy Level</span>
+        
+        <h3>Question 1</h3>
+        <p>Given the two voltages below, determine the phase angle between them and state which one lags the other.</p>
+        
+        <div style="text-align: center; margin: 20px;">
+            <div style="font-size: 20px; font-weight: bold;">
+                $$ v_1 = 20 \sin(\omega t + 60^\circ) $$
+                $$ v_2 = 60 \cos(\omega t - 10^\circ) $$
+            </div>
+        </div>
+
+        <div class="user-input-area">
+            <label style="font-weight: bold; display: block; margin-bottom: 10px;">
+                <i class="fa-solid fa-robot"></i> Ask AI to check your answer:
+            </label>
+            <textarea id="student-answer" class="student-textarea" rows="3" placeholder="e.g., v1 lags v2 by..."></textarea>
+            <button class="ai-check-btn" 
+                onclick="checkAnswerWithAI('Compare v1=20sin(wt+60) and v2=60cos(wt-10). Find phase diff.', 'v1 lags v2 by 20 degrees')">
+                Check Answer
+            </button>
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: Common Format</summary>
+                <p>You cannot compare Sine and Cosine directly. Convert $v_1$ to Cosine using the identity: $\sin(\theta) = \cos(\theta - 90^\circ)$.</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <p><strong>Answer:</strong> $v_1$ lags $v_2$ by $20^\circ$.</p>
+            </details>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #991b1b; padding-bottom: 10px;">S-Domain Analysis & Transfer Functions</h2>
+    <div class="problem-card">
+        <span class="badge badge-hard"><i class="fa-solid fa-fire"></i> Challenging</span>
+        
+        <h3>Question 2</h3>
+        <p>Find the transfer functions for the voltage gain, current gain, transfer impedance, and transfer admittance from the circuit shown in Figure 3.</p>
+        
+        <div style="text-align:center; margin: 20px;">
+            <img src="{{ url_for('static', filename='images/circuit_f_q6.png') }}" style="max-width:450px; border:1px solid #ccc; border-radius: 8px;">
+            <p style="font-size:12px; color:#666;">Figure 3: Circuit for s-domain transfer function analysis</p>
+        </div>
+
+        <div class="user-input-area">
+            <h4>Your Solution:</h4>
+            <p class="instruction-text" style="font-size: 0.9em; color: #555;">Express your answers in terms of 's'.</p>
+            <textarea id="student-answer" class="student-textarea" rows="4" placeholder="Vo/Vs = ..., Io/Is = ..., Vo/Is = ..., Io/Vs = ..."></textarea>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('Find s-domain transfer functions for circuit. R=2, L=2H, C=0.5F. Find Vo/Vs, Io/Is, Vo/Is, and Io/Vs.', 'Step 1: Convert to s-domain. 2H -> 2s, 0.5F -> 2/s. Step 2: Middle branch Z1 = 2 + 2/s = (2s+2)/s. Step 3: Parallel branch Z2 = 2 || Z1 = (2s+2)/(2s+1). Step 4: Total impedance ZT = Z2 + 2 + 2s = ((4s+4)(s+1))/(2s+1). Step 5: Voltage divider Vo = (Z2/ZT)*Vs. Voltage gain Vo/Vs = 1/(2s+2). Step 6: Output current Io = Vo/2 = Vs/(4s+4). Input current Is = Vs/ZT = ((2s+1)Vs)/((4s+4)(s+1)). Step 7: Current gain Io/Is = (s+1)/(2s+1). Step 8: Transfer impedance Vo/Is = (2s+2)/(2s+1). Step 9: Transfer admittance Io/Vs = 1/(4s+4).')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: Convert to s-domain. 2H -> 2s, 0.5F -> 2/s. Step 2: Middle branch Z1 = 2 + 2/s = (2s+2)/s. Step 3: Parallel branch Z2 = 2 || Z1 = (2s+2)/(2s+1). Step 4: Total impedance ZT = Z2 + 2 + 2s = ((4s+4)(s+1))/(2s+1). Step 5: Voltage divider Vo = (Z2/ZT)*Vs. Voltage gain Vo/Vs = 1/(2s+2). Step 6: Output current Io = Vo/2 = Vs/(4s+4). Input current Is = Vs/ZT = ((2s+1)Vs)/((4s+4)(s+1)). Step 7: Current gain Io/Is = (s+1)/(2s+1). Step 8: Transfer impedance Vo/Is = (2s+2)/(2s+1). Step 9: Transfer admittance Io/Vs = 1/(4s+4).')">
+                    Show Full Solution
+                </button>
+            </div>
+            
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: Convert to the s-domain</summary>
+                <p>Before doing any analysis, transform the components: an inductor becomes $sL$ ($2s$) and a capacitor becomes $\frac{1}{sC}$ ($\frac{2}{s}$).</p>
+            </details>
+            <details>
+                <summary>💡 Hint 2: Find Equivalent Impedances</summary>
+                <p>Find the impedance of the parallel section ($Z_2$). The middle branch is $(2 + \frac{2}{s})$. Combine this in parallel with the $2\Omega$ load resistor. Then, add the series source components ($2\Omega$ and $2s$) to find $Z_T$.</p>
+            </details>
+            <details>
+                <summary>💡 Hint 3: Defining the Outputs</summary>
+                <p>Use the Voltage Divider rule to find $V_o$ in terms of $V_s$. Note that $I_o$ is simply $\frac{V_o}{2\Omega}$, and $I_s$ is the total source current, which is $\frac{V_s}{Z_T}$.</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <ul style="margin: 0; padding-left: 20px;">
+                    <li><strong>Voltage Gain ($\frac{V_o}{V_s}$):</strong> $\frac{1}{2s+2}$</li>
+                    <li><strong>Current Gain ($\frac{I_o}{I_s}$):</strong> $\frac{s+1}{2s+1}$</li>
+                    <li><strong>Transfer Impedance ($\frac{V_o}{I_s}$):</strong> $\frac{2s+2}{2s+1}$</li>
+                    <li><strong>Transfer Admittance ($\frac{I_o}{V_s}$):</strong> $\frac{1}{4s+4}$</li>
+                </ul>
+            </details>
+        </div>
+    </div>
+</div>
