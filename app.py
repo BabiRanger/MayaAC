@@ -23,7 +23,7 @@ SYSTEM_INSTRUCTION = (
 )
 
 #Initialize the Flask application
-app = Flask(__name__, template_folder='app/templates', static_folder='app/static')
+app = Flask(__name__)
 
 #Define route for homepage
 @app.route('/')
