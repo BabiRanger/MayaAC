@@ -1,0 +1,265 @@
+/* Whole page styling */
+body {
+    font-family: Arial, Helvetica, sans-serif; /* sets of font for the page */
+    margin: 0; /* Remove default margin around the body so navigation bar touch the edge */
+}
+
+/*Wrapper*/
+.header-sticky-wrapper {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+/*Top Navigation Bar*/
+.topnav {
+    display: flex; /*flex force all item to follow the biggest sizing*/
+    align-items: center;
+    background-color: rgb(62, 123, 238);
+    /*overflow: hidden; hide overflows content and avoid breaking the layout*/
+    color: white; /*text color*/
+}
+
+.topnav a {
+    float: left; /*makes links sit side by side horizontally*/
+    color: white; /*set link text color*/
+    text-align: center; /*centers textinside link box*/
+    padding: 18px 18px; /*adds space inside links (top/bttom)(left/right)*/
+    text-decoration: none; /*remove default underline from links*/
+    font-size: 17px; /*font size*/
+    font-weight: bold; /*bold the font*/
+}
+
+.topnav a.logo {
+    font-size: 20px; /*logo size*/
+    display:flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.topnav a:hover{
+    background-color: rgb(55, 55, 145); /*change backgound color when hovering*/
+}
+
+.topnav a.active {
+    background-color: rgb(35, 35, 105); /* Darker blue */
+    color: white;
+}
+
+.topnav .help-btn {
+    margin-left: auto;
+    padding: 18px 18px;
+    font-size: 1.2rem;
+    color: #ffffff; /* Match your text color */
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.topnav .help-btn:hover {
+    color: #ffdd57; /* A subtle yellow or lighter blue to indicate it's clickable */
+    background-color: transparent; /* Ensures it doesn't get the standard link background if you don't want it */
+}
+
+/*Side Navigation Bar*/
+.sidenav {
+    --header-height: 100px; /*fallback height*/
+
+    height: calc(100% - var(--header-height)); /* Adjust height to fill remaining space */
+    position: fixed; /*fixes sidebar's position (stay when scroll)*/
+    width: 0; /*initial 0 (hidden by default)*/
+    z-index: 2; /*ensure sidebar appear on top of other content*/
+    top: var(--header-height); 
+    left: 0; /*align sidebar to the left*/
+
+    background-color: rgb(180, 180, 180); /*sidebar background color*/
+    overflow-x: hidden; /*hide horizontal overflow*/
+    padding-top: 20px; /*add padding on top to push content belowthe top navigation bar*/
+    transition: 0.5s; /*smooth animation when open or close*/
+    overflow-y: auto; /* Allows vertical scrolling inside the sidebar */
+    padding-bottom: 200px;
+
+    transition: 0.5s;
+}
+
+.sidenav a {
+    padding: 10px 15px 10px 32px; /*Adds padding to the link in sidebar*/
+    text-decoration: none; 
+    font-size: 18px; 
+    color: rgb(31, 31, 31); /*text*/
+    display: block; /*full width, stack vertically*/
+    transition: 0.3s; /*smooth animation*/
+}
+
+.sidenav h3 {
+    padding-left: 32px;
+    color: #007bff;
+}
+
+.sidenav a:hover {
+    color: #0056b3;
+    background-color: rgb(180, 180, 180);
+}
+
+.sidenav .closebtn {
+    position: absolute; /*sidenav close button relative to sidenav container*/
+    top: 0px;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.sidenav a.active {
+    background-color: #cbd5e1; /* Darker gray/blue for sidebar */
+    color: #1e3a8a; /* Dark blue text */
+    font-weight: bold;
+    border-left: 4px solid #1e3a8a; /* Left border indicator */
+}
+
+/*Sub Navigation Bar*/
+.subnav {
+    display: flex; /*flex force all item to follow the biggest sizing*/
+    align-items: center;
+    background-color: #555;
+    /*overflow: hidden;*/
+    color: white;
+}
+
+.subnav a, .subnav .openbtn {
+    /*float: left;*/
+    color: white;
+    text-align: center;
+    padding: 10px 18px;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.subnav .openbtn{
+    font-size: 20px;
+    cursor: pointer; /*change cursor when at something clickable*/
+}
+
+.subnav a:hover, .subnav .openbtn:hover {
+    background-color: #777;
+}
+
+.subnav a.active {
+    background-color: #222; /* Darker gray */
+    color: white;
+    border-bottom: 3px solid #3b82f6; /* Optional: Blue line indicator */
+}
+
+/*Main Content Area*/
+#main {
+    transition: margin-left .5s; /* Adds a smooth animation when the margin changes, matching the sidenav's transition */
+    padding: 20px;
+}
+
+/*Exercise Area*/
+.exercise-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+.problem-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 1px solid #e5e7eb;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+.badge-easy { background: #d1fae5; color: #065f46; border: 1px solid #34d399; }
+.badge-mod  { background: #fff7ed; color: #9a3412; border: 1px solid #fb923c; }
+.badge-hard { background: #fee2e2; color: #991b1b; border: 1px solid #f87171; }
+
+/* Interactive Areas */
+.user-input-area {
+    margin-top: 20px;
+    background: #f9fafb;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px dashed #ccc;
+}
+
+.student-textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    resize: vertical;
+}
+
+.ai-check-btn {
+    margin-top: 10px;
+    background: #3b82f6;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.ai-check-btn:hover {
+    background: #2563eb;
+}
+
+.ai-feedback-box {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #e0f2fe; 
+    border-left: 5px solid #3b82f6;
+    display: none; /* Hidden by default */
+    animation: fadeIn 0.5s;
+    overflow-x: auto; 
+    overflow-wrap: break-word;
+}
+
+mjx-container {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* Hints */
+.hint-section {
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+details {
+    margin-bottom: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+summary {
+    font-weight: bold;
+    color: #4b5563;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
