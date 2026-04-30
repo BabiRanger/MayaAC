@@ -60,7 +60,7 @@ def handle_chat():
         
         # 2. Call the AI using the new SDK format
         response = client.models.generate_content(
-            model='gemini-2.5-flash', # Your original model will work now!
+            model='gemini-2.0-flash', # Your original model will work now!
             contents=user_message,
             config=types.GenerateContentConfig(
                 system_instruction=SYSTEM_INSTRUCTION,
