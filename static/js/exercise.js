@@ -217,6 +217,12 @@ async function showFullSolution(solutionKey) {
         });
 
         const data = await response.json();
+
+        // NEW: Check if the backend sent an error message instead of a reply
+        if (data.error) {
+            throw new Error(data.error); 
+        }
+        
         const formattedReply = marked.parse(data.reply);
         
         // Use a different icon/header to indicate it's the full solution
@@ -227,12 +233,14 @@ async function showFullSolution(solutionKey) {
         }
 
     } catch (error) {
-        console.error(error);
+        console.error("The actual error is:", error);
+        
         // Check if the error message from the backend contains the '503' or 'demand' keyword
         if (error.message && error.message.includes("high demand")) {
             feedbackBox.innerHTML = '<span style="color: #d97706;">⚠️ The AI is currently experiencing high demand. Please wait a few seconds and try again.</span>';
         } else {
-            feedbackBox.innerHTML = '<span style="color: #dc2626;">❌ Error connecting to AI assistant. Please ensure the server is running.</span>';
+            // NEW: Print the actual error message to the screen so we can see what's wrong!
+            feedbackBox.innerHTML = `<span style="color: #dc2626;">❌ AI Error: ${error.message}</span>`;
         }
     }
 }
