@@ -211,6 +211,14 @@ body {
     border: 1px dashed #ccc;
 }
 
+.problem-card img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Centers the image nicely if you add margin */
+    margin: 0 auto 15px auto; /* Adds a little breathing room below the image */
+    border-radius: 8px; /* Optional: rounds the corners of the image slightly to match your theme */
+}
+
 .student-textarea {
     width: 100%;
     padding: 10px;
