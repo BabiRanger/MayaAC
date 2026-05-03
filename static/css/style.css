@@ -19,6 +19,7 @@ body {
     background-color: rgb(62, 123, 238);
     /*overflow: hidden; hide overflows content and avoid breaking the layout*/
     color: white; /*text color*/
+    flex-wrap: wrap;
 }
 
 .topnav a {
@@ -121,8 +122,23 @@ body {
     display: flex; /*flex force all item to follow the biggest sizing*/
     align-items: center;
     background-color: #555;
-    /*overflow: hidden;*/
     color: white;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.subnav a, .subnav .openbtn {
+    flex: 0 0 auto; 
+    color: white;
+    text-align: center;
+    padding: 10px 18px;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.subnav::-webkit-scrollbar {
+    display: none; 
 }
 
 .subnav a, .subnav .openbtn {
