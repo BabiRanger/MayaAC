@@ -211,6 +211,10 @@ body {
     border: 1px dashed #ccc;
 }
 
+.problem-card * {
+    max-width: 100% !important;
+}
+
 .problem-card img {
     max-width: 100%;
     height: auto;
