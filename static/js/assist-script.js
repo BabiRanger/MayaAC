@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             return [{
                 role: 'model',
-                parts: [{ text: "Good day! Im Maya your AC Circuit analysis learning assistant. Ask me any concept, formula or problem you're working on in AC circuit analysis." }]
+                parts: [{ text: "Good day! Im Lela, your AC Circuit analysis learning assistant. Ask me any concept, formula or problem you're working on in AC circuit analysis." }]
             }];
         }
     }
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function clearChat() {
         chatHistory = [{
             role: 'model',
-            parts: [{ text: "Good day! Im Maya your AC Circuit analysis learning assistant. Ask me any concept, formula or problem you're working on in AC circuit analysis." }]
+            parts: [{ text: "Good day! Im Lela, your AC Circuit analysis learning assistant. Ask me any concept, formula or problem you're working on in AC circuit analysis." }]
         }];
         saveChatHistory(); // Save the reset state
         renderChatHistory();
