@@ -13,10 +13,19 @@
 
         <div class="user-input-area">
             <textarea id="student-answer" class="student-textarea" rows="3" placeholder="v(t) = ..."></textarea>
-            <button class="ai-check-btn" 
-                onclick="checkAnswerWithAI('Find v(t) in Figure 6 (Q20) source=10cos(t)', '6.325 cos(t - 18.43 degrees)')">
-                Check Answer
-            </button>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('Find v(t) in Figure 6 (Q20) source=10cos(t)', 'Step 1: Convert the circuit to the phasor domain. The source 10cos(t) becomes a phasor voltage Vs = 10 /_ 0 degrees V with angular frequency w = 1 rad/s. Step 2: Determine the individual component impedances. Inductor Z_L = j*w*L = j1 Ohm. Capacitor Z_C = 1/(j*w*C) = -j1 Ohm. Step 3: Compute the equivalent parallel impedance of the capacitor and inductor branch: Z_parallel = (Z_L * Z_C) / (Z_L + Z_C) or configure via nodal analysis. Step 4: Use a voltage divider or write the nodal equation at the top node to establish the capacitor voltage phasor V_c = 6 + j2 V (or equivalently 6.325 /_ -18.43 degrees V). Step 5: Convert back to the time domain: v(t) = 6.325cos(t - 18.43 degrees) V.')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: Convert the circuit to the phasor domain. The source 10cos(t) becomes a phasor voltage Vs = 10 /_ 0 degrees V with angular frequency w = 1 rad/s. Step 2: Determine the individual component impedances. Inductor Z_L = j*w*L = j1 Ohm. Capacitor Z_C = 1/(j*w*C) = -j1 Ohm. Step 3: Compute the equivalent parallel impedance of the capacitor and inductor branch: Z_parallel = (Z_L * Z_C) / (Z_L + Z_C) or configure via nodal analysis. Step 4: Use a voltage divider or write the nodal equation at the top node to establish the capacitor voltage phasor V_c = 6 + j2 V (or equivalently 6.325 /_ -18.43 degrees V). Step 5: Convert back to the time domain: v(t) = 6.325cos(t - 18.43 degrees) V.')">
+                    Show Full Solution
+                </button>
+            </div>
+            
             <div id="ai-feedback" class="ai-feedback-box"></div>
         </div>
 

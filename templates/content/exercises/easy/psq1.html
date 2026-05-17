@@ -18,10 +18,19 @@
                 <i class="fa-solid fa-robot"></i> Ask AI to check your answer:
             </label>
             <textarea id="student-answer" class="student-textarea" rows="3" placeholder="e.g., v1 lags v2 by..."></textarea>
-            <button class="ai-check-btn" 
-                onclick="checkAnswerWithAI('Compare v1=20sin(wt+60) and v2=60cos(wt-10). Find phase diff.', 'v1 lags v2 by 20 degrees')">
-                Check Answer
-            </button>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('Compare v1=20sin(wt+60) and v2=60cos(wt-10). Find phase diff.', 'Step 1: Convert v1 from sine to cosine form using the trigonometric identity sin(x) = cos(x - 90 degrees). Step 2: v1 = 20cos(wt + 60 - 90) = 20cos(wt - 30 degrees). Step 3: Compare the phase angles of both cosine functions. Phase of v1 is -30 degrees and phase of v2 is -10 degrees. Step 4: Find the difference: -10 - (-30) = 20 degrees. Since -30 degrees is more negative than -10 degrees, v1 lags v2 by 20 degrees.')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: Convert v1 from sine to cosine form using the trigonometric identity sin(x) = cos(x - 90 degrees). Step 2: v1 = 20cos(wt + 60 - 90) = 20cos(wt - 30 degrees). Step 3: Compare the phase angles of both cosine functions. Phase of v1 is -30 degrees and phase of v2 is -10 degrees. Step 4: Find the difference: -10 - (-30) = 20 degrees. Since -30 degrees is more negative than -10 degrees, v1 lags v2 by 20 degrees.')">
+                    Show Full Solution
+                </button>
+            </div>
+            
             <div id="ai-feedback" class="ai-feedback-box"></div>
         </div>
 

@@ -1,0 +1,49 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">Nodal Analysis (AC)</h2>
+    <div class="problem-card">
+        <span class="badge badge-hard"><i class="fa-solid fa-fire"></i> Challenging</span>
+        
+        <h3>Question 2</h3>
+        <p>Determine the voltage across the inductor for the AC network shown in Figure 18.23.</p>
+        
+        <div style="text-align:center; margin: 20px;">
+            <img src="{{ url_for('static', filename='images/nodalmod2.png') }}" style="max-width:450px; border:1px solid #ccc; border-radius: 8px;">
+            <p style="font-size:12px; color:#666;">Figure 18.23: AC network with mixed independent sources for nodal analysis</p>
+        </div>
+
+        <div class="user-input-area">
+            <h4>Your Solution:</h4>
+            <p class="instruction-text" style="font-size: 0.9em; color: #555;">Enter the final inductor voltage in polar form (e.g., 9.95 angle 1.88 degrees V).</p>
+            <textarea id="student-answer" class="student-textarea" rows="3" placeholder="V_L = ..."></textarea>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('Step 1: Assign node voltages. Let V1 be the node above the inductor and V2 be the node above the capacitor. The bottom wire is the ground reference. The voltage across the inductor is simply V1. Step 2: Convert the given components into complex impedances: Z1 = 0.5 kOhm, Z2 = j10 kOhm, Z3 = 2 kOhm, Z4 = -j5 kOhm. The sources are E = 12 /_ 0 degrees V and I = 4 /_ 0 degrees mA. Step 3: Write the KCL equation for Node 1. Summing currents leaving the node: (V1 - E)/Z1 + V1/Z2 + (V1 - V2)/Z3 = 0. Rearranging to group V1 and V2 terms yields: V1*(1/Z1 + 1/Z2 + 1/Z3) - V2*(1/Z3) = E/Z1. Substituting the values and converting to admittances gives: V1*(2.5 mS /_ -2.29 degrees) - V2*(0.5 mS /_ 0 degrees) = 24 mA /_ 0 degrees. Step 4: Write the KCL equation for Node 2. Summing currents leaving the node: (V2 - V1)/Z3 + V2/Z4 + I = 0. Rearranging gives: -V1*(1/Z3) + V2*(1/Z3 + 1/Z4) = -I. Substituting the values gives: -V1*(0.5 mS /_ 0 degrees) + V2*(0.539 mS /_ 21.80 degrees) = -4 mA /_ 0 degrees. Step 5: Solve the system of two equations for V1 using determinants (Cramer\'s Rule). The main determinant is Delta = (2.5 mS /_ -2.29 degrees)*(0.539 mS /_ 21.80 degrees) - (-0.5 mS /_ 0 degrees)*(-0.5 mS /_ 0 degrees). Step 6: The numerator determinant for V1 replaces the first column with the current vector: Delta_1 = (24 mA /_ 0 degrees)*(0.539 mS /_ 21.80 degrees) - (-0.5 mS /_ 0 degrees)*(-4 mA /_ 0 degrees). Step 7: Evaluating complex division V1 = Delta_1 / Delta results in 9.95 /_ 1.88 degrees V.', 'Step 1: Assign node voltages. Let V1 be the node above the inductor and V2 be the node above the capacitor. The bottom wire is the ground reference. The voltage across the inductor is simply V1. Step 2: Convert the given components into complex impedances: Z1 = 0.5 kOhm, Z2 = j10 kOhm, Z3 = 2 kOhm, Z4 = -j5 kOhm. The sources are E = 12 /_ 0 degrees V and I = 4 /_ 0 degrees mA. Step 3: Write the KCL equation for Node 1. Summing currents leaving the node: (V1 - E)/Z1 + V1/Z2 + (V1 - V2)/Z3 = 0. Rearranging to group V1 and V2 terms yields: V1*(1/Z1 + 1/Z2 + 1/Z3) - V2*(1/Z3) = E/Z1. Substituting the values and converting to admittances gives: V1*(2.5 mS /_ -2.29 degrees) - V2*(0.5 mS /_ 0 degrees) = 24 mA /_ 0 degrees. Step 4: Write the KCL equation for Node 2. Summing currents leaving the node: (V2 - V1)/Z3 + V2/Z4 + I = 0. Rearranging gives: -V1*(1/Z3) + V2*(1/Z3 + 1/Z4) = -I. Substituting the values gives: -V1*(0.5 mS /_ 0 degrees) + V2*(0.539 mS /_ 21.80 degrees) = -4 mA /_ 0 degrees. Step 5: Solve the system of two equations for V1 using determinants (Cramer\'s Rule). The main determinant is Delta = (2.5 mS /_ -2.29 degrees)*(0.539 mS /_ 21.80 degrees) - (-0.5 mS /_ 0 degrees)*(-0.5 mS /_ 0 degrees). Step 6: The numerator determinant for V1 replaces the first column with the current vector: Delta_1 = (24 mA /_ 0 degrees)*(0.539 mS /_ 21.80 degrees) - (-0.5 mS /_ 0 degrees)*(-4 mA /_ 0 degrees). Step 7: Evaluating complex division V1 = Delta_1 / Delta results in 9.95 /_ 1.88 degrees V.')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: Assign node voltages. Let V1 be the node above the inductor and V2 be the node above the capacitor. The bottom wire is the ground reference. The voltage across the inductor is simply V1. Step 2: Convert the given components into complex impedances: Z1 = 0.5 kOhm, Z2 = j10 kOhm, Z3 = 2 kOhm, Z4 = -j5 kOhm. The sources are E = 12 /_ 0 degrees V and I = 4 /_ 0 degrees mA. Step 3: Write the KCL equation for Node 1. Summing currents leaving the node: (V1 - E)/Z1 + V1/Z2 + (V1 - V2)/Z3 = 0. Rearranging to group V1 and V2 terms yields: V1*(1/Z1 + 1/Z2 + 1/Z3) - V2*(1/Z3) = E/Z1. Substituting the values and converting to admittances gives: V1*(2.5 mS /_ -2.29 degrees) - V2*(0.5 mS /_ 0 degrees) = 24 mA /_ 0 degrees. Step 4: Write the KCL equation for Node 2. Summing currents leaving the node: (V2 - V1)/Z3 + V2/Z4 + I = 0. Rearranging gives: -V1*(1/Z3) + V2*(1/Z3 + 1/Z4) = -I. Substituting the values gives: -V1*(0.5 mS /_ 0 degrees) + V2*(0.539 mS /_ 21.80 degrees) = -4 mA /_ 0 degrees. Step 5: Solve the system of two equations for V1 using determinants (Cramer\'s Rule). The main determinant is Delta = (2.5 mS /_ -2.29 degrees)*(0.539 mS /_ 21.80 degrees) - (-0.5 mS /_ 0 degrees)*(-0.5 mS /_ 0 degrees). Step 6: The numerator determinant for V1 replaces the first column with the current vector: Delta_1 = (24 mA /_ 0 degrees)*(0.539 mS /_ 21.80 degrees) - (-0.5 mS /_ 0 degrees)*(-4 mA /_ 0 degrees). Step 7: Evaluating complex division V1 = Delta_1 / Delta results in 9.95 /_ 1.88 degrees V.', 'Step 1: Assign node voltages. Let V1 be the node above the inductor and V2 be the node above the capacitor. The bottom wire is the ground reference. The voltage across the inductor is simply V1. Step 2: Convert the given components into complex impedances: Z1 = 0.5 kOhm, Z2 = j10 kOhm, Z3 = 2 kOhm, Z4 = -j5 kOhm. The sources are E = 12 /_ 0 degrees V and I = 4 /_ 0 degrees mA. Step 3: Write the KCL equation for Node 1. Summing currents leaving the node: (V1 - E)/Z1 + V1/Z2 + (V1 - V2)/Z3 = 0. Rearranging to group V1 and V2 terms yields: V1*(1/Z1 + 1/Z2 + 1/Z3) - V2*(1/Z3) = E/Z1. Substituting the values and converting to admittances gives: V1*(2.5 mS /_ -2.29 degrees) - V2*(0.5 mS /_ 0 degrees) = 24 mA /_ 0 degrees. Step 4: Write the KCL equation for Node 2. Summing currents leaving the node: (V2 - V1)/Z3 + V2/Z4 + I = 0. Rearranging gives: -V1*(1/Z3) + V2*(1/Z3 + 1/Z4) = -I. Substituting the values gives: -V1*(0.5 mS /_ 0 degrees) + V2*(0.539 mS /_ 21.80 degrees) = -4 mA /_ 0 degrees. Step 5: Solve the system of two equations for V1 using determinants (Cramer\'s Rule). The main determinant is Delta = (2.5 mS /_ -2.29 degrees)*(0.539 mS /_ 21.80 degrees) - (-0.5 mS /_ 0 degrees)*(-0.5 mS /_ 0 degrees). Step 6: The numerator determinant for V1 replaces the first column with the current vector: Delta_1 = (24 mA /_ 0 degrees)*(0.539 mS /_ 21.80 degrees) - (-0.5 mS /_ 0 degrees)*(-4 mA /_ 0 degrees). Step 7: Evaluating complex division V1 = Delta_1 / Delta results in 9.95 /_ 1.88 degrees V.')">
+                    Show Full Solution
+                </button>
+            </div>
+            
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: Node Identification</summary>
+                <p>Define your primary essential nodes. Let $\mathbf{V}_1$ be the node above the inductor ($X_L$) and $\mathbf{V}_2$ be the node above the capacitor ($X_C$). Notice that the voltage across the inductor is exactly $\mathbf{V}_1 - 0$, which is just $\mathbf{V}_1$.</p>
+            </details>
+            <details>
+                <summary>💡 Hint 2: Admittances Simplify the Algebra</summary>
+                <p>Because there are parallel branches connected to the nodes, converting the impedances ($\mathbf{Z}_1$, $\mathbf{Z}_2$, etc.) into admittances ($\mathbf{Y} = 1/\mathbf{Z}$) in milli-Siemens ($\text{mS}$) early in your calculation will make setting up the Cramer's rule determinants much easier.</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <p><strong>Answer:</strong> $\mathbf{V}_1 = 9.95 \angle 1.88^\circ\text{ V}$</p>
+            </details>
+        </div>
+    </div>
+</div>

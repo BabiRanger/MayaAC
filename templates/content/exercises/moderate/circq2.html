@@ -13,10 +13,19 @@
 
         <div class="user-input-area">
             <textarea id="student-answer" class="student-textarea" rows="3" placeholder="ix(t) = ..."></textarea>
-            <button class="ai-check-btn" 
-                onclick="checkAnswerWithAI('Find ix(t) in Fig 3 (Q17) if is=2sin(5t)', '2.12 sin(5t + 32.01 degrees)')">
-                Check Answer
-            </button>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('Find ix(t) in Fig 3 (Q17) if is=2sin(5t)', 'Step 1: Convert the circuit parameter into the phasor domain. Let the source current be modeled as Is = 2 /_ 0 degrees A in reference to the given sine function, keeping note that the angular frequency w = 5 rad/s. Step 2: Determine individual branch component impedances using Z_L = j*w*L for inductors and Z_C = 1/(j*w*C) for capacitors. Step 3: Identify the parallel branches sharing the input source current. Step 4: Setup the AC Current Divider Rule to evaluate the specific branch current phasor Ix. The formula equates to Ix = Is * [ Z_opposite / (Z_target + Z_opposite) ]. Step 5: Execute the complex algebra division to obtain the phasor value for Ix, which evaluates to approximately 2.12 /_ 32.01 degrees A. Step 6: Convert the polar solution directly back to the time-domain sine format matching the original source: ix(t) = 2.12sin(5t + 32.01 degrees) A.')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: Convert the circuit parameter into the phasor domain. Let the source current be modeled as Is = 2 /_ 0 degrees A in reference to the given sine function, keeping note that the angular frequency w = 5 rad/s. Step 2: Determine individual branch component impedances using Z_L = j*w*L for inductors and Z_C = 1/(j*w*C) for capacitors. Step 3: Identify the parallel branches sharing the input source current. Step 4: Setup the AC Current Divider Rule to evaluate the specific branch current phasor Ix. The formula equates to Ix = Is * [ Z_opposite / (Z_target + Z_opposite) ]. Step 5: Execute the complex algebra division to obtain the phasor value for Ix, which evaluates to approximately 2.12 /_ 32.01 degrees A. Step 6: Convert the polar solution directly back to the time-domain sine format matching the original source: ix(t) = 2.12sin(5t + 32.01 degrees) A.')">
+                    Show Full Solution
+                </button>
+            </div>
+            
             <div id="ai-feedback" class="ai-feedback-box"></div>
         </div>
 

@@ -13,10 +13,19 @@
 
         <div class="user-input-area">
             <textarea id="student-answer" class="student-textarea" rows="3" placeholder="i(t) = ..."></textarea>
-            <button class="ai-check-btn" 
-                onclick="checkAnswerWithAI('Calculate i(t) for circuit in Q23 (Fig 9) with 6cos(200t) source', '0.96 cos(200t - 7.955 degrees)')">
-                Check Answer
-            </button>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('Calculate i(t) for circuit in Q23 (Fig 9) with 6cos(200t) source', 'Step 1: Identify the source variables. The voltage source is 6cos(200t), which translates to a phasor Vs = 6 /_ 0 degrees V with an angular frequency w = 200 rad/s. Step 2: Compute the individual impedances of the passive elements at this frequency. For reactive elements, use Z_L = j*w*L and Z_C = 1/(j*w*C). Step 3: Simplify the complex impedance grid by combining any obvious parallel branches into an equivalent Z_parallel. Step 4: Add the remaining series components to compute the total network impedance seen by the source: Z_total = R_series + Z_parallel. Step 5: Solve for the total source current phasor using Ohms Law: I_total = Vs / Z_total. Step 6: Apply a current divider or node-voltage analysis if needed to isolate the specific current flowing through the 5 Ohm branch, yielding a phasor value of approximately 0.96 /_ -7.955 degrees A. Step 7: Convert the phasor back into its time-domain sinusoidal expression: i(t) = 0.96cos(200t - 7.955 degrees) A.')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: Identify the source variables. The voltage source is 6cos(200t), which translates to a phasor Vs = 6 /_ 0 degrees V with an angular frequency w = 200 rad/s. Step 2: Compute the individual impedances of the passive elements at this frequency. For reactive elements, use Z_L = j*w*L and Z_C = 1/(j*w*C). Step 3: Simplify the complex impedance grid by combining any obvious parallel branches into an equivalent Z_parallel. Step 4: Add the remaining series components to compute the total network impedance seen by the source: Z_total = R_series + Z_parallel. Step 5: Solve for the total source current phasor using Ohms Law: I_total = Vs / Z_total. Step 6: Apply a current divider or node-voltage analysis if needed to isolate the specific current flowing through the 5 Ohm branch, yielding a phasor value of approximately 0.96 /_ -7.955 degrees A. Step 7: Convert the phasor back into its time-domain sinusoidal expression: i(t) = 0.96cos(200t - 7.955 degrees) A.')">
+                    Show Full Solution
+                </button>
+            </div>
+            
             <div id="ai-feedback" class="ai-feedback-box"></div>
         </div>
 

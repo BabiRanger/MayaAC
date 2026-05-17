@@ -13,10 +13,19 @@
 
         <div class="user-input-area">
             <textarea id="student-answer" class="student-textarea" rows="3" placeholder="Io = ..."></textarea>
-            <button class="ai-check-btn" 
-                onclick="checkAnswerWithAI('Find Io in Figure 10 (Q24) source=5<0', '5 angle 180 degrees')">
-                Check Answer
-            </button>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('Find Io in Figure 10 (Q24) source=5&lt;0', 'Step 1: Set up the network parameters. The source current is a phasor Is = 5 /_ 0 degrees A. Step 2: Use nodal analysis or mesh analysis to handle the complex branch impedances across the bridge topology. Step 3: Write out the system of linear equations using Kirchhoffs laws to account for the imaginary parts of the components. Step 4: Solve the simultaneous system for the target branch current phasor. The algebra yields Io = -5 + j0 A. Step 5: Convert the rectangular form into polar coordinates. A value of -5 lies entirely on the negative real axis, giving a magnitude of 5 and a phase angle of 180 degrees. Thus, Io = 5 /_ 180 degrees A.')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: Set up the network parameters. The source current is a phasor Is = 5 /_ 0 degrees A. Step 2: Use nodal analysis or mesh analysis to handle the complex branch impedances across the bridge topology. Step 3: Write out the system of linear equations using Kirchhoffs laws to account for the imaginary parts of the components. Step 4: Solve the simultaneous system for the target branch current phasor. The algebra yields Io = -5 + j0 A. Step 5: Convert the rectangular form into polar coordinates. A value of -5 lies entirely on the negative real axis, giving a magnitude of 5 and a phase angle of 180 degrees. Thus, Io = 5 /_ 180 degrees A.')">
+                    Show Full Solution
+                </button>
+            </div>
+            
             <div id="ai-feedback" class="ai-feedback-box"></div>
         </div>
 

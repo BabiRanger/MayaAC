@@ -14,10 +14,19 @@
 
         <div class="user-input-area">
             <textarea id="student-answer" class="student-textarea" rows="3" placeholder="v(t) = ..."></textarea>
-            <button class="ai-check-btn" 
-                onclick="checkAnswerWithAI('Solve v(t) + int(v)dt = 5cos(t+45) for v(t)', '3.536 cos(t + 90 degrees)')">
-                Check Answer
-            </button>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('Solve v(t) + int(v)dt = 5cos(t+45) for v(t)', 'Step 1: Transform the entire equation to the phasor domain. Let v(t) become the phasor V. The right-hand side source becomes Vs = 5 /_ 45 degrees with an angular frequency w = 1 rad/s. Step 2: Apply the phasor calculus property where integration in the time domain corresponds to division by j*w in the phasor domain. The equation transforms to: V + V/(j*1) = 5 /_ 45 degrees. Step 3: Simplify the left side by substituting 1/j = -j. This yields: V - jV = V(1 - j) = 5 /_ 45 degrees. Step 4: Isolate V by dividing by the rectangular term: V = (5 /_ 45) / (1 - j). Step 5: Convert the denominator (1 - j) into polar form, which evaluates to sqrt(2) /_ -45 degrees. Step 6: Perform polar division: V = (5 / sqrt(2)) /_ (45 - (-45)) = 3.536 /_ 90 degrees V. Step 7: Convert back to the time domain: v(t) = 3.536cos(t + 90 degrees) V.')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: Transform the entire equation to the phasor domain. Let v(t) become the phasor V. The right-hand side source becomes Vs = 5 /_ 45 degrees with an angular frequency w = 1 rad/s. Step 2: Apply the phasor calculus property where integration in the time domain corresponds to division by j*w in the phasor domain. The equation transforms to: V + V/(j*1) = 5 /_ 45 degrees. Step 3: Simplify the left side by substituting 1/j = -j. This yields: V - jV = V(1 - j) = 5 /_ 45 degrees. Step 4: Isolate V by dividing by the rectangular term: V = (5 /_ 45) / (1 - j). Step 5: Convert the denominator (1 - j) into polar form, which evaluates to sqrt(2) /_ -45 degrees. Step 6: Perform polar division: V = (5 / sqrt(2)) /_ (45 - (-45)) = 3.536 /_ 90 degrees V. Step 7: Convert back to the time domain: v(t) = 3.536cos(t + 90 degrees) V.')">
+                    Show Full Solution
+                </button>
+            </div>
+            
             <div id="ai-feedback" class="ai-feedback-box"></div>
         </div>
 

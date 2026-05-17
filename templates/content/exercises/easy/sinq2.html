@@ -15,10 +15,19 @@
 
         <div class="user-input-area">
             <textarea id="student-answer" class="student-textarea" rows="3" placeholder="e.g. v(t) leads i(t) by..."></textarea>
-            <button class="ai-check-btn" 
-                onclick="checkAnswerWithAI('Compare v=10cos(4t-60) and i=4sin(4t+50). Who leads?', 'i(t) leads v(t) by 20 degrees')">
-                Check Answer
-            </button>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('Compare v=10cos(4t-60) and i=4sin(4t+50). Who leads?', 'Step 1: Convert the current waveform i(t) from sine to cosine form using the identity sin(x) = cos(x - 90 degrees). Step 2: Calculate the new phase: i(t) = 4cos(4t + 50 - 90) = 4cos(4t - 40 degrees). Step 3: Compare the phase angles of both cosine functions. The phase of v(t) is -60 degrees and the phase of i(t) is -40 degrees. Step 4: Determine the lead relationship by subtracting the phase of v(t) from i(t): -40 - (-60) = 20 degrees. Since -40 degrees is greater (less negative) than -60 degrees on a real number line, i(t) leads v(t) by 20 degrees.')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: Convert the current waveform i(t) from sine to cosine form using the identity sin(x) = cos(x - 90 degrees). Step 2: Calculate the new phase: i(t) = 4cos(4t + 50 - 90) = 4cos(4t - 40 degrees). Step 3: Compare the phase angles of both cosine functions. The phase of v(t) is -60 degrees and the phase of i(t) is -40 degrees. Step 4: Determine the lead relationship by subtracting the phase of v(t) from i(t): -40 - (-60) = 20 degrees. Since -40 degrees is greater (less negative) than -60 degrees on a real number line, i(t) leads v(t) by 20 degrees.')">
+                    Show Full Solution
+                </button>
+            </div>
+            
             <div id="ai-feedback" class="ai-feedback-box"></div>
         </div>
 

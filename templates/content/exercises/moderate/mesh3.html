@@ -1,0 +1,51 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">Mesh Analysis with Dependent Sources</h2>
+    <div class="problem-card">
+        <span class="badge badge-hard"><i class="fa-solid fa-fire"></i> Challenging</span>
+        
+        <h3>Question 3</h3>
+        <p>Consider the circuit with a voltage-controlled voltage source (VCVS) shown in Figure 18.12. Formulate the mesh equations, identify the controlling voltage variable $\mathbf{V}_x$ in terms of the mesh currents, and determine the final simplified KVL expression for **Loop 2**.</p>
+        
+        <div style="text-align:center; margin: 20px;">
+            <img src="{{ url_for('static', filename='images/meshmod3.png') }}" style="max-width:320px; border:1px solid #ccc; border-radius: 8px;">
+            <p style="font-size:12px; color:#666;">Figure 18.12: AC mesh network containing a dependent voltage source controlled by branch voltage Vx</p>
+        </div>
+
+        <div class="user-input-area">
+            <h4>Your Solution:</h4>
+            <p class="instruction-text" style="font-size: 0.9em; color: #555;">What is the controlling voltage equation for $\mathbf{V}_x$ expressed in terms of the mesh currents $\mathbf{I}_1$, $\mathbf{I}_2$, and resistance $R_2$?</p>
+            <textarea id="student-answer" class="student-textarea" rows="3" placeholder="e.g., Vx = (I1 - I2)*R2"></textarea>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('Step 1: Assign clockwise loop currents I1 and I2 as given in the diagram. Step 2: Formulate KVL for Loop 1. Moving clockwise through Loop 1, the sum of voltage drops gives: E1 - I1*R1 - R2*(I1 - I2) = 0. Step 3: Formulate KVL for Loop 2. Moving clockwise through Loop 2, notice the signs on the dependent source. Entering the negative terminal first gives a voltage drop of: R2*(I2 - I1) + mu*Vx - I2*R3 = 0. Step 4: Express the controlling variable Vx in terms of the designated loop currents. The voltage Vx is the drop across resistor R2 with a positive polarity defined at the top node. Tracking the net current passing downward through R2 yields the constraint equation: Vx = (I1 - I2)*R2. Step 5: Substitute the constraint equation into the Loop 2 KVL relation to form a system with two equations and two unknowns: R2*(I2 - I1) + mu*R2*(I1 - I2) - I2*R3 = 0.', 'Step 1: Assign clockwise loop currents I1 and I2 as given in the diagram. Step 2: Formulate KVL for Loop 1. Moving clockwise through Loop 1, the sum of voltage drops gives: E1 - I1*R1 - R2*(I1 - I2) = 0. Step 3: Formulate KVL for Loop 2. Moving clockwise through Loop 2, notice the signs on the dependent source. Entering the negative terminal first gives a voltage drop of: R2*(I2 - I1) + mu*Vx - I2*R3 = 0. Step 4: Express the controlling variable Vx in terms of the designated loop currents. The voltage Vx is the drop across resistor R2 with a positive polarity defined at the top node. Tracking the net current passing downward through R2 yields the constraint equation: Vx = (I1 - I2)*R2. Step 5: Substitute the constraint equation into the Loop 2 KVL relation to form a system with two equations and two unknowns: R2*(I2 - I1) + mu*R2*(I1 - I2) - I2*R3 = 0.')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: Assign clockwise loop currents I1 and I2 as given in the diagram. Step 2: Formulate KVL for Loop 1. Moving clockwise through Loop 1, the sum of voltage drops gives: E1 - I1*R1 - R2*(I1 - I2) = 0. Step 3: Formulate KVL for Loop 2. Moving clockwise through Loop 2, notice the signs on the dependent source. Entering the negative terminal first gives a voltage drop of: R2*(I2 - I1) + mu*Vx - I2*R3 = 0. Step 4: Express the controlling variable Vx in terms of the designated loop currents. The voltage Vx is the drop across resistor R2 with a positive polarity defined at the top node. Tracking the net current passing downward through R2 yields the constraint equation: Vx = (I1 - I2)*R2. Step 5: Substitute the constraint equation into the Loop 2 KVL relation to form a system with two equations and two unknowns: R2*(I2 - I1) + mu*R2*(I1 - I2) - I2*R3 = 0.', 'Step 1: Assign clockwise loop currents I1 and I2 as given in the diagram. Step 2: Formulate KVL for Loop 1. Moving clockwise through Loop 1, the sum of voltage drops gives: E1 - I1*R1 - R2*(I1 - I2) = 0. Step 3: Formulate KVL for Loop 2. Moving clockwise through Loop 2, notice the signs on the dependent source. Entering the negative terminal first gives a voltage drop of: R2*(I2 - I1) + mu*Vx - I2*R3 = 0. Step 4: Express the controlling variable Vx in terms of the designated loop currents. The voltage Vx is the drop across resistor R2 with a positive polarity defined at the top node. Tracking the net current passing downward through R2 yields the constraint equation: Vx = (I1 - I2)*R2. Step 5: Substitute the constraint equation into the Loop 2 KVL relation to form a system with two equations and two unknowns: R2*(I2 - I1) + mu*R2*(I1 - I2) - I2*R3 = 0.')">
+                    Show Full Solution
+                </button>
+            </div>
+            
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: Tracking the Polarities of Controlled Sources</summary>
+                <p>Pay close attention to the designated terminal signs on the diamond-shaped dependent source. Loop current $\mathbf{I}_2$ enters the negative terminal of the source first when traveling in a clockwise loop direction. According to standard voltage drop conventions, this contributes a $+ \mu\mathbf{V}_x$ term to your Loop 2 KVL summation.</p>
+            </details>
+            <details>
+                <summary>💡 Hint 2: Establishing the Dependency Constraint</summary>
+                <p>The variable controlling the dependent source is $\mathbf{V}_x$. Look at the given polarity signs for $\mathbf{V}_x$ across resistor $R_2$ (positive at the top, negative at the bottom ground rail). Because the positive sign is at the top, the downward-flowing current $\mathbf{I}_1$ aligns with the definition, while upward-flowing current $\mathbf{I}_2$ opposes it. This gives the dependency equation: $\mathbf{V}_x = (\mathbf{I}_1 - \mathbf{I}_2)R_2$.</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <p><strong>Answer:</strong> <br>
+                • Controlling Variable Constraint: $\mathbf{V}_x = (\mathbf{I}_1 - \mathbf{I}_2)R_2$<br>
+                • Loop 2 Equation: $R_2(\mathbf{I}_2 - \mathbf{I}_1) + \mu R_2(\mathbf{I}_1 - \mathbf{I}_2) - \mathbf{I}_2R_3 = 0$</p>
+            </details>
+        </div>
+    </div>
+</div>

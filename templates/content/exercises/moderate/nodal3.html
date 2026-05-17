@@ -1,0 +1,50 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">Nodal Analysis with Dependent Sources</h2>
+    <div class="problem-card">
+        <span class="badge badge-hard"><i class="fa-solid fa-fire"></i> Challenging</span>
+        
+        <h3>Question 3</h3>
+        <p>Write the nodal equations for the network in Figure 18.27, which features a current-controlled current source (CCCS). Determine the final, simplified KCL expressions for both Node 1 and Node 2 in terms of the node voltages ($\mathbf{V}_1$, $\mathbf{V}_2$).</p>
+        
+        <div style="text-align:center; margin: 20px;">
+            <img src="{{ url_for('static', filename='images/nodalmod3.png') }}" style="max-width:400px; border:1px solid #ccc; border-radius: 8px;">
+            <p style="font-size:12px; color:#666;">Figure 18.27: Nodal network containing a dependent current source controlled by branch current I'</p>
+        </div>
+
+        <div class="user-input-area">
+            <h4>Your Solution:</h4>
+            <p class="instruction-text" style="font-size: 0.9em; color: #555;">Enter the simplified KCL equation for Node 2.</p>
+            <textarea id="student-answer" class="student-textarea" rows="3" placeholder="Node 2 Eq: ..."></textarea>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('Step 1: Identify the nodes and the controlling variable. Let V1 be the left node and V2 be the right node. The dependent current source relies on the current I\', which flows through Z2 from V1 to V2. Expressing this in terms of node voltages gives the constraint equation: I\' = (V1 - V2) / Z2. Step 2: Write the KCL equation for Node V1. The independent current source I enters the node. The currents leaving are V1/Z1 (through Z1) and (V1 - V2)/Z2 (through Z2). This gives: V1/Z1 + (V1 - V2)/Z2 - I = 0. Rearranging to group terms yields: V1*[1/Z1 + 1/Z2] - V2*[1/Z2] = I. Step 3: Write the KCL equation for Node V2. Looking at currents leaving the node, we have (V2 - V1)/Z2 flowing left, V2/Z3 flowing down, and the dependent source current kI\' flowing down. Summing these gives: (V2 - V1)/Z2 + V2/Z3 + k*I\' = 0. Step 4: Substitute the controlling constraint I\' = (V1 - V2) / Z2 into the Node 2 KCL equation. This results in: (V2 - V1)/Z2 + V2/Z3 + k*[(V1 - V2)/Z2] = 0. Step 5: Group the V1 and V2 terms to finalize the Node 2 equation. Expanding gives: V2/Z2 - V1/Z2 + V2/Z3 + k*V1/Z2 - k*V2/Z2 = 0. Factoring out V1 and V2 yields: V1*[(k - 1)/Z2] + V2*[(1 - k)/Z2 + 1/Z3] = 0. Multiplying the entire equation by -1 to match standard textbook formatting gives the final result: V1*[(1 - k)/Z2] - V2*[(1 - k)/Z2 + 1/Z3] = 0.', 'Step 1: Identify the nodes and the controlling variable. Let V1 be the left node and V2 be the right node. The dependent current source relies on the current I\', which flows through Z2 from V1 to V2. Expressing this in terms of node voltages gives the constraint equation: I\' = (V1 - V2) / Z2. Step 2: Write the KCL equation for Node V1. The independent current source I enters the node. The currents leaving are V1/Z1 (through Z1) and (V1 - V2)/Z2 (through Z2). This gives: V1/Z1 + (V1 - V2)/Z2 - I = 0. Rearranging to group terms yields: V1*[1/Z1 + 1/Z2] - V2*[1/Z2] = I. Step 3: Write the KCL equation for Node V2. Looking at currents leaving the node, we have (V2 - V1)/Z2 flowing left, V2/Z3 flowing down, and the dependent source current kI\' flowing down. Summing these gives: (V2 - V1)/Z2 + V2/Z3 + k*I\' = 0. Step 4: Substitute the controlling constraint I\' = (V1 - V2) / Z2 into the Node 2 KCL equation. This results in: (V2 - V1)/Z2 + V2/Z3 + k*[(V1 - V2)/Z2] = 0. Step 5: Group the V1 and V2 terms to finalize the Node 2 equation. Expanding gives: V2/Z2 - V1/Z2 + V2/Z3 + k*V1/Z2 - k*V2/Z2 = 0. Factoring out V1 and V2 yields: V1*[(k - 1)/Z2] + V2*[(1 - k)/Z2 + 1/Z3] = 0. Multiplying the entire equation by -1 to match standard textbook formatting gives the final result: V1*[(1 - k)/Z2] - V2*[(1 - k)/Z2 + 1/Z3] = 0.')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: Identify the nodes and the controlling variable. Let V1 be the left node and V2 be the right node. The dependent current source relies on the current I\', which flows through Z2 from V1 to V2. Expressing this in terms of node voltages gives the constraint equation: I\' = (V1 - V2) / Z2. Step 2: Write the KCL equation for Node V1. The independent current source I enters the node. The currents leaving are V1/Z1 (through Z1) and (V1 - V2)/Z2 (through Z2). This gives: V1/Z1 + (V1 - V2)/Z2 - I = 0. Rearranging to group terms yields: V1*[1/Z1 + 1/Z2] - V2*[1/Z2] = I. Step 3: Write the KCL equation for Node V2. Looking at currents leaving the node, we have (V2 - V1)/Z2 flowing left, V2/Z3 flowing down, and the dependent source current kI\' flowing down. Summing these gives: (V2 - V1)/Z2 + V2/Z3 + k*I\' = 0. Step 4: Substitute the controlling constraint I\' = (V1 - V2) / Z2 into the Node 2 KCL equation. This results in: (V2 - V1)/Z2 + V2/Z3 + k*[(V1 - V2)/Z2] = 0. Step 5: Group the V1 and V2 terms to finalize the Node 2 equation. Expanding gives: V2/Z2 - V1/Z2 + V2/Z3 + k*V1/Z2 - k*V2/Z2 = 0. Factoring out V1 and V2 yields: V1*[(k - 1)/Z2] + V2*[(1 - k)/Z2 + 1/Z3] = 0. Multiplying the entire equation by -1 to match standard textbook formatting gives the final result: V1*[(1 - k)/Z2] - V2*[(1 - k)/Z2 + 1/Z3] = 0.', 'Step 1: Identify the nodes and the controlling variable. Let V1 be the left node and V2 be the right node. The dependent current source relies on the current I\', which flows through Z2 from V1 to V2. Expressing this in terms of node voltages gives the constraint equation: I\' = (V1 - V2) / Z2. Step 2: Write the KCL equation for Node V1. The independent current source I enters the node. The currents leaving are V1/Z1 (through Z1) and (V1 - V2)/Z2 (through Z2). This gives: V1/Z1 + (V1 - V2)/Z2 - I = 0. Rearranging to group terms yields: V1*[1/Z1 + 1/Z2] - V2*[1/Z2] = I. Step 3: Write the KCL equation for Node V2. Looking at currents leaving the node, we have (V2 - V1)/Z2 flowing left, V2/Z3 flowing down, and the dependent source current kI\' flowing down. Summing these gives: (V2 - V1)/Z2 + V2/Z3 + k*I\' = 0. Step 4: Substitute the controlling constraint I\' = (V1 - V2) / Z2 into the Node 2 KCL equation. This results in: (V2 - V1)/Z2 + V2/Z3 + k*[(V1 - V2)/Z2] = 0. Step 5: Group the V1 and V2 terms to finalize the Node 2 equation. Expanding gives: V2/Z2 - V1/Z2 + V2/Z3 + k*V1/Z2 - k*V2/Z2 = 0. Factoring out V1 and V2 yields: V1*[(k - 1)/Z2] + V2*[(1 - k)/Z2 + 1/Z3] = 0. Multiplying the entire equation by -1 to match standard textbook formatting gives the final result: V1*[(1 - k)/Z2] - V2*[(1 - k)/Z2 + 1/Z3] = 0.')">
+                    Show Full Solution
+                </button>
+            </div>
+            
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: Expressing the Controlling Variable</summary>
+                <p>The dependent source relies on $\mathbf{I}'$. Look at the diagram: $\mathbf{I}'$ is the current flowing from Node $\mathbf{V}_1$ to Node $\mathbf{V}_2$ through impedance $\mathbf{Z}_2$. Using Ohm's Law, this can be written as: $\mathbf{I}' = \frac{\mathbf{V}_1 - \mathbf{V}_2}{\mathbf{Z}_2}$.</p>
+            </details>
+            <details>
+                <summary>💡 Hint 2: KCL at Node 2</summary>
+                <p>When summing the currents leaving Node 2, remember to include the dependent source. The currents leaving are: $\frac{\mathbf{V}_2 - \mathbf{V}_1}{\mathbf{Z}_2}$ (going left), $\frac{\mathbf{V}_2}{\mathbf{Z}_3}$ (going down), and $k\mathbf{I}'$ (going down). Set their sum to zero and substitute your expression for $\mathbf{I}'$.</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <p><strong>Node 1:</strong> $\mathbf{V}_1 \left[\frac{1}{\mathbf{Z}_1} + \frac{1}{\mathbf{Z}_2}\right] - \mathbf{V}_2 \left[\frac{1}{\mathbf{Z}_2}\right] = \mathbf{I}$<br>
+                   <strong>Node 2:</strong> $\mathbf{V}_1 \left[\frac{1 - k}{\mathbf{Z}_2}\right] - \mathbf{V}_2 \left[\frac{1 - k}{\mathbf{Z}_2} + \frac{1}{\mathbf{Z}_3}\right] = 0$</p>
+            </details>
+        </div>
+    </div>
+</div>

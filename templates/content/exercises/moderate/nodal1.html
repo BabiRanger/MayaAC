@@ -1,0 +1,49 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">Nodal Analysis (DC)</h2>
+    <div class="problem-card">
+        <span class="badge badge-mod"><i class="fa-solid fa-layer-group"></i> Moderate</span>
+        
+        <h3>Question 1</h3>
+        <p>For the circuit layout presented in Figure 8.51, apply nodal analysis to identify the node voltages, and then determine the final branch current $I_{R_2}$ passing through the central $4\ \Omega$ resistor.</p>
+        
+        <div style="text-align:center; margin: 20px;">
+            <img src="{{ url_for('static', filename='images/nodalmod1.png') }}" style="max-width:350px; border:1px solid #ccc; border-radius: 8px;">
+            <p style="font-size:12px; color:#666;">Figure 8.51: DC network containing an independent current source parallel to a branch resistor</p>
+        </div>
+
+        <div class="user-input-area">
+            <h4>Your Solution:</h4>
+            <p class="instruction-text" style="font-size: 0.9em; color: #555;">Enter the final branch current magnitude flowing through $R_2$ in Amperes (up to two decimal places).</p>
+            <textarea id="student-answer" class="student-textarea" rows="3" placeholder="I_R2 = ... A"></textarea>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('Step 1: Set up the node labels. Let V1 be the node between R1 and R2, and V2 be the node between R2 and R3. The bottom wire acts as our ground reference at 0 Volts. Step 2: Write the Kirchhoffs Current Law (KCL) equation at Node V1. Summing the currents leaving the node yields: (V1 - 64)/8 + (V1 - V2)/4 + 2 = 0. Multiplying through by 8 simplifies this to: 3*V1 - 2*V2 = 48. Step 3: Write the KCL equation at Node V2. Summing the currents leaving the node yields: (V2 - V1)/4 + V2/10 - 2 = 0. Multiplying through by 20 simplifies this to: -5*V1 + 7*V2 = 40. Step 4: Solve the simultaneous system for the node voltages using determinants or substitution. The calculation yields V1 = 37.82 V and V2 = 32.73 V. Step 5: Compute the final branch current through R2 using Ohms Law: I_R2 = (V1 - V2) / R2 = (37.82 V - 32.73 V) / 4 Ohm = 1.27 A.', 'Step 1: Set up the node labels. Let V1 be the node between R1 and R2, and V2 be the node between R2 and R3. The bottom wire acts as our ground reference at 0 Volts. Step 2: Write the Kirchhoffs Current Law (KCL) equation at Node V1. Summing the currents leaving the node yields: (V1 - 64)/8 + (V1 - V2)/4 + 2 = 0. Multiplying through by 8 simplifies this to: 3*V1 - 2*V2 = 48. Step 3: Write the KCL equation at Node V2. Summing the currents leaving the node yields: (V2 - V1)/4 + V2/10 - 2 = 0. Multiplying through by 20 simplifies this to: -5*V1 + 7*V2 = 40. Step 4: Solve the simultaneous system for the node voltages using determinants or substitution. The calculation yields V1 = 37.82 V and V2 = 32.73 V. Step 5: Compute the final branch current through R2 using Ohms Law: I_R2 = (V1 - V2) / R2 = (37.82 V - 32.73 V) / 4 Ohm = 1.27 A.')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: Set up the node labels. Let V1 be the node between R1 and R2, and V2 be the node between R2 and R3. The bottom wire acts as our ground reference at 0 Volts. Step 2: Write the Kirchhoffs Current Law (KCL) equation at Node V1. Summing the currents leaving the node yields: (V1 - 64)/8 + (V1 - V2)/4 + 2 = 0. Multiplying through by 8 simplifies this to: 3*V1 - 2*V2 = 48. Step 3: Write the KCL equation at Node V2. Summing the currents leaving the node yields: (V2 - V1)/4 + V2/10 - 2 = 0. Multiplying through by 20 simplifies this to: -5*V1 + 7*V2 = 40. Step 4: Solve the simultaneous system for the node voltages using determinants or substitution. The calculation yields V1 = 37.82 V and V2 = 32.73 V. Step 5: Compute the final branch current through R2 using Ohms Law: I_R2 = (V1 - V2) / R2 = (37.82 V - 32.73 V) / 4 Ohm = 1.27 A.', 'Step 1: Set up the node labels. Let V1 be the node between R1 and R2, and V2 be the node between R2 and R3. The bottom wire acts as our ground reference at 0 Volts. Step 2: Write the Kirchhoffs Current Law (KCL) equation at Node V1. Summing the currents leaving the node yields: (V1 - 64)/8 + (V1 - V2)/4 + 2 = 0. Multiplying through by 8 simplifies this to: 3*V1 - 2*V2 = 48. Step 3: Write the KCL equation at Node V2. Summing the currents leaving the node yields: (V2 - V1)/4 + V2/10 - 2 = 0. Multiplying through by 20 simplifies this to: -5*V1 + 7*V2 = 40. Step 4: Solve the simultaneous system for the node voltages using determinants or substitution. The calculation yields V1 = 37.82 V and V2 = 32.73 V. Step 5: Compute the final branch current through R2 using Ohms Law: I_R2 = (V1 - V2) / R2 = (37.82 V - 32.73 V) / 4 Ohm = 1.27 A.')">
+                    Show Full Solution
+                </button>
+            </div>
+            
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: Node Definitions</summary>
+                <p>Define your primary essential nodes. Let $V_1$ be the voltage node sitting directly above the $64\text{ V}$ source branch connection and to the left of $R_2$. Let $V_2$ be the voltage node to the right of $R_2$ and directly above $R_3$. Set the bottom rail as your ground reference ($0\text{ V}$).</p>
+            </details>
+            <details>
+                <summary>💡 Hint 2: Handling the 2 A Source</summary>
+                <p>Remember that the $2\text{ A}$ source is leaving Node $V_1$ and directly entering Node $V_2$. When applying KCL, make sure its sign is positive ($+2$) when analyzing currents leaving $V_1$, and negative ($-2$) when analyzing currents leaving $V_2$.</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <p><strong>Answer:</strong> $V_1 = 37.82\text{ V}$, $V_2 = 32.73\text{ V}$, and $I_{R_2} = 1.27\text{ A}$</p>
+            </details>
+        </div>
+    </div>
+</div>

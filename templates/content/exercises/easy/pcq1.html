@@ -14,10 +14,19 @@
 
         <div class="user-input-area">
             <textarea id="student-answer" class="student-textarea" rows="3" placeholder="Enter polar form..."></textarea>
-            <button class="ai-check-btn" 
-                onclick="checkAnswerWithAI('Convert -10cos(4t+75) to phasor', '10 angle -105 degrees')">
-                Check Answer
-            </button>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('Convert -10cos(4t+75) to phasor', 'Step 1: Phasor magnitudes must be positive. To remove the negative sign, subtract 180 degrees from the phase angle. Step 2: -10cos(4t + 75) = 10cos(4t + 75 - 180) = 10cos(4t - 105). Step 3: Write in phasor form: V = 10 /_ -105 degrees V.')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: Phasor magnitudes must be positive. To remove the negative sign, subtract 180 degrees from the phase angle. Step 2: -10cos(4t + 75) = 10cos(4t + 75 - 180) = 10cos(4t - 105). Step 3: Write in phasor form: V = 10 /_ -105 degrees V.')">
+                    Show Full Solution
+                </button>
+            </div>
+            
             <div id="ai-feedback" class="ai-feedback-box"></div>
         </div>
 
@@ -28,7 +37,7 @@
             </details>
             <details>
                 <summary>🔑 Show Answer</summary>
-                <p><strong>Answer:</strong> $10 \angle -105^\circ$ A</p>
+                <p><strong>Answer:</strong> $10 \angle -105^\circ$ V</p>
             </details>
         </div>
     </div>

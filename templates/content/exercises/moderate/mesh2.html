@@ -1,0 +1,52 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">Mesh Analysis (AC)</h2>
+    <div class="problem-card">
+        <span class="badge badge-hard"><i class="fa-solid fa-fire"></i> Challenging</span>
+        
+        <h3>Question 2</h3>
+        <p>Using the general approach to mesh analysis, find the phasor loop current $\mathbf{I}_1$ for the AC network illustrated in Figure 18.10.</p>
+        
+        <div style="text-align:center; margin: 20px;">
+            <img src="{{ url_for('static', filename='images/meshmod2.png') }}" style="max-width:380px; border:1px solid #ccc; border-radius: 8px;">
+            <p style="font-size:12px; color:#666;">Figure 18.10: AC network with reactive elements and independent phasor sources</p>
+        </div>
+
+        <div class="user-input-area">
+            <h4>Your Solution:</h4>
+            <p class="instruction-text" style="font-size: 0.9em; color: #555;">Enter your answer in polar form (e.g., 3.61 angle 123.7 degrees A).</p>
+            <textarea id="student-answer" class="student-textarea" rows="3" placeholder="I1 = ..."></textarea>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('Step 1: Define the branch impedances in rectangular form. Z1 (inductive branch) = +j*XL = j2 Ohm. Z2 (shared resistive branch) = R = 4 Ohm. Z3 (capacitive branch) = -j*XC = -j1 Ohm. The voltage sources are E1 = 2 /_ 0 degrees V and E2 = 6 /_ 0 degrees V. Step 2: Set up the mesh KVL equations. For Loop 1: I1*(Z1 + Z2) - I2*Z2 = E1. Plugging in values: I1*(4 + j2) - 4*I2 = 2. For Loop 2: -I1*Z2 + I2*(Z2 + Z3) = -E2. Plugging in values: -4*I1 + I2*(4 - j1) = -6. Step 3: Set up Cramer\'s Rule determinants to solve for I1. The main system matrix determinant Delta = (Z1 + Z2)*(Z2 + Z3) - (Z2)^2 = Z1*Z2 + Z1*Z3 + Z2*Z3. Substituting complex numbers gives Delta = 2 + j4 Ohm^2. Step 4: Set up the numerator determinant for I1 by replacing the first column with source values: Delta_1 = E1*(Z2 + Z3) - E2*Z2. Substituting values yields Delta_1 = -16 - j2 V*Ohm. Step 5: Solve for I1 by executing complex division: I1 = Delta_1 / Delta = (-16 - j2) / (2 + j4). Convert both parts to polar form to make division straightforward: Numerator = 16.12 /_ -172.87 degrees, Denominator = 4.47 /_ 63.43 degrees. Step 6: Compute the final polar quotient: Magnitude = 16.12 / 4.47 = 3.61 A. Phase Angle = -172.87 - 63.43 = -236.30 degrees. Normalizing the angle to a positive range (-236.30 + 360) gives 123.70 degrees. Therefore, I1 = 3.61 /_ 123.70 degrees A.', 'Step 1: Define the branch impedances in rectangular form. Z1 (inductive branch) = +j*XL = j2 Ohm. Z2 (shared resistive branch) = R = 4 Ohm. Z3 (capacitive branch) = -j*XC = -j1 Ohm. The voltage sources are E1 = 2 /_ 0 degrees V and E2 = 6 /_ 0 degrees V. Step 2: Set up the mesh KVL equations. For Loop 1: I1*(Z1 + Z2) - I2*Z2 = E1. Plugging in values: I1*(4 + j2) - 4*I2 = 2. For Loop 2: -I1*Z2 + I2*(Z2 + Z3) = -E2. Plugging in values: -4*I1 + I2*(4 - j1) = -6. Step 3: Set up Cramer\'s Rule determinants to solve for I1. The main system matrix determinant Delta = (Z1 + Z2)*(Z2 + Z3) - (Z2)^2 = Z1*Z2 + Z1*Z3 + Z2*Z3. Substituting complex numbers gives Delta = 2 + j4 Ohm^2. Step 4: Set up the numerator determinant for I1 by replacing the first column with source values: Delta_1 = E1*(Z2 + Z3) - E2*Z2. Substituting values yields Delta_1 = -16 - j2 V*Ohm. Step 5: Solve for I1 by executing complex division: I1 = Delta_1 / Delta = (-16 - j2) / (2 + j4). Convert both parts to polar form to make division straightforward: Numerator = 16.12 /_ -172.87 degrees, Denominator = 4.47 /_ 63.43 degrees. Step 6: Compute the final polar quotient: Magnitude = 16.12 / 4.47 = 3.61 A. Phase Angle = -172.87 - 63.43 = -236.30 degrees. Normalizing the angle to a positive range (-236.30 + 360) gives 123.70 degrees. Therefore, I1 = 3.61 /_ 123.70 degrees A.')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: Define the branch impedances in rectangular form. Z1 (inductive branch) = +j*XL = j2 Ohm. Z2 (shared resistive branch) = R = 4 Ohm. Z3 (capacitive branch) = -j*XC = -j1 Ohm. The voltage sources are E1 = 2 /_ 0 degrees V and E2 = 6 /_ 0 degrees V. Step 2: Set up the mesh KVL equations. For Loop 1: I1*(Z1 + Z2) - I2*Z2 = E1. Plugging in values: I1*(4 + j2) - 4*I2 = 2. For Loop 2: -I1*Z2 + I2*(Z2 + Z3) = -E2. Plugging in values: -4*I1 + I2*(4 - j1) = -6. Step 3: Set up Cramer\'s Rule determinants to solve for I1. The main system matrix determinant Delta = (Z1 + Z2)*(Z2 + Z3) - (Z2)^2 = Z1*Z2 + Z1*Z3 + Z2*Z3. Substituting complex numbers gives Delta = 2 + j4 Ohm^2. Step 4: Set up the numerator determinant for I1 by replacing the first column with source values: Delta_1 = E1*(Z2 + Z3) - E2*Z2. Substituting values yields Delta_1 = -16 - j2 V*Ohm. Step 5: Solve for I1 by executing complex division: I1 = Delta_1 / Delta = (-16 - j2) / (2 + j4). Convert both parts to polar form to make division straightforward: Numerator = 16.12 /_ -172.87 degrees, Denominator = 4.47 /_ 63.43 degrees. Step 6: Compute the final polar quotient: Magnitude = 16.12 / 4.47 = 3.61 A. Phase Angle = -172.87 - 63.43 = -236.30 degrees. Normalizing the angle to a positive range (-236.30 + 360) gives 123.70 degrees. Therefore, I1 = 3.61 /_ 123.70 degrees A.', 'Step 1: Define the branch impedances in rectangular form. Z1 (inductive branch) = +j*XL = j2 Ohm. Z2 (shared resistive branch) = R = 4 Ohm. Z3 (capacitive branch) = -j*XC = -j1 Ohm. The voltage sources are E1 = 2 /_ 0 degrees V and E2 = 6 /_ 0 degrees V. Step 2: Set up the mesh KVL equations. For Loop 1: I1*(Z1 + Z2) - I2*Z2 = E1. Plugging in values: I1*(4 + j2) - 4*I2 = 2. For Loop 2: -I1*Z2 + I2*(Z2 + Z3) = -E2. Plugging in values: -4*I1 + I2*(4 - j1) = -6. Step 3: Set up Cramer\'s Rule determinants to solve for I1. The main system matrix determinant Delta = (Z1 + Z2)*(Z2 + Z3) - (Z2)^2 = Z1*Z2 + Z1*Z3 + Z2*Z3. Substituting complex numbers gives Delta = 2 + j4 Ohm^2. Step 4: Set up the numerator determinant for I1 by replacing the first column with source values: Delta_1 = E1*(Z2 + Z3) - E2*Z2. Substituting values yields Delta_1 = -16 - j2 V*Ohm. Step 5: Solve for I1 by executing complex division: I1 = Delta_1 / Delta = (-16 - j2) / (2 + j4). Convert both parts to polar form to make division straightforward: Numerator = 16.12 /_ -172.87 degrees, Denominator = 4.47 /_ 63.43 degrees. Step 6: Compute the final polar quotient: Magnitude = 16.12 / 4.47 = 3.61 A. Phase Angle = -172.87 - 63.43 = -236.30 degrees. Normalizing the angle to a positive range (-236.30 + 360) gives 123.70 degrees. Therefore, I1 = 3.61 /_ 123.70 degrees A.')">
+                    Show Full Solution
+                </button>
+            </div>
+            
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: Express Reactances as Impedances</summary>
+                <p>Before writing your mesh loops, convert all reactive elements to rectangular complex numbers:
+                <br>• Inductive Impedance: $Z_1 = +jX_L = +j2\ \Omega$
+                <br>• Shared Resistive Impedance: $Z_2 = R = 4\ \Omega$
+                <br>• Capacitive Impedance: $Z_3 = -jX_C = -j1\ \Omega$</p>
+            </details>
+            <details>
+                <summary>💡 Hint 2: Handling Polar Coordinates and Division</summary>
+                <p>When solving the determinants equation for $\mathbf{I}_1$, you'll get a rectangular expression: $\frac{-16 - j2}{2 + j4}$. Do not try to divide rectangular numbers directly! Transform both the numerator and denominator into polar coordinates first ($M \angle \theta$) and subtract the angles.</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <p><strong>Answer:</strong> $\mathbf{I}_1 = 3.61\text{ A} \angle -236.30^\circ$ or $3.61\text{ A} \angle 123.70^\circ$</p>
+            </details>
+        </div>
+    </div>
+</div>

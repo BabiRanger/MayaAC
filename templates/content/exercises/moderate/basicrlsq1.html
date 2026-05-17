@@ -13,10 +13,19 @@
 
         <div class="user-input-area">
             <textarea id="student-answer" class="student-textarea" rows="3" placeholder="vo(t) = ..."></textarea>
-            <button class="ai-check-btn" 
-                onclick="checkAnswerWithAI('Find vo(t) in Series RLC (R=2, C=0.25F, L=1H) with vs=5cos2t', '5 cos(2t + 90 degrees)')">
-                Check Answer
-            </button>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('Find vo(t) in Series RLC (R=2, C=0.25F, L=1H) with vs=5cos2t', 'Step 1: Convert the source voltage to its phasor representation. Vs = 5 /_ 0 degrees V with an angular frequency w = 2 rad/s. Step 2: Compute individual branch impedances. Inductor Z_L = j*w*L = j*(2)*(1) = j2 Ohm. Capacitor Z_C = 1/(j*w*C) = 1/(j*2*0.25) = -j4 Ohm. Wait, let us recalculate: 1/(2*0.25) = 1/0.5 = 2, so Z_C = -j2 Ohm. Step 3: Find total network impedance Z_total = R + Z_L + Z_C = 2 + j2 - j2 = 2 Ohm. Notice that the reactive components cancel out entirely because the circuit is operating at its series resonant frequency. Step 4: Find total loop current phasor I = Vs / Z_total = (5 /_ 0) / 2 = 2.5 /_ 0 degrees A. Step 5: Compute inductor output voltage phasor Vo = I * Z_L = (2.5 /_ 0) * (j2) = 5 /_ 90 degrees V. Step 6: Convert the phasor back into the time domain: vo(t) = 5cos(2t + 90 degrees) V.')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: Convert the source voltage to its phasor representation. Vs = 5 /_ 0 degrees V with an angular frequency w = 2 rad/s. Step 2: Compute individual branch impedances. Inductor Z_L = j*w*L = j*(2)*(1) = j2 Ohm. Capacitor Z_C = 1/(j*w*C) = 1/(j*2*0.25) = 1/(j0.5) = -j2 Ohm. Step 3: Find total network impedance Z_total = R + Z_L + Z_C = 2 + j2 - j2 = 2 Ohm. Notice that the reactive components cancel out entirely because the circuit is operating at its series resonant frequency. Step 4: Find total loop current phasor I = Vs / Z_total = (5 /_ 0) / 2 = 2.5 /_ 0 degrees A. Step 5: Compute inductor output voltage phasor Vo = I * Z_L = (2.5 /_ 0) * (j2) = 5 /_ 90 degrees V. Step 6: Convert the phasor back into the time domain: vo(t) = 5cos(2t + 90 degrees) V.')">
+                    Show Full Solution
+                </button>
+            </div>
+            
             <div id="ai-feedback" class="ai-feedback-box"></div>
         </div>
 
@@ -27,7 +36,7 @@
             </details>
              <details>
                 <summary>💡 Hint 2: Total Impedance</summary>
-                <p> notice that $Z_L + Z_C = j2 - j2 = 0$. What does this imply about resonance?</p>
+                <p> Notice that $Z_L + Z_C = j2 - j2 = 0$. What does this imply about resonance?</p>
             </details>
             <details>
                 <summary>🔑 Show Answer</summary>

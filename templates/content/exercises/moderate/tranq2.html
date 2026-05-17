@@ -14,10 +14,19 @@
 
         <div class="user-input-area">
             <textarea id="student-answer" class="student-textarea" rows="3" placeholder="f(t) = ..."></textarea>
-            <button class="ai-check-btn" 
-                onclick="checkAnswerWithAI('Simplify 5cos(2t+15) - 4sin(2t-30)', '8.324 cos(2t + 34.86 degrees)')">
-                Check Answer
-            </button>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('Simplify 5cos(2t+15) - 4sin(2t-30)', 'Step 1: Convert the terms to a matching reference format (Cosine). Keep the first term as a phasor: F1 = 5 /_ 15 degrees. Step 2: Convert the second term from sine to cosine using the identity -4sin(x) = 4cos(x + 90 degrees). Applying this gives: -4sin(2t - 30) = 4cos(2t - 30 + 90) = 4cos(2t + 60 degrees), matching a phasor of F2 = 4 /_ 60 degrees. Step 3: Add the two phasors by converting them to rectangular coordinates: F1 = 5*cos(15) + j*5*sin(15) = 4.830 + j1.294. F2 = 4*cos(60) + j*4*sin(60) = 2.000 + j3.464. Step 4: Sum the real and imaginary components together: F_total = (4.830 + 2.000) + j(1.294 + 3.464) = 6.830 + j4.758. Step 5: Convert the total rectangular value back to polar coordinates. Magnitude = sqrt(6.830^2 + 4.758^2) = 8.324. Phase angle = arctan(4.758 / 6.830) = 34.86 degrees. Thus, F_total = 8.324 /_ 34.86 degrees. Step 6: Express the final polar answer back as a single time-domain cosine function: f(t) = 8.324cos(2t + 34.86 degrees).')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Simplify 5cos(2t+15) - 4sin(2t-30)', 'Step 1: Convert the terms to a matching reference format (Cosine). Keep the first term as a phasor: F1 = 5 /_ 15 degrees. Step 2: Convert the second term from sine to cosine using the identity -4sin(x) = 4cos(x + 90 degrees). Applying this gives: -4sin(2t - 30) = 4cos(2t - 30 + 90) = 4cos(2t + 60 degrees), matching a phasor of F2 = 4 /_ 60 degrees. Step 3: Add the two phasors by converting them to rectangular coordinates: F1 = 5*cos(15) + j*5*sin(15) = 4.830 + j1.294. F2 = 4*cos(60) + j*4*sin(60) = 2.000 + j3.464. Step 4: Sum the real and imaginary components together: F_total = (4.830 + 2.000) + j(1.294 + 3.464) = 6.830 + j4.758. Step 5: Convert the total rectangular value back to polar coordinates. Magnitude = sqrt(6.830^2 + 4.758^2) = 8.324. Phase angle = arctan(4.758 / 6.830) = 34.86 degrees. Thus, F_total = 8.324 /_ 34.86 degrees. Step 6: Express the final polar answer back as a single time-domain cosine function: f(t) = 8.324cos(2t + 34.86 degrees).')">
+                    Show Full Solution
+                </button>
+            </div>
+            
             <div id="ai-feedback" class="ai-feedback-box"></div>
         </div>
 

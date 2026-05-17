@@ -1,0 +1,49 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">Mesh Analysis (DC)</h2>
+    <div class="problem-card">
+        <span class="badge badge-mod"><i class="fa-solid fa-layer-group"></i> Moderate</span>
+        
+        <h3>Question 1</h3>
+        <p>For the circuit shown in Figure 8.34, find the branch current flowing through the central resistor $R_2$ ($6 \Omega$). Assume the loop currents $I_1$ and $I_2$ are flowing in the counter-clockwise directions as indicated.</p>
+        
+        <div style="text-align:center; margin: 20px;">
+            <img src="{{ url_for('static', filename='images/meshmod1.png') }}" style="max-width:350px; border:1px solid #ccc; border-radius: 8px;">
+            <p style="font-size:12px; color:#666;">Figure 8.34: Two-loop DC network with shared resistor and independent sources</p>
+        </div>
+
+        <div class="user-input-area">
+            <h4>Your Solution:</h4>
+            <p class="instruction-text" style="font-size: 0.9em; color: #555;">Enter the magnitude of the current through $R_2$ in Amperes.</p>
+            <textarea id="student-answer" class="student-textarea" rows="3" placeholder="I_R2 = ... A"></textarea>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('You are a circuit tutor. Output this pre-calculated step-by-step solution immediately without any conversational filler or requests for information:', 'Step 1: Write the KVL equation for Loop 1 moving counter-clockwise. Following the loop direction, the drops sum up to: E1 + I1*R1 + (I1 - I2)*R2 - E2 = 0. Substituting values: 5 + 1*I1 + 6(I1 - I2) - 10 = 0, which simplifies to 7*I1 - 6*I2 = 5. Step 2: Write the KVL equation for Loop 2 moving counter-clockwise. The drops sum up to: E2 + (I2 - I1)*R2 + I2*R3 = 0. Substituting values: 10 + 6(I2 - I1) + 2*I2 = 0, which simplifies to -6*I1 + 8*I2 = -10. Step 3: Solve the simultaneous system for loop currents I1 and I2. Solving these equations yields I1 = -1 A and I2 = -2 A (the negative signs show that the actual currents flow clockwise). Step 4: Calculate the net branch current through R2. Since I_R2 is typically tracked in the direction of one of the loops, tracking it downward matching loop 2 gives: I_R2 = I2 - I1 = (-2 A) - (-1 A) = -1 A. Taking the absolute magnitude of the branch current results in 1 A.')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: Write the KVL equation for Loop 1 moving counter-clockwise. Following the loop direction, the drops sum up to: E1 + I1*R1 + (I1 - I2)*R2 - E2 = 0. Substituting values: 5 + 1*I1 + 6(I1 - I2) - 10 = 0, which simplifies to 7*I1 - 6*I2 = 5. Step 2: Write the KVL equation for Loop 2 moving counter-clockwise. The drops sum up to: E2 + (I2 - I1)*R2 + I2*R3 = 0. Substituting values: 10 + 6(I2 - I1) + 2*I2 = 0, which simplifies to -6*I1 + 8*I2 = -10. Step 3: Solve the simultaneous system for loop currents I1 and I2. Solving these equations yields I1 = -1 A and I2 = -2 A (the negative signs show that the actual currents flow clockwise). Step 4: Calculate the net branch current through R2. Since I_R2 is typically tracked in the direction of one of the loops, tracking it downward matching loop 2 gives: I_R2 = I2 - I1 = (-2 A) - (-1 A) = -1 A. Taking the absolute magnitude of the branch current results in 1 A.', 'Step 1: Write the KVL equation for Loop 1 moving counter-clockwise. Following the loop direction, the drops sum up to: E1 + I1*R1 + (I1 - I2)*R2 - E2 = 0. Substituting values: 5 + 1*I1 + 6(I1 - I2) - 10 = 0, which simplifies to 7*I1 - 6*I2 = 5. Step 2: Write the KVL equation for Loop 2 moving counter-clockwise. The drops sum up to: E2 + (I2 - I1)*R2 + I2*R3 = 0. Substituting values: 10 + 6(I2 - I1) + 2*I2 = 0, which simplifies to -6*I1 + 8*I2 = -10. Step 3: Solve the simultaneous system for loop currents I1 and I2. Solving these equations yields I1 = -1 A and I2 = -2 A (the negative signs show that the actual currents flow clockwise). Step 4: Calculate the net branch current through R2. Since I_R2 is typically tracked in the direction of one of the loops, tracking it downward matching loop 2 gives: I_R2 = I2 - I1 = (-2 A) - (-1 A) = -1 A. Taking the absolute magnitude of the branch current results in 1 A.')">
+                    Show Full Solution
+                </button>
+            </div>
+            
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: Shared Branch Resistor Polarities</summary>
+                <p>Note that the polarities of the $6\ wastes \Omega$ resistor are different for each loop current. When writing KVL for Loop 1, the voltage across $R_2$ is expressed as $(I_1 - I2) \cdot R_2$. When writing KVL for Loop 2, it is expressed as $(I_2 - I_1) \cdot R_2$.</p>
+            </details>
+            <details>
+                <summary>💡 Hint 2: Solving Loop Currents</summary>
+                <p>Set up your two simultaneous KVL loop equations. Don't be alarmed if your calculated loop currents $I_1$ and $I_2$ come out as negative numbers—this simply means the actual physical currents are traveling clockwise opposite to the assumed diagram arrows.</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <p><strong>Answer:</strong> $I_{R_2} = 1\text{ A}$</p>
+            </details>
+        </div>
+    </div>
+</div>
