@@ -103,6 +103,18 @@ function showExerciseNav(difficulty, clickedSubNavLink) {
             content += `<a href="#" onclick="loadTopic('exercises/moderate/circanq1', this)">1. Find Current i(t)</a>`;
             content += `<a href="#" onclick="loadTopic('exercises/moderate/analycq2', this)">2. RLC Voltage</a>`;
             content += `<a href="#" onclick="loadTopic('exercises/moderate/analycq3', this)">3. Bridge Network</a>`;
+
+            content += topicHeader('Mesh Analysis');
+            content += `<a href="#" onclick="loadTopic('exercises/moderate/mesh1', this)">1. DC Mesh Analysis</a>`;
+            content += `<a href="#" onclick="loadTopic('exercises/moderate/mesh2', this)">2. AC Mesh Analysis</a>`;
+            content += `<a href="#" onclick="loadTopic('exercises/moderate/mesh3', this)">3. AC Mesh with Dependent Source</a>`;
+
+            content += topicHeader('Nodal Analysis');
+            content += `<a href="#" onclick="loadTopic('exercises/moderate/nodal1', this)">1. DC Nodal Analysis</a>`;
+            content += `<a href="#" onclick="loadTopic('exercises/moderate/nodal2', this)">2. AC Nodal Analysis</a>`;
+            content += `<a href="#" onclick="loadTopic('exercises/moderate/nodal3', this)">3. AC Nodal with Dependent Source</a>`;
+
+            content += '<h5></h5>';
             break;
 
         case 'challenging':
@@ -217,12 +229,6 @@ async function showFullSolution(solutionKey) {
         });
 
         const data = await response.json();
-
-        // NEW: Check if the backend sent an error message instead of a reply
-        if (data.error) {
-            throw new Error(data.error); 
-        }
-        
         const formattedReply = marked.parse(data.reply);
         
         // Use a different icon/header to indicate it's the full solution
@@ -233,14 +239,12 @@ async function showFullSolution(solutionKey) {
         }
 
     } catch (error) {
-        console.error("The actual error is:", error);
-        
+        console.error(error);
         // Check if the error message from the backend contains the '503' or 'demand' keyword
         if (error.message && error.message.includes("high demand")) {
             feedbackBox.innerHTML = '<span style="color: #d97706;">⚠️ The AI is currently experiencing high demand. Please wait a few seconds and try again.</span>';
         } else {
-            // NEW: Print the actual error message to the screen so we can see what's wrong!
-            feedbackBox.innerHTML = `<span style="color: #dc2626;">❌ AI Error: ${error.message}</span>`;
+            feedbackBox.innerHTML = '<span style="color: #dc2626;">❌ Error connecting to AI assistant. Please ensure the server is running.</span>';
         }
     }
 }
