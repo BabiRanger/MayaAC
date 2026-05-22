@@ -130,6 +130,15 @@ function showSidenav(topic, clickedSubNavLink) {
             content += `<a href="#" onclick="loadTopic('impedance/pitfall', this)">Common Mistakes</a>`;
             break; //Exit switch statement
 
+        case 'firstorder':
+            //HTML for the impedance section
+            content += '<h3>First Order Circuit Response</h3>'; //Add title
+            content += `<a href="#" onclick="loadTopic('firstorder/introduction', this)">Introduction</a>`;
+            content += `<a href="#" onclick="loadTopic('firstorder/sourcefreeRC', this)">Source-Free RC Circuit</a>`;
+            content += `<a href="#" onclick="loadTopic('firstorder/sourcefreeRL', this)">Source-Free RL Circuit</a>`;
+            content += `<a href="#" onclick="loadTopic('firstorder/stepresponse', this)">Step Response & Common Pitfalls</a>`;
+            break; //Exit switch statement
+
         case 'nodal':
             //HTML for the nodal section
             content += '<h3>Nodal</h3>'; //Add title
