@@ -105,22 +105,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function maskLaTeX(text) {
-        const mathBlocks = [];
-        
-        // Match $$...$$ (Display Math)
-        text = text.replace(/\$\$([\s\S]*?)\$\$/g, (match) => {
-            mathBlocks.push(match);
-            return `@@MATH_BLOCK_${mathBlocks.length - 1}@@`;
-        });
-        
-        // Match $...$ (Inline Math)
-        text = text.replace(/\$((?:[^\$]|\\\$)+)\$/g, (match) => {
-            mathBlocks.push(match);
-            return `@@MATH_INLINE_${mathBlocks.length - 1}@@`;
-        });
-        
-        return { maskedText: text, mathBlocks };
+     function maskLaTeX(text) {
+    const mathBlocks = [];
+    
+    // Match $$...$$ AND \[...\] (Display Math)
+    text = text.replace(/(\$\$|\\\[)([\s\S]*?)(\$\$|\\\])/g, (match) => {
+        mathBlocks.push(match);
+        return `@@MATH_BLOCK_${mathBlocks.length - 1}@@`;
+    });
+    
+    // Match $...$ AND \(...\) (Inline Math)
+    // Using a non-greedy match (.*?) to prevent swallowing text between two separate inline equations
+    text = text.replace(/(\$|\\\()([\s\S]*?)(\$|\\\))/g, (match) => {
+        mathBlocks.push(match);
+        return `@@MATH_INLINE_${mathBlocks.length - 1}@@`;
+    });
+    
+    return { maskedText: text, mathBlocks };
     }
 
     function unmaskLaTeX(text, mathBlocks) {
