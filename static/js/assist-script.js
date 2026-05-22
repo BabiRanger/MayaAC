@@ -105,21 +105,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-     function maskLaTeX(text) {
-    const mathBlocks = [];
+    function maskLaTeX(text) {
+        // 1. Standardize all brackets to dollar signs BEFORE masking
+        // Note: In JavaScript's replace function, '$$$$' outputs '$$', and '$$' outputs '$'
+        text = text.replace(/\\\[/g, '$$$$').replace(/\\\]/g, '$$$$');
+        text = text.replace(/\\\(/g, '$$').replace(/\\\)/g, '$$');
+
+        const mathBlocks = [];
     
-    // Match $$...$$ AND \[...\] (Display Math)
-    text = text.replace(/(\$\$|\\\[)([\s\S]*?)(\$\$|\\\])/g, (match) => {
-        mathBlocks.push(match);
-        return `@@MATH_BLOCK_${mathBlocks.length - 1}@@`;
-    });
+        // 2. Match $$...$$ (Display Math)
+        text = text.replace(/\$\$([\s\S]*?)\$\$/g, (match) => {
+            mathBlocks.push(match);
+            return `@@MATH_BLOCK_${mathBlocks.length - 1}@@`;
+            });
     
-    // Match $...$ AND \(...\) (Inline Math)
-    // Using a non-greedy match (.*?) to prevent swallowing text between two separate inline equations
-    text = text.replace(/(\$|\\\()([\s\S]*?)(\$|\\\))/g, (match) => {
-        mathBlocks.push(match);
-        return `@@MATH_INLINE_${mathBlocks.length - 1}@@`;
-    });
+        // 3. Match $...$ (Inline Math)
+        text = text.replace(/\$((?:[^\$]|\\\$)+)\$/g, (match) => {
+            mathBlocks.push(match);
+            return `@@MATH_INLINE_${mathBlocks.length - 1}@@`;
+            });
     
     return { maskedText: text, mathBlocks };
     }
