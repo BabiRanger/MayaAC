@@ -1,0 +1,114 @@
+<style>
+    .psc-container {
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+        color: #333;
+    }
+    .section-header {
+        color: #1e3a8a; 
+        border-bottom: 1px solid #eee; 
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    .formula-large {
+        font-size: 20px; 
+        font-weight: bold; 
+        margin: 10px 0;
+        text-align: center;
+    }
+    
+    /* Image Container Styling */
+    .diagram-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #f9fafb;
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px dashed #ccc;
+        min-width: 250px;
+    }
+
+    .diagram-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        background-color: white;
+    }
+
+    .caption {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #666;
+        font-style: italic;
+    }
+
+    .video-section {
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 2px dashed #e5e7eb; /* Subtle divider from the main content */
+    }
+
+    .video-header {
+        color: #1e3a8a;
+        font-size: 22px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* Mathematical ratio for 16:9 video */
+        height: 0;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        background-color: #000; /* Shows black before video loads */
+        border: 1px solid #ccc;
+    }
+
+    .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+</style>
+
+<div class="psc-container">
+    
+    <h2 class="section-header">2. The Source-Free RC Circuit</h2>
+
+    <div style="display: flex; align-items: flex-start; gap: 40px; flex-wrap: wrap;">
+        
+        <div style="flex: 1; min-width: 300px;">
+            <p>When a DC source is suddenly disconnected, the energy stored in the capacitor is released into the resistor. By applying Kirchhoff's Current Law (KCL), we find that the voltage decays exponentially.</p>
+            <ul style="line-height: 2;">
+                <li><strong>The Voltage Response:</strong> The voltage across the capacitor at any time $t$ is given by:
+                    <div class="formula-large">$$ v(t) = V_0 e^{-t/\tau} $$</div>
+                </li>
+                <li><strong>Time Constant ($\tau$):</strong> Determines how fast the voltage decays. For an RC circuit, it is the product of equivalent resistance and capacitance:
+                    <div class="formula-large">$$ \tau = R_{eq}C $$</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="diagram-container">
+            <img src="{{url_for('static', filename='images/source_free_rc.png')}}" 
+                 alt="Capacitor Discharging Curve" 
+                 class="diagram-image">
+            
+            <p class="caption">Fig 2. The exponential decay of voltage in a source-free RC circuit.</p>
+        </div>
+
+    </div>
+</div>
