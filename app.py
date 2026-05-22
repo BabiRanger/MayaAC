@@ -55,13 +55,10 @@ def handle_chat():
         
         if not history:
             return jsonify({"error": "No chat history provided"}), 400
-            
-        user_message = history[-1]['parts'][0]['text']
-        
-        # 2. Call the AI using the new SDK format
+
         response = client.models.generate_content(
-            model='gemini-2.5-flash-lite', # Your original model will work now!
-            contents=user_message,
+            model='gemini-2.5-flash-lite',
+            contents=history,
             config=types.GenerateContentConfig(
                 system_instruction=SYSTEM_INSTRUCTION,
             )
@@ -70,8 +67,8 @@ def handle_chat():
         return jsonify({"reply": response.text})
     
     except Exception as e:
-        print(f"DEBUG ERROR: {e}") 
-        return jsonify({"error": str(e)}), 500
+        print(f"Error calling AI: {e}")
+        return jsonify({"error": "Failed to get response"}), 500
 
 @app.route('/reference')
 def reference():
