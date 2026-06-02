@@ -77,6 +77,9 @@ def handle_chat():
     
     except Exception as e:
         print(f"Error calling AI: {e}")
+        # Send a specific message if it's a quota issue
+        if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
+             return jsonify({"error": "Rate limit exceeded. Please wait 30 seconds."}), 429
         return jsonify({"error": "Failed to get response"}), 500
 
 @app.route('/reference')
