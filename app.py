@@ -68,8 +68,9 @@ def handle_chat():
                     types.SafetySetting(
                         category=types.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
                         threshold=types.HarmBlockThreshold.BLOCK_ONLY_HIGH
-                ),
-            ]
+                    ),
+                ]
+            )
         )
         
         return jsonify({"reply": response.text})
