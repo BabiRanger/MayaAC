@@ -187,6 +187,10 @@ async function checkAnswerWithAI(problemContext, correctAnswer) {
 
         const data = await response.json();
 
+        if (!response.ok || data.error) {
+        throw new Error(data.error || "Backend returned an error");
+        }
+
         const formattedReply = marked.parse(data.reply);
 
         feedbackBox.innerHTML = `<strong><i class="fa-solid fa-robot"></i> Assistant:</strong> ${formattedReply}`;
@@ -229,6 +233,11 @@ async function showFullSolution(solutionKey) {
         });
 
         const data = await response.json();
+
+        if (!response.ok || data.error) {
+        throw new Error(data.error || "Backend returned an error");
+        }
+        
         const formattedReply = marked.parse(data.reply);
         
         // Use a different icon/header to indicate it's the full solution
