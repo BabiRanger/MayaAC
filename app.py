@@ -64,6 +64,10 @@ def handle_chat():
             contents=history,
             config=types.GenerateContentConfig(
                 system_instruction=SYSTEM_INSTRUCTION,
+                safety_settings=[
+                    types.SafetySetting(
+                        category=types.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+                        threshold=types.HarmBlockThreshold.BLOCK_ONLY_HIGH
             )
         )
         
