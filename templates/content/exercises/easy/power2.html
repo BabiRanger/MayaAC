@@ -1,0 +1,49 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">AC Power Analysis</h2>
+    <div class="problem-card">
+        <span class="badge badge-easy" style="background-color: #22c55e; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8em;"><i class="fa-solid fa-leaf"></i> Easy</span>
+        
+        <h3>Question 2</h3>
+        <p>An AC voltage source of $120\text{ V (RMS)}$ at $60\text{ Hz}$ drives a purely inductive load of $L = 160\text{ mH}$, resulting in a reactance of $X_L = 60.319\ \Omega$ and an RMS current of $1.989\text{ A}$. Calculate the True Power ($P$), Reactive Power ($Q$), and Apparent Power ($S$) of the circuit.</p>
+        
+        <div style="text-align:center; margin: 20px;">
+            <img src="{{ url_for('static', filename='images/5.jpeg') }}" style="max-width:350px; border:1px solid #ccc; border-radius: 8px;">
+            <p style="font-size:12px; color:#666;">Figure: Power components for a purely reactive load</p>
+        </div>
+
+        <div class="user-input-area">
+            <h4>Your Solution:</h4>
+            <p class="instruction-text" style="font-size: 0.9em; color: #555;">Enter P, Q, and S with their correct units (W, VAR, VA).</p>
+            <textarea id="student-answer" class="student-textarea" rows="3" placeholder="P = ... , Q = ... , S = ..."></textarea>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('Step 1: Identify the given RMS parameters: V = 120 V, I = 1.989 A, XL = 60.319 Ohm. Step 2: Calculate the True Power (P). True power is the real power consumed by resistance. Since this is a pure inductor, R = 0. Therefore, P = I^2 * R = 0 W. Step 3: Calculate the Reactive Power (Q). Reactive power is the power stored and released by the inductors magnetic field. Q = I^2 * XL = (1.989)^2 * 60.319 = 238.73 VAR. Step 4: Calculate the Apparent Power (S). This is the total power supplied by the source. S = V * I = 120 * 1.989 = 238.68 VA. (Note: In a purely reactive circuit, S should exactly equal Q. The slight 0.05 difference here is purely due to rounding the current to 1.989 A. Conceptually, S = 238.73 VA).', 'Step 1: Identify the given RMS parameters: V = 120 V, I = 1.989 A, XL = 60.319 Ohm. Step 2: Calculate the True Power (P). True power is the real power consumed by resistance. Since this is a pure inductor, R = 0. Therefore, P = I^2 * R = 0 W. Step 3: Calculate the Reactive Power (Q). Reactive power is the power stored and released by the inductors magnetic field. Q = I^2 * XL = (1.989)^2 * 60.319 = 238.73 VAR. Step 4: Calculate the Apparent Power (S). This is the total power supplied by the source. S = V * I = 120 * 1.989 = 238.68 VA. (Note: In a purely reactive circuit, S should exactly equal Q. The slight 0.05 difference here is purely due to rounding the current to 1.989 A. Conceptually, S = 238.73 VA).')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: Identify the given RMS parameters: V = 120 V, I = 1.989 A, XL = 60.319 Ohm. Step 2: Calculate the True Power (P). True power is the real power consumed by resistance. Since this is a pure inductor, R = 0. Therefore, P = I^2 * R = 0 W. Step 3: Calculate the Reactive Power (Q). Reactive power is the power stored and released by the inductors magnetic field. Q = I^2 * XL = (1.989)^2 * 60.319 = 238.73 VAR. Step 4: Calculate the Apparent Power (S). This is the total power supplied by the source. S = V * I = 120 * 1.989 = 238.68 VA. (Note: In a purely reactive circuit, S should exactly equal Q. The slight 0.05 difference here is purely due to rounding the current to 1.989 A. Conceptually, S = 238.73 VA).', 'Step 1: Identify the given RMS parameters: V = 120 V, I = 1.989 A, XL = 60.319 Ohm. Step 2: Calculate the True Power (P). True power is the real power consumed by resistance. Since this is a pure inductor, R = 0. Therefore, P = I^2 * R = 0 W. Step 3: Calculate the Reactive Power (Q). Reactive power is the power stored and released by the inductors magnetic field. Q = I^2 * XL = (1.989)^2 * 60.319 = 238.73 VAR. Step 4: Calculate the Apparent Power (S). This is the total power supplied by the source. S = V * I = 120 * 1.989 = 238.68 VA. (Note: In a purely reactive circuit, S should exactly equal Q. The slight 0.05 difference here is purely due to rounding the current to 1.989 A. Conceptually, S = 238.73 VA).')">
+                    Show Full Solution
+                </button>
+            </div>
+            
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: True Power of an Inductor</summary>
+                <p>Pure inductors and pure capacitors do not dissipate true power (heat). Think about what your $R$ value is in this circuit, and plug it into $P = I^2R$.</p>
+            </details>
+            <details>
+                <summary>💡 Hint 2: Reactive and Apparent Power</summary>
+                <p>Use $Q = I^2X_L$ to find the reactive power in Volt-Amperes Reactive ($\text{VAR}$). Because $P = 0$, your Apparent Power ($S = V \times I$) will be entirely composed of this reactive power.</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <p><strong>Answer:</strong> $P = 0\text{ W}$, $Q = 238.73\text{ VAR}$, $S = 238.73\text{ VA}$</p>
+            </details>
+        </div>
+    </div>
+</div>

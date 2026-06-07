@@ -1,0 +1,48 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">Basic AC Ohm's Law</h2>
+    <div class="problem-card">
+        <span class="badge badge-easy" style="background-color: #22c55e; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8em;"><i class="fa-solid fa-leaf"></i> Easy</span>
+        
+        <h3>Question 1</h3>
+        <p>An AC voltage source of $\mathbf{E} = 120 \angle 0^\circ \text{ V}$ drives a purely resistive load of $R = 60\ \Omega$. Calculate the resulting phasor current $\mathbf{I}$ in polar form.</p>
+        
+        <div style="text-align:center; margin: 20px;">
+            <img src="{{ url_for('static', filename='images/1.jpeg') }}" style="max-width:300px; border:1px solid #ccc; border-radius: 8px;">
+            <p style="font-size:12px; color:#666;">Figure: AC source driving a purely resistive load</p>
+        </div>
+
+        <div class="user-input-area">
+            <h4>Your Solution:</h4>
+            <textarea id="student-answer" class="student-textarea" rows="3" placeholder="I = ..."></textarea>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('Step 1: Identify the phasor voltage source. E = 120 /_ 0 degrees V. Step 2: Identify the impedance of the purely resistive load. Since resistors do not cause a phase shift, the impedance is purely real: Z = R = 60 + j0 Ohm, which in polar form is 60 /_ 0 degrees Ohm. Step 3: Apply AC Ohms Law to find the phasor current: I = E / Z. Step 4: Divide the magnitudes: 120 / 60 = 2. Step 5: Subtract the phase angles: 0 degrees - 0 degrees = 0 degrees. Step 6: Write the final phasor current: I = 2 /_ 0 degrees A.', 'Step 1: Identify the phasor voltage source. E = 120 /_ 0 degrees V. Step 2: Identify the impedance of the purely resistive load. Since resistors do not cause a phase shift, the impedance is purely real: Z = R = 60 + j0 Ohm, which in polar form is 60 /_ 0 degrees Ohm. Step 3: Apply AC Ohms Law to find the phasor current: I = E / Z. Step 4: Divide the magnitudes: 120 / 60 = 2. Step 5: Subtract the phase angles: 0 degrees - 0 degrees = 0 degrees. Step 6: Write the final phasor current: I = 2 /_ 0 degrees A.')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: Identify the phasor voltage source. E = 120 /_ 0 degrees V. Step 2: Identify the impedance of the purely resistive load. Since resistors do not cause a phase shift, the impedance is purely real: Z = R = 60 + j0 Ohm, which in polar form is 60 /_ 0 degrees Ohm. Step 3: Apply AC Ohms Law to find the phasor current: I = E / Z. Step 4: Divide the magnitudes: 120 / 60 = 2. Step 5: Subtract the phase angles: 0 degrees - 0 degrees = 0 degrees. Step 6: Write the final phasor current: I = 2 /_ 0 degrees A.', 'Step 1: Identify the phasor voltage source. E = 120 /_ 0 degrees V. Step 2: Identify the impedance of the purely resistive load. Since resistors do not cause a phase shift, the impedance is purely real: Z = R = 60 + j0 Ohm, which in polar form is 60 /_ 0 degrees Ohm. Step 3: Apply AC Ohms Law to find the phasor current: I = E / Z. Step 4: Divide the magnitudes: 120 / 60 = 2. Step 5: Subtract the phase angles: 0 degrees - 0 degrees = 0 degrees. Step 6: Write the final phasor current: I = 2 /_ 0 degrees A.')">
+                    Show Full Solution
+                </button>
+            </div>
+            
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: Resistive Impedance</summary>
+                <p>A pure resistor has no imaginary or reactive component. Its impedance is simply $\mathbf{Z} = R \angle 0^\circ$.</p>
+            </details>
+            <details>
+                <summary>💡 Hint 2: AC Ohm's Law</summary>
+                <p>Use the formula $\mathbf{I} = \frac{\mathbf{E}}{\mathbf{Z}}$. Divide the magnitudes and subtract the denominator's phase angle from the numerator's phase angle.</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <p><strong>Answer:</strong> $\mathbf{I} = 2 \angle 0^\circ \text{ A}$</p>
+            </details>
+        </div>
+    </div>
+</div>

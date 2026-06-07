@@ -1,0 +1,49 @@
+<div class="exercise-container">
+    <h2 style="color: #1e3a8a; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">Mixed Power Analysis (Power Triangle)</h2>
+    <div class="problem-card">
+        <span class="badge badge-mod"><i class="fa-solid fa-layer-group"></i> Moderate</span>
+        
+        <h3>Question 3</h3>
+        <p>An AC voltage source of $120\text{ V (RMS)}$ drives a series load containing a $60\ \Omega$ resistor and an inductor with $X_L = 60.319\ \Omega$. The resulting RMS current is $1.410\text{ A}$. Calculate the True Power ($P$), Reactive Power ($Q$), and Apparent Power ($S$).</p>
+        
+        <div style="text-align:center; margin: 20px;">
+            <img src="{{ url_for('static', filename='images/6.jpeg') }}" style="max-width:380px; border:1px solid #ccc; border-radius: 8px;">
+            <p style="font-size:12px; color:#666;">Figure: Power components for a mixed resistive/reactive load</p>
+        </div>
+
+        <div class="user-input-area">
+            <h4>Your Solution:</h4>
+            <p class="instruction-text" style="font-size: 0.9em; color: #555;">Enter P, Q, and S with their correct units (W, VAR, VA).</p>
+            <textarea id="student-answer" class="student-textarea" rows="3" placeholder="P = ... , Q = ... , S = ..."></textarea>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="ai-check-btn" 
+                    onclick="checkAnswerWithAI('Step 1: Identify the given RMS parameters: V = 120 V, I = 1.410 A, R = 60 Ohm, XL = 60.319 Ohm. Step 2: Calculate the True Power (P) consumed by the resistor. P = I^2 * R = (1.410)^2 * 60 = 119.365 W. Step 3: Calculate the Reactive Power (Q) stored by the inductor. Q = I^2 * XL = (1.410)^2 * 60.319 = 119.998 VAR. Step 4: Calculate the Apparent Power (S). You can find total impedance Z = sqrt(60^2 + 60.319^2) = 85.078 Ohm. S = I^2 * Z = (1.410)^2 * 85.078 = 169.256 VA. Alternatively, simply use S = V * I = 120 * 1.410 = 169.2 VA. Step 5: Verify your results using the Power Triangle formula: S = sqrt(P^2 + Q^2) = sqrt(119.365^2 + 119.998^2) = 169.25 VA.', 'Step 1: Identify the given RMS parameters: V = 120 V, I = 1.410 A, R = 60 Ohm, XL = 60.319 Ohm. Step 2: Calculate the True Power (P) consumed by the resistor. P = I^2 * R = (1.410)^2 * 60 = 119.365 W. Step 3: Calculate the Reactive Power (Q) stored by the inductor. Q = I^2 * XL = (1.410)^2 * 60.319 = 119.998 VAR. Step 4: Calculate the Apparent Power (S). You can find total impedance Z = sqrt(60^2 + 60.319^2) = 85.078 Ohm. S = I^2 * Z = (1.410)^2 * 85.078 = 169.256 VA. Alternatively, simply use S = V * I = 120 * 1.410 = 169.2 VA. Step 5: Verify your results using the Power Triangle formula: S = sqrt(P^2 + Q^2) = sqrt(119.365^2 + 119.998^2) = 169.25 VA.')">
+                    Check Answer
+                </button>
+                
+                <button class="ai-check-btn" style="background-color: #6b7280;" 
+                    onclick="showFullSolution('Step 1: Identify the given RMS parameters: V = 120 V, I = 1.410 A, R = 60 Ohm, XL = 60.319 Ohm. Step 2: Calculate the True Power (P) consumed by the resistor. P = I^2 * R = (1.410)^2 * 60 = 119.365 W. Step 3: Calculate the Reactive Power (Q) stored by the inductor. Q = I^2 * XL = (1.410)^2 * 60.319 = 119.998 VAR. Step 4: Calculate the Apparent Power (S). You can find total impedance Z = sqrt(60^2 + 60.319^2) = 85.078 Ohm. S = I^2 * Z = (1.410)^2 * 85.078 = 169.256 VA. Alternatively, simply use S = V * I = 120 * 1.410 = 169.2 VA. Step 5: Verify your results using the Power Triangle formula: S = sqrt(P^2 + Q^2) = sqrt(119.365^2 + 119.998^2) = 169.25 VA.', 'Step 1: Identify the given RMS parameters: V = 120 V, I = 1.410 A, R = 60 Ohm, XL = 60.319 Ohm. Step 2: Calculate the True Power (P) consumed by the resistor. P = I^2 * R = (1.410)^2 * 60 = 119.365 W. Step 3: Calculate the Reactive Power (Q) stored by the inductor. Q = I^2 * XL = (1.410)^2 * 60.319 = 119.998 VAR. Step 4: Calculate the Apparent Power (S). You can find total impedance Z = sqrt(60^2 + 60.319^2) = 85.078 Ohm. S = I^2 * Z = (1.410)^2 * 85.078 = 169.256 VA. Alternatively, simply use S = V * I = 120 * 1.410 = 169.2 VA. Step 5: Verify your results using the Power Triangle formula: S = sqrt(P^2 + Q^2) = sqrt(119.365^2 + 119.998^2) = 169.25 VA.')">
+                    Show Full Solution
+                </button>
+            </div>
+            
+            <div id="ai-feedback" class="ai-feedback-box"></div>
+        </div>
+
+        <div class="hint-section">
+            <details>
+                <summary>💡 Hint 1: Real vs. Reactive</summary>
+                <p>Remember that only resistors consume True Power ($P = I^2R$ in Watts), and only inductors/capacitors generate Reactive Power ($Q = I^2X_L$ in VAR).</p>
+            </details>
+            <details>
+                <summary>💡 Hint 2: The Power Triangle</summary>
+                <p>Apparent Power ($S$) is the vector sum of $P$ and $Q$. You can calculate it directly via $S = I^2Z$, $S = V \times I$, or by using the Pythagorean theorem: $S = \sqrt{P^2 + Q^2}$.</p>
+            </details>
+            <details>
+                <summary>🔑 Show Answer</summary>
+                <p><strong>Answer:</strong> $P = 119.365\text{ W}$, $Q = 119.998\text{ VAR}$, $S = 169.256\text{ VA}$</p>
+            </details>
+        </div>
+    </div>
+</div>

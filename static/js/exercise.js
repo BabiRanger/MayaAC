@@ -75,7 +75,17 @@ function showExerciseNav(difficulty, clickedSubNavLink) {
     switch (difficulty) {
         case 'easy':
             content += '<h3>Easy</h3>'; 
+
+            content += topicHeader('Ohms law');
+            content += `<a href="#" onclick="loadTopic('exercises/easy/ohm1', this)">1. Resistive circuit</a>`;
+            content += `<a href="#" onclick="loadTopic('exercises/easy/ohm2', this)">2. Inductive circuit</a>`;
+            content += `<a href="#" onclick="loadTopic('exercises/easy/ohm3', this)">3. RL circuit</a>`;
             
+            content += topicHeader('Power law');
+            content += `<a href="#" onclick="loadTopic('exercises/easy/power1', this)">1. Resistive circuit</a>`;
+            content += `<a href="#" onclick="loadTopic('exercises/easy/power2', this)">2. Inductive circuit</a>`;
+            content += `<a href="#" onclick="loadTopic('exercises/easy/power3', this)">3. RL circuit</a>`;
+
             content += topicHeader('Sinusoids');
             content += `<a href="#" onclick="loadTopic('exercises/easy/psq1', this)">1. Phase Difference</a>`;
             content += `<a href="#" onclick="loadTopic('exercises/easy/sinq2', this)">2. Lead vs Lag</a>`;
@@ -201,7 +211,8 @@ async function checkAnswerWithAI(problemContext, correctAnswer) {
 
     } catch (error) {
         console.error(error);
-        feedbackBox.innerHTML = 'Error connecting to AI assistant.';
+        // This will now dynamically print EXACTLY what went wrong
+        feedbackBox.innerHTML = `<span style="color: #dc2626;">❌ ${error.message}</span>`;
     }
 }
 
@@ -249,11 +260,7 @@ async function showFullSolution(solutionKey) {
 
     } catch (error) {
         console.error(error);
-        // Check if the error message from the backend contains the '503' or 'demand' keyword
-        if (error.message && error.message.includes("high demand")) {
-            feedbackBox.innerHTML = '<span style="color: #d97706;">⚠️ The AI is currently experiencing high demand. Please wait a few seconds and try again.</span>';
-        } else {
-            feedbackBox.innerHTML = '<span style="color: #dc2626;">❌ Error connecting to AI assistant. Please ensure the server is running.</span>';
-        }
+        // This will now dynamically print EXACTLY what went wrong
+        feedbackBox.innerHTML = `<span style="color: #dc2626;">❌ ${error.message}</span>`;
     }
 }
