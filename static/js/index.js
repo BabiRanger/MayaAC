@@ -139,6 +139,15 @@ function showSidenav(topic, clickedSubNavLink) {
             content += `<a href="#" onclick="loadTopic('firstorder/stepresponse', this)">Step Response & Common Pitfalls</a>`;
             break; //Exit switch statement
 
+         case 'secondorder':
+            //HTML for the impedance section
+            content += '<h3>Second Order Circuit Response</h3>'; //Add title
+            content += `<a href="#" onclick="loadTopic('secondorder/introduction', this)">Introduction</a>`;
+            content += `<a href="#" onclick="loadTopic('secondorder/DRFreq', this)">Damping and Resonant Frequencies</a>`;
+            content += `<a href="#" onclick="loadTopic('secondorder/Responses', this)">Three Type of Responses</a>`;
+            content += `<a href="#" onclick="loadTopic('secondorder/pitfall', this)">Common Pitfalls</a>`;
+            break; //Exit switch statement
+
         case 'nodal':
             //HTML for the nodal section
             content += '<h3>Nodal</h3>'; //Add title
