@@ -1,0 +1,116 @@
+<style>
+    .psc-container {
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+        color: #333;
+    }
+    .section-header {
+        color: #1e3a8a; 
+        border-bottom: 1px solid #eee; 
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    .formula-large {
+        font-size: 20px; 
+        font-weight: bold; 
+        margin: 10px 0;
+        text-align: center;
+    }
+    
+    /* Image Container Styling */
+    .diagram-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #f9fafb;
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px dashed #ccc;
+        min-width: 250px;
+    }
+
+    .diagram-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        background-color: white;
+    }
+
+    .caption {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #666;
+        font-style: italic;
+    }
+
+    .video-section {
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 2px dashed #e5e7eb; /* Subtle divider from the main content */
+    }
+
+    .video-header {
+        color: #1e3a8a;
+        font-size: 22px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* Mathematical ratio for 16:9 video */
+        height: 0;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        background-color: #000; /* Shows black before video loads */
+        border: 1px solid #ccc;
+    }
+
+    .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+</style>
+
+<div class="psc-container">
+    
+    <h2 class="section-header">2. The Core Parameters: $\alpha$ and $\omega_0$</h2>
+
+    <div style="display: flex; align-items: flex-start; gap: 40px; flex-wrap: wrap;">
+        
+        <div style="flex: 1; min-width: 300px;">
+            <p>To determine how an RLC circuit will behave, we must calculate two critical frequencies. Comparing these two values is the key to solving the entire circuit.</p>
+            <ul style="line-height: 2;">
+                <li><strong>Resonant Frequency ($\omega_0$):</strong> The natural frequency at which energy oscillates between the L and C. It is the same for both series and parallel circuits:
+                    <div class="formula-large">$$ \omega_0 = \frac{1}{\sqrt{LC}} $$</div>
+                </li>
+                <li><strong>Neper Frequency / Damping Factor ($\alpha$):</strong> Determines how quickly the circuit's energy dissipates through the resistor.
+                    <br><strong>For Series RLC:</strong> 
+                    <span class="formula-large" style="display:inline-block; margin-left: 10px;">$$ \alpha = \frac{R}{2L} $$</span>
+                    <br><strong>For Parallel RLC:</strong>
+                    <span class="formula-large" style="display:inline-block; margin-left: 10px;">$$ \alpha = \frac{1}{2RC} $$</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="diagram-container">
+            <img src="{{url_for('static', filename='images/rlc_parameters.webp')}}" 
+                 alt="Damping vs Resonance Comparison" 
+                 class="diagram-image">
+            
+            <p class="caption">Fig 2. $\alpha$ handles the decay, while $\omega_0$ handles the oscillation.</p>
+        </div>
+
+    </div>
+</div>

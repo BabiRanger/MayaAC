@@ -1,0 +1,109 @@
+<style>
+    .psc-container {
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+        color: #333;
+    }
+    .section-header {
+        color: #1e3a8a; 
+        border-bottom: 1px solid #eee; 
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    .formula-large {
+        font-size: 20px; 
+        font-weight: bold; 
+        margin: 10px 0;
+        text-align: center;
+    }
+    
+    /* Image Container Styling */
+    .diagram-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #f9fafb;
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px dashed #ccc;
+        min-width: 250px;
+    }
+
+    .diagram-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        background-color: white;
+    }
+
+    .caption {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #666;
+        font-style: italic;
+    }
+
+    .video-section {
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 2px dashed #e5e7eb; /* Subtle divider from the main content */
+    }
+
+    .video-header {
+        color: #1e3a8a;
+        font-size: 22px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* Mathematical ratio for 16:9 video */
+        height: 0;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        background-color: #000; /* Shows black before video loads */
+        border: 1px solid #ccc;
+    }
+
+    .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+</style>
+
+<div class="psc-container">
+    
+    <h2 class="section-header">4. Common Pitfalls: Initial Conditions</h2>
+
+    <div style="display: flex; align-items: flex-start; gap: 40px; flex-wrap: wrap;">
+        
+        <div style="flex: 1; min-width: 300px;">
+            <p>Solving a second-order circuit requires you to find the initial conditions at $t = 0^+$. Because it is a second-order equation, you need <strong>two</strong> pieces of information: the initial value (like $v(0)$) and its initial derivative (like $dv(0)/dt$).</p>
+            <ul style="line-height: 2;">
+                <li>Always find $v_C(0^-)$ and $i_L(0^-)$ before the switch moves!</li>
+                <li>Use KVL, KCL, and the component equations ($i = C \frac{dv}{dt}$ and $v = L \frac{di}{dt}$) at the exact moment $t = 0^+$ to find the initial derivatives.</li>
+            </ul>
+        </div>
+
+        <div class="diagram-container" style="background-color: #fef2f2; border: 1px dashed #ef4444;">
+            <div style="font-size: 32px; color: #b91c1c; margin-bottom: 10px;">⚠️</div>
+            <p style="margin-top: 0; font-weight: bold; color: #b91c1c; text-align: center;">The Continuity Rule</p>
+            <p class="caption" style="color: #991b1b;">
+                Never forget the golden rules of energy storage components! Voltage across a capacitor cannot change instantly: <strong>$v_C(0^-) = v_C(0^+)$</strong>. Current through an inductor cannot change instantly: <strong>$i_L(0^-) = i_L(0^+)$</strong>. However, the voltage across an inductor and the current through a capacitor CAN jump instantly when a switch is thrown!
+            </p>
+        </div>
+
+    </div>
+</div>
