@@ -23,6 +23,20 @@ function closeNav() {
     document.getElementById("main").style.marginLeft = "0";
 }
 
+function alignSidebar() {
+    // 1. Find the header and the sidebar
+    const header = document.getElementById('myHeaderWrapper');
+    const sidenav = document.querySelector('.sidenav');
+    
+    if (header && sidenav) {
+        // 2. Measure the exact current height of the header
+        const currentHeaderHeight = header.offsetHeight;
+        
+        // 3. Update the CSS variable automatically
+        sidenav.style.setProperty('--header-height', currentHeaderHeight + 'px');
+    }
+}
+
 function setActiveTopNav(linkName) {
     const links = document.querySelectorAll('.topnav a');
     links.forEach(link => link.classList.remove('active'));
@@ -212,3 +226,9 @@ function showSidenav(topic, clickedSubNavLink) {
     // Finally, call the openNav() function to make sure the sidebar is visible with its new content.
     openNav();
 }
+
+// Run the function when the page first loads
+window.addEventListener('DOMContentLoaded', alignSidebar);
+
+// Run the function every time the user resizes the window
+window.addEventListener('resize', alignSidebar);
