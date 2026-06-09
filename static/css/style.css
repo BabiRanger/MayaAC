@@ -118,8 +118,9 @@ body {
     display: block; /*full width, stack vertically*/
     transition: 0.3s; /*smooth animation*/
 
-    flex-shrink: 0; /* Forces the buttons to keep their original width */
-    white-space: nowrap; /* Forces the text to stay on one single line */
+    white-space: normal; 
+    line-height: 1.4; /* Adds a little breathing room between wrapped lines */
+    word-wrap: break-word; /* Prevents super long words from breaking the layout */
 }
 
 .sidenav h3 {
