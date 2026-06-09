@@ -9,6 +9,24 @@ window.addEventListener('DOMContentLoaded', (event) => {
     loadTheoryHome();
 });
 
+const scrollContainers = document.querySelectorAll('.topnav, .subnav');
+
+scrollContainers.forEach(container => {
+    container.addEventListener('wheel', function(e) {
+        
+        // 3. Only hijack the scroll if the bar is actually overflowing/scrollable
+        if (this.scrollWidth > this.clientWidth) {
+            
+            // Prevent the entire page from scrolling down
+            e.preventDefault(); 
+            
+            // Take the vertical wheel movement (e.deltaY) and apply it horizontally (scrollLeft)
+            this.scrollLeft += e.deltaY; 
+        }
+        
+    }, { passive: false }); // passive: false is required so e.preventDefault() works
+});
+
 //Opening side navigation bar function
 function openNav() {
     // Finds the element with the ID 'mySidenav' and changes its CSS width to 250 pixels, making it visible
