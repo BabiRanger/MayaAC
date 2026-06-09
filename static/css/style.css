@@ -9,7 +9,7 @@ body {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 10;
 }
 
 /*Top Navigation Bar*/
@@ -68,7 +68,7 @@ body {
     height: calc(100% - var(--header-height)); /* Adjust height to fill remaining space */
     position: fixed; /*fixes sidebar's position (stay when scroll)*/
     width: 0; /*initial 0 (hidden by default)*/
-    z-index: 2; /*ensure sidebar appear on top of other content*/
+    z-index: 5; /*ensure sidebar appear on top of other content*/
     top: var(--header-height); 
     left: 0; /*align sidebar to the left*/
 
