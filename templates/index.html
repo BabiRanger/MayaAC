@@ -39,6 +39,11 @@
        data-intro="Ready to practice? Go here for AC circuit problems and quizzes.">
        EXERCISE
     </a>
+
+    <a id="simulator-link" href="{{ url_for('simulator') }}"  
+       data-intro="Build your own circuit problems here.">
+       SIMULATOR
+    </a>
     
     <a href="{{ url_for('reference') }}" 
        data-intro="View our primary sources and textbook information here.">
@@ -80,12 +85,8 @@
         introJs().setOptions({
             steps: [
                 {
-                    title: 'Welcome to iLELA!',
-                    intro: 'Let us show you around your Intelligent Learning Assistant.'
-                },
-                {
                     element: document.querySelector('.logo'),
-                    intro: 'This is MAYA. Click here whenever you need AI help with circuit analysis!',
+                    intro: 'Click here to talk to Lela, your AI circuit tutor!',
                     position: 'right'
                 },
                 {
@@ -96,6 +97,12 @@
                 {
                     element: document.querySelector('#exercise-link'),
                     intro: 'Test your knowledge with interactive exercises.',
+                    position: 'bottom'
+                },
+                /* --- ADD THE SIMULATOR STEP HERE --- */
+                {
+                    element: document.querySelector('#simulator-link'),
+                    intro: 'Build and simulate your own circuit problems here.',
                     position: 'bottom'
                 }
             ],

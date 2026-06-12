@@ -83,6 +83,10 @@ def handle_chat():
         if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
              return jsonify({"error": "Rate limit exceeded. Please wait 30 seconds."}), 429
         return jsonify({"error": "Failed to get response"}), 500
+    
+@app.route('/simulator')
+def simulator():
+    return render_template('simulator.html')
 
 @app.route('/reference')
 def reference():

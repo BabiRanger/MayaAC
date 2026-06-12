@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FYP - Simulator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Force the simulator container to take up the exact remaining screen height */
+        #simulator-container {
+            height: calc(100vh - var(--header-height, 55px)); 
+            width: 100%;
+            display: flex;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body style="overflow: hidden;"> <div class="header-sticky-wrapper" id="myHeaderWrapper">
+    <div class="topnav">
+        <a href="{{url_for('ai_page')}}" class="logo"><i class="fa-solid fa-book"></i><span>iLELA</span></a>
+        <a href="{{ url_for('home') }}">THEORY</a>
+        <a href="{{ url_for('exercise') }}">EXERCISE</a>
+        <a href="#" class="active">SIMULATOR</a>
+        <a href="{{ url_for('reference') }}">REFERENCE</a>
+    </div>
+</div> 
+
+<div id="main" style="padding: 0; margin: 0;">
+    <div id="simulator-container">
+        <iframe src="https://www.falstad.com/circuit/circuitjs.html"></iframe>
+    </div>
+</div>
+
+<script>
+    // Dynamically calculate the header height so the iframe fits flawlessly
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const headerWrapper = document.getElementById('myHeaderWrapper');
+        if (headerWrapper) {
+            const headerHeight = headerWrapper.offsetHeight;
+            document.documentElement.style.setProperty('--header-height', headerHeight + 'px');
+        }
+    });
+</script>
+
+</body>
