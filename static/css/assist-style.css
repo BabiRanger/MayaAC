@@ -6,6 +6,8 @@
     max-width: 80%;
     line-height: 1.5;
     word-wrap: break-word;
+    overflow-wrap: break-word;
+    overflow-x: auto;
 }
 
 /* Styles for the assistant's messages */
@@ -27,6 +29,26 @@
 /* A simple loading dots animation for the '...' */
 .message-bot.loading {
     animation: dots 1.4s infinite;
+}
+
+.message mjx-container {
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+}
+
+.message mjx-container[display="true"] {
+    margin: 18px 0 !important; /* Adds space above and below */
+    padding: 4px 0 !important;
+    max-width: 100% !important;
+    overflow-x: auto !important; /* Keeps the horizontal scroll from our last fix */
+    overflow-y: hidden !important;
+}
+
+.message mjx-container[display="false"] {
+    margin: 0 4px !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
 }
 
 /* Remove default margins from MathJax blocks to fit chat bubbles better */
